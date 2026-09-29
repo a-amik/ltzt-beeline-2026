@@ -57,22 +57,22 @@ export default function ModelsPage({ reports, onOpen }: { reports: Reports; onOp
       <header className="b-an-hero">
         <div className="b-an-art"><ArtModels /></div>
         <p className="kick">О проекте · модели</p>
-        <h1>Как выбирается план и&nbsp;как мы его проверяли</h1>
+        <h1>Как мы строим и&nbsp;проверяем план</h1>
         <p className="lede">
-          Сервис ищет маршруты, которые укладываются в&nbsp;согласованное с&nbsp;клиентом время. Из&nbsp;ценности заявок, начатых вовремя,
-          он вычитает оклады, бонусы и&nbsp;расходы на&nbsp;дорогу. Три решателя рассчитывают варианты, после чего выбирается лучший по&nbsp;этой
-          цели. Результат проверен на&nbsp;новых наборах заявок и&nbsp;в&nbsp;сравнении трёх планов при&nbsp;одинаковых событиях дня.
+          Мы ищем маршруты, которые укладываются в&nbsp;согласованное с&nbsp;клиентом время. Из&nbsp;ценности заявок, начатых вовремя,
+          вычитаем оклады, бонусы и&nbsp;расходы на&nbsp;дорогу. Три решателя строят планы; мы выбираем план с&nbsp;лучшим
+          итогом. Проверяем его на&nbsp;новых наборах заявок и&nbsp;при&nbsp;одинаковых событиях дня.
         </p>
         <Tiles items={[
           { value: runs.length ? `${num(shareOf('ours') * 100, 1)} %` : '—', icon: <IconClock />, label: 'заявок вовремя в сравнении', note: runs.length ? `контроль ${num(shareOf('control') * 100, 1)} %, базовый ${num(shareOf('baseline') * 100, 1)} %` : 'сравнение ещё не рассчитано' },
-          { value: runs.length ? `${wins} из ${runs.length}` : '—', icon: <IconStar />, label: 'прогонов без проигрыша', note: 'по числу заявок вовремя' },
-          { value: `${genOk} из ${genDays}`, icon: <IconCompass />, label: 'новых сценариев без проигрыша', note: 'по числу заявок вовремя' },
+          { value: runs.length ? `${wins} из ${runs.length}` : '—', icon: <IconStar />, label: 'прогонов не хуже остальных', note: 'по числу заявок вовремя' },
+          { value: `${genOk} из ${genDays}`, icon: <IconCompass />, label: 'новых дней не хуже базового', note: 'по числу заявок вовремя' },
           { value: '3', icon: <IconSliders />, label: 'способа расчёта', note: 'OR-Tools, PyVRP, LNS' },
         ]} />
       </header>
 
       <section id="m-goal">
-        <h2><span className="ic"><IconCheck /></span>Что делает план допустимым и&nbsp;выгодным</h2>
+        <h2><span className="ic"><IconCheck /></span>Условия и&nbsp;цель расчёта</h2>
         <p>
           Решатель ищет план с&nbsp;наибольшим итогом дня: ценность заявок, начатых вовремя, за&nbsp;вычетом окладов вышедших бригад,
           бонусов сверх нормы и&nbsp;расходов на&nbsp;дорогу. Заявку разрешено оставить без бригады, но&nbsp;это снижает оценку плана.
@@ -97,17 +97,17 @@ export default function ModelsPage({ reports, onOpen }: { reports: Reports; onOp
 
       {search ? (
         <section id="m-portfolio">
-          <h2><span className="ic"><IconChart /></span>Три решателя, одна оценка</h2>
+          <h2><span className="ic"><IconChart /></span>Как выбираем из&nbsp;трёх планов</h2>
           <p>
-            Победитель зависит от&nbsp;участка и&nbsp;времени расчёта. PyVRP чаще сокращает пробег, OR-Tools и&nbsp;LNS чаще дают более высокий
-            итог дня. Поэтому решатели работают параллельно, а&nbsp;их планы сравниваются по&nbsp;одной формуле. В&nbsp;этих замерах увеличение
+            Результат зависит от&nbsp;участка и&nbsp;времени расчёта. PyVRP чаще сокращает пробег, OR-Tools и&nbsp;LNS чаще дают более высокий
+            итог дня. Поэтому решатели работают параллельно, а&nbsp;мы сравниваем их планы по&nbsp;одной формуле. В&nbsp;этих замерах увеличение
             времени поиска с&nbsp;4&nbsp;секунд до&nbsp;минуты улучшало итог не&nbsp;более чем на&nbsp;3&nbsp;%.
           </p>
           <div className="b-rep-bar">
             <SegmentedRadioGroup size="m" value={budget} onUpdate={setBudget}
               options={search.budgets.map((b) => ({ value: String(b), content: `Поиск ${b} с` }))} />
           </div>
-          <Figure n={1} title="Итог дня, тыс. ₽: ценность вовремя минус затраты" legend={SOLVERS}>
+          <Figure n={1} title="Итог дня после вычета затрат, тыс. ₽" legend={SOLVERS}>
             <GroupBars
               groups={search.regions.map((r) => ({
                 label: r.name,
@@ -123,13 +123,13 @@ export default function ModelsPage({ reports, onOpen }: { reports: Reports; onOp
 
       {gen ? (
         <section id="m-general">
-          <h2><span className="ic"><IconSliders /></span>Проверка на&nbsp;новых днях: {gen.meta.days ?? 10} сценариев на&nbsp;участок</h2>
+          <h2><span className="ic"><IconSliders /></span>Новые дни: {gen.meta.days ?? 10} на&nbsp;участок</h2>
           <p>
-            Каждый сценарий составлен на&nbsp;основе дня заказчика: сохранены время визитов, навыки и&nbsp;длительность работ,
-            а&nbsp;адреса сдвинуты поблизости. Наш и&nbsp;базовый планы рассчитаны для&nbsp;одних и&nbsp;тех&nbsp;же сценариев. На&nbsp;графике&nbsp;—
+            В&nbsp;каждом сценарии мы сохранили время визитов, навыки и&nbsp;длительность работ из&nbsp;дня заказчика,
+            а&nbsp;адреса сдвинули поблизости. Наш и&nbsp;базовый планы рассчитали для&nbsp;тех&nbsp;же сценариев. На&nbsp;графике&nbsp;—
             медиана числа заявок вовремя.
           </p>
-          <Figure n={2} title="Заявки вовремя, медиана по&nbsp;синтетическим дням" legend={[
+          <Figure n={2} title="Заявки вовремя по&nbsp;смоделированным дням" legend={[
             { label: 'Базовый, п. 2.3', color: 'var(--race-baseline)' }, { label: 'Наш план', color: 'var(--race-ours)' }]}>
             <GroupBars
               groups={gen.regions.map((r) => ({ label: `${r.name}, ${r.requests} заявок`, values: [median(r.days.map((d) => d.baseline.on_time)), median(r.days.map((d) => d.solver.on_time))] }))}
@@ -144,7 +144,7 @@ export default function ModelsPage({ reports, onOpen }: { reports: Reports; onOp
         <p>
           Для каждого участка смоделированы 20&nbsp;дней с&nbsp;новыми заявками, отменами, отсутствием клиента, переносами и&nbsp;задержками.
           Все три плана получают одинаковые события. Контрольный и&nbsp;базовый планы отвечают на&nbsp;них правилом из&nbsp;п.&nbsp;2.3,
-          наш&nbsp;— пересчитывает назначения. Видно и&nbsp;ограничение: новая заявка иногда вытесняет визит, намеченный на&nbsp;утро.
+          наш&nbsp;— пересчитывает назначения. Новая заявка иногда вытесняет визит, намеченный на&nbsp;утро.
         </p>
         {runs.length ? (
           <Figure n={3} title="Доля заявок вовремя по&nbsp;мере накопления 60&nbsp;прогонов; все бригады стартуют из&nbsp;офиса" legend={RACE}>

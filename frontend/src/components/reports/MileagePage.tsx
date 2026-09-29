@@ -43,15 +43,15 @@ export default function MileagePage({ reports }: { reports: Reports }) {
       <header className="b-an-hero">
         <div className="b-an-art"><ArtMileage /></div>
         <p className="kick">О проекте · отчёт по&nbsp;исполнителям</p>
-        <h1>Пробег каждого исполнителя и&nbsp;суммарно по&nbsp;плану</h1>
+        <h1>Пробег каждого исполнителя</h1>
         <p className="lede">
-          Вторая обязательная метрика задания&nbsp;— пробег по&nbsp;маршруту каждого исполнителя. Три плана посчитаны на&nbsp;одних
-          заявках и&nbsp;одной модели дороги: контрольное распределение, базовый вариант из&nbsp;п.&nbsp;2.3 и&nbsp;наш план. По&nbsp;участкам
-          наш план выполняет {num(ours.on_time)} из&nbsp;{num(ours.requests)} заявок в&nbsp;срок силами {ours.engineers} исполнителей
-          вместо {ctrl.engineers}; пробег&nbsp;— {km(ours.km)}&nbsp;км против {km(ctrl.km)} у&nbsp;контроля и&nbsp;{km(base.km)} у&nbsp;базового.
+          Вторая обязательная метрика задания&nbsp;— пробег каждого исполнителя. Мы посчитали три плана на&nbsp;одних
+          заявках и&nbsp;одной модели дорог: контрольное распределение, базовый вариант из&nbsp;п.&nbsp;2.3 и&nbsp;наш план. По&nbsp;участкам
+          в&nbsp;нашем плане {num(ours.on_time)} из&nbsp;{num(ours.requests)} заявок начинаются вовремя; работают {ours.engineers} исполнителей
+          против {ctrl.engineers} в&nbsp;контроле. Пробег&nbsp;— {km(ours.km)}&nbsp;км против {km(ctrl.km)} у&nbsp;контроля и&nbsp;{km(base.km)} у&nbsp;базового.
         </p>
         <Tiles items={[
-          { value: `${ours.engineers} из ${ctrl.engineers}`, icon: <IconUsers />, label: 'исполнителей в нашем плане', note: `у контроля и базового — ${ctrl.engineers}` },
+          { value: `${ours.engineers} из ${ctrl.engineers}`, icon: <IconUsers />, label: 'исполнителей в нашем плане', note: `контроль и базовый — ${ctrl.engineers}` },
           { value: `${km(ours.km)} км`, icon: <IconRoute />, label: 'суммарный пробег по участкам', note: `контроль — ${km(ctrl.km)} км, базовый — ${km(base.km)} км` },
           ...(whole ? [{ value: `${km(whole.totals.solver.km)} км`, icon: <IconChart />, label: 'без границ участков', note: `те же ${whole.totals.solver.engineers} исполнителей; контроль — ${km(whole.totals.control.km)} км` }] : []),
         ]} />
@@ -60,8 +60,8 @@ export default function MileagePage({ reports }: { reports: Reports }) {
       <section id="mi-sum">
         <h2><span className="ic"><IconChart /></span>Сводка по&nbsp;участкам</h2>
         <p>
-          Исполнитель&nbsp;— бригада, которой назначена хотя&nbsp;бы одна заявка. Возвращение в&nbsp;стартовую точку в&nbsp;пробег
-          не&nbsp;входит (п.&nbsp;2.4 задания). Поиск нашего плана ограничен временем, поэтому от&nbsp;прогона к&nbsp;прогону пробег
+          Исполнителем считаем бригаду хотя&nbsp;бы с&nbsp;одной заявкой. Возвращение в&nbsp;стартовую точку в&nbsp;пробег
+          не&nbsp;входит (п.&nbsp;2.4 задания). Время поиска плана ограничено, поэтому от&nbsp;прогона к&nbsp;прогону пробег
           может немного отличаться.
         </p>
         <Figure n={1} title="Суммарный пробег, км" legend={PLANS}>
@@ -93,7 +93,7 @@ export default function MileagePage({ reports }: { reports: Reports }) {
           </table>
         </section>
       ))}
-      <p className="b-an-note">Прогон {m.date}{m.commit ? `, коммит ${m.commit}` : ''}. Тот же отчёт таблицами&nbsp;— <code>data/mileage/report.md</code> в&nbsp;репозитории.</p>
+      <p className="b-an-note">Прогон {m.date}{m.commit ? `, коммит ${m.commit}` : ''}. Таблицы отчёта лежат в&nbsp;<code>data/mileage/report.md</code>.</p>
     </article>
   )
 }

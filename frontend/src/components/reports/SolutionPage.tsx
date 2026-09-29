@@ -20,8 +20,15 @@ type Bench = NonNullable<Reports['benchmark']>
 const kpi = (b: Bench, region: string, key: string, name: string) =>
   b.regions.find((r) => r.dataset_id === region)?.rows.find((row) => row.key === key)?.kpis[name] ?? null
 
+/** Общий набор «Вся Москва» — те же заявки, что у трёх участков: в итог он не входит, иначе счёт двойной. */
+const WHOLE = 'moskva'
+const parts = (b: Bench) => {
+  const own = b.regions.filter((r) => r.dataset_id !== WHOLE)
+  return own.length ? own : b.regions
+}
+
 const total = (b: Bench, key: string, name: string) =>
-  b.regions.reduce((a, r) => a + (r.rows.find((row) => row.key === key)?.kpis[name] ?? 0), 0)
+  parts(b).reduce((a, r) => a + (r.rows.find((row) => row.key === key)?.kpis[name] ?? 0), 0)
 
 /** Пример объяснения из текущего плана: кому отдали, какие проверки прошли, почему не другой. */
 function ExplainExample() {
@@ -29,7 +36,7 @@ function ExplainExample() {
   const plan = activePlan(store)
   const entry = plan ? Object.entries(plan.explanations ?? {}).find(([, e]) => e.alternatives.length > 0) : undefined
   if (!entry || !store.dataset) {
-    return <p className="b-muted">Откройте план дня, чтобы увидеть объяснение назначения на&nbsp;конкретном примере.</p>
+    return <p className="b-muted">Откройте план дня, чтобы увидеть, почему бригаде назначили заявку.</p>
   }
   const [rid, exp] = entry
   const req = store.dataset.requests.find((r) => r.id === rid)
@@ -60,11 +67,11 @@ export default function SolutionPage({ reports, onOpen }: { reports: Reports; on
       <header className="b-an-hero">
         <div className="b-an-art"><ArtSolution /></div>
         <p className="kick">О проекте · решение</p>
-        <h1>Все заявки вовремя с&nbsp;меньшим числом бригад</h1>
+        <h1>Все заявки вовремя, бригад меньше</h1>
         <p className="lede">
-          Сервис распределяет заявки между бригадами, строит маршруты с&nbsp;учётом дорожной обстановки и&nbsp;объясняет назначения.
-          Когда условия дня меняются, план пересчитывается. На&nbsp;данных заказчика за&nbsp;17&nbsp;августа наш план обеспечил своевременное
-          начало всех {num(requests)} заявок. В&nbsp;распределении заказчика вовремя начались {num(total(b, 'control', 'on_time'))},
+          Мы распределяем заявки между бригадами, строим маршруты с&nbsp;учётом пробок и&nbsp;показываем причины назначений.
+          При&nbsp;изменении условий пересчитываем план. На&nbsp;данных заказчика за&nbsp;17&nbsp;августа все {num(requests)} заявок
+          в&nbsp;нашем плане начались вовремя. В&nbsp;распределении заказчика вовремя начались {num(total(b, 'control', 'on_time'))},
           в&nbsp;базовом варианте из&nbsp;задания&nbsp;— {num(total(b, 'baseline', 'on_time'))}.
         </p>
         <Tiles items={[
@@ -78,9 +85,9 @@ export default function SolutionPage({ reports, onOpen }: { reports: Reports; on
       <section id="s-chain">
         <h2><span className="ic"><IconRoute /></span>От&nbsp;заявки до&nbsp;маршрута</h2>
         <p>
-          Сервис получает файл заявок и&nbsp;определяет координаты адресов. Время в&nbsp;пути он считает по&nbsp;дорожной сети Москвы с&nbsp;учётом
-          пробок по&nbsp;часам. Затем решатель назначает бригады и&nbsp;строит маршруты. Причины назначений формируются из&nbsp;тех&nbsp;же проверок,
-          которые использованы при расчёте. Все три экрана получают данные через единый API.
+          Мы получаем файл заявок и&nbsp;определяем координаты адресов. Время в&nbsp;пути считаем по&nbsp;дорогам Москвы с&nbsp;учётом
+          пробок по&nbsp;часам. Затем решатель назначает бригады и&nbsp;строит маршруты. Причины назначений берём из&nbsp;проверок
+          при&nbsp;расчёте. Все три экрана получают данные через единый API.
         </p>
         <Figure n={1} title="Устройство решения">
           <Chain cols={[
@@ -90,7 +97,7 @@ export default function SolutionPage({ reports, onOpen }: { reports: Reports; on
               { b: 'Допущения', s: 'тарифы, состав бригад и запасы — в настройках' },
             ] },
             { title: 'Расчёт на Python', items: [
-              { b: 'Решатели', s: 'OR-Tools, PyVRP и LNS; выбирается лучший результат' },
+              { b: 'Решатели', s: 'OR-Tools, PyVRP и LNS; выбираем лучший план' },
               { b: 'Проверки', s: 'навык, транспорт, время визита, смена, норма дня' },
               { b: 'Перепланирование', s: 'точечное изменение плана после события' },
             ] },
@@ -109,17 +116,17 @@ export default function SolutionPage({ reports, onOpen }: { reports: Reports; on
       </section>
 
       <section id="s-result">
-        <h2><span className="ic"><IconCompare /></span>Контрольный день: все заявки вовремя</h2>
+        <h2><span className="ic"><IconCompare /></span>Результат за&nbsp;17&nbsp;августа</h2>
         <p>
           Мы сравнили три плана на&nbsp;одних заявках и&nbsp;с&nbsp;одной моделью дорог: распределение заказчика, базовый вариант из&nbsp;п.&nbsp;2.3
           задания и&nbsp;наш расчёт. Заявка считается выполненной с&nbsp;опозданием, если работа началась после конца согласованного окна.
-          На&nbsp;Юго-востоке распределение заказчика даёт меньший пробег, но&nbsp;приводит к&nbsp;{num(kpi(b, 'yugo-vostok', 'control', 'late') ?? 0)} опозданиям
+          На&nbsp;Юго-востоке в&nbsp;распределении заказчика пробег меньше, но&nbsp;есть {num(kpi(b, 'yugo-vostok', 'control', 'late') ?? 0)} опозданий
           на&nbsp;{num(kpi(b, 'yugo-vostok', 'control', 'late_min') ?? 0)} минут суммарно.
         </p>
         <Figure n={2} title="Заявки вовремя по&nbsp;участкам" legend={PLAN_SERIES}>
           <GroupBars groups={groups('on_time')} series={PLAN_SERIES} fmt={(v) => num(v)} />
         </Figure>
-        <Figure n={3} title="Бригады в&nbsp;работе и&nbsp;пробег: две метрики задания" legend={PLAN_SERIES}>
+        <Figure n={3} title="Бригады в&nbsp;работе и&nbsp;пробег" legend={PLAN_SERIES}>
           <div className="b-an-pair">
             <GroupBars groups={groups('engineers_used')} series={PLAN_SERIES} fmt={(v) => num(v)} />
             <GroupBars groups={groups('distance_km')} series={PLAN_SERIES} fmt={(v) => `${num(v)} км`} />
@@ -138,8 +145,8 @@ export default function SolutionPage({ reports, onOpen }: { reports: Reports; on
       <section id="s-explain">
         <h2><span className="ic"><IconUsers /></span>Почему заявка досталась этой бригаде</h2>
         <p>
-          Сервис показывает, какие проверки прошла выбранная бригада и&nbsp;почему заявку не&nbsp;получили другие. Объяснение берётся из&nbsp;условий
-          расчёта: навыков, времени, транспорта и&nbsp;запасов. Для заявки без назначения также указана причина.
+          Мы показываем, какие проверки прошла выбранная бригада и&nbsp;почему заявку не&nbsp;получили другие. Объяснение следует из&nbsp;условий
+          расчёта: навыков, времени, транспорта и&nbsp;запасов. Для заявки без назначения тоже указана причина.
         </p>
         <Figure n={4} title="Объяснение одного назначения в&nbsp;текущем плане">
           <ExplainExample />
@@ -147,7 +154,7 @@ export default function SolutionPage({ reports, onOpen }: { reports: Reports; on
       </section>
 
       <section id="s-replan">
-        <h2><span className="ic"><IconBolt /></span>Когда условия меняются, план пересчитывается</h2>
+        <h2><span className="ic"><IconBolt /></span>Пересчёт после событий дня</h2>
         <p>
           Событием может стать новая или отменённая заявка, отсутствие клиента, перенос визита, задержка или выбытие бригады.
           После одной отмены на&nbsp;Юго-востоке полный пересчёт сдвинул {REPAIR.fullOneCancel} визитов; точечный пересчёт обычно меняет
