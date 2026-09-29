@@ -329,6 +329,11 @@ select {
 /* Место под полосу держится всегда: иначе при раскрытии блока она появляется,
    отнимает 10 px ширины, и всё содержимое прыгает вбок, а при сворачивании — обратно. */
 .b-cb, .b-scroll { scrollbar-gutter: stable; }
+/* В колонке экрана это место вынесено за её правый край, на кромку карты:
+   подсветка строк и подписей групп доходит до границы колонки, а не обрывается
+   за 10 px до неё. 9 px, а не 10: волосяная граница колонки остаётся видна. */
+.b-desk > .b-col.l { position: relative; z-index: 2; }
+.b-desk > .b-col.l > .b-cb { margin-right: -9px; }
 
 /* ── Строка заявки: без рамки и фона, разделитель волосяной ── */
 .b-list {
@@ -363,6 +368,8 @@ button.b-list-g-fold[aria-expanded='false'] { color: var(--b-text-2); }
 .b-list-g-bad { color: var(--b-danger); font-weight: 600; font-variant-numeric: tabular-nums; }
 /* Подпись группы в ленте бригад: во всю ширину сетки, как строка бригады. */
 .b-tl-g { grid-column: 1 / -1; margin: 0 -12px; }
+/* Ширина — от сетки с полями, а не 100 %: иначе подпись уезжает влево на поле и справа не доходит. */
+button.b-tl-g { width: auto; }
 
 /* «Окна дня» над заявками и «Загрузка бригад» над лентами: подпись, как у группы,
    и цифры, которые одновременно отбор. Цвета — те же, что в «Нагрузке». */
@@ -1820,6 +1827,51 @@ button.b-list-g-fold[aria-expanded='false'] { color: var(--b-text-2); }
     white-space: nowrap;
   }
   .b-access-long { display: none; }
+}
+
+/* Плашка видна всегда. Её высота — в переменной, от неё отсчитывают верх то, что
+   иначе встало бы поверх неё: экраны показа («Живой день», «Имитация», «О проекте»,
+   «Настройки») — слой на всё окно, а у руководителя и бригады листается само окно,
+   и плашка липнет к верху, а их шапки — под ней. */
+.b-shell:has(.b-access) { --b-access-h: 34px; }
+.b-demo { top: var(--b-access-h, 0px); }
+.b-shell:is(.crew, .manager) .b-access { position: sticky; top: 0; z-index: 50; }
+/* Закреплённая полоса лежит поверх содержимого: фон плотный, жёлтый — слоем на поверхности. */
+.b-shell:is(.crew, .manager) .b-access,
+.b-shell.app:has(.b-demo) .b-access { background: linear-gradient(var(--b-selection), var(--b-selection)), var(--b-surface); }
+.b-shell.crew .b-crew-top, .b-shell.manager .b-mgr-top { top: var(--b-access-h, 0px); }
+.b-shell.crew .b-crew-map { height: calc(100dvh - 56px - 64px - var(--b-access-h, 0px)); }
+@media (max-width: 760px) {
+  /* На телефоне у диспетчера плашка — пилюля поверх карты и места не занимает. */
+  .b-shell.app:has(.b-access) { --b-access-h: 0px; }
+  /* Над экранами показа пилюля легла бы на текст: там плашка — полоса сверху,
+     а экран начинается под ней. */
+  .b-shell.app:has(.b-access):has(.b-demo) { --b-access-h: 32px; }
+  .b-shell.app:has(.b-demo) .b-access {
+    top: 0; left: 0; right: 0; z-index: 70; transform: none; border-radius: 0; box-shadow: none;
+    padding: calc(2px + env(safe-area-inset-top, 0px)) 16px 2px;
+  }
+  /* BeeGPT — экран, а не окно поверх настроек: на весь телефон, поверх нижней панели,
+     закрывается крестиком в шапке. */
+  body:has(.b-pnav) .b-demo.b-st.helper { bottom: 0; z-index: 60; }
+  .b-st.helper > .b-help { position: absolute; inset: 0; width: 100%; box-shadow: none; }
+  .b-st.helper > .b-help .b-help-in { padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px)); }
+  /* У руководителя и бригады — полоса, как на широком экране. */
+  .b-shell:is(.crew, .manager):has(.b-access) { --b-access-h: 32px; }
+  .b-shell:is(.crew, .manager) .b-access {
+    left: auto; transform: none; border-radius: 0; box-shadow: none;
+    padding: 2px 16px;
+  }
+}
+
+/* Окна событий: на широком экране — по центру; на телефоне — на весь экран,
+   как провал внутрь из шторки заявки, и выше неё по слою. */
+@media (max-width: 760px) {
+  .b-dialog-wrap { padding: 0; }
+  .b-dialog-wrap .b-dialog {
+    width: 100%; max-width: none; height: 100%; max-height: none; overflow-y: auto;
+    border-radius: 0; padding: calc(12px + env(safe-area-inset-top, 0px)) 16px calc(16px + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 /* Окно входа — как окна событий: карточка на «плавающей» поверхности, поля с подписью сверху,

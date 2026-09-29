@@ -162,6 +162,7 @@ class Event(BaseModel):
         default=None,
         description="no_show: waiting | unreachable | absent | partial | cancelled_on_site | client_moved | we_moved",
     )
+    comment: str | None = Field(default=None, description="Комментарий диспетчера к событию: едет с ним в историю плана")
 
 
 class ControlRow(BaseModel):

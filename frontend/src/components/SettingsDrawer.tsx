@@ -568,7 +568,7 @@ function SettingsScreen({
       <Helper fields={allFields} valueOf={valueOf} onApply={helperApply} readOnly={readOnly} onClose={() => setHelper(false)} />
       {/* Узкий экран: помощник — по знаку в углу. */}
       <button type="button" className="b-help-fab" onClick={() => setHelper(true)} title="BeeGPT" aria-label="Открыть BeeGPT">
-        <BeeMark size={26} />
+        <BeeMark size={26} idle />
       </button>
     </div>
   )

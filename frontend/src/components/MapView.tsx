@@ -33,9 +33,10 @@ import { changedRoutes, knownRequests } from '../lib/plan'
 import { MAX_BOUNDS, STYLE_URL, collapseAttribution, tilesRequest } from '../lib/mapStyle'
 import { IconAlert, IconFit, IconPin } from '../lib/icons'
 import { dropEvent } from '../lib/drafts'
+import { usePhone } from '../lib/media'
 import DraftPanel from './DraftPanel'
 import type { Coord, Dataset, Plan } from '../types'
-import RequestPopup from './RequestPopup'
+import DetailSheet from './DetailSheet'
 import { AreaWait, onMapReady } from './Loading'
 import ImportOverlay from './ImportOverlay'
 
@@ -242,10 +243,22 @@ function officeData(scene: Scene) {
 const DIM = ['case', ['boolean', ['feature-state', 'dim'], false], 0.25, 1]
 const SEL = ['boolean', ['feature-state', 'sel'], false]
 
+/** Ширина шторки деталей с полем: столько камера отдаёт справа, пока шторка открыта. */
+const SHEET_W = 400
+
 export default function MapView() {
   const containerRef = useRef<HTMLDivElement>(null)
   const [mapReady, setMapReady] = useState(false)
   const mapRef = useRef<MapLibreMap | null>(null)
+  // Шторка деталей слева поверх карты, у колонки: камера отдаёт ей левый край,
+  // и всё, на что карта наводится, встаёт правее шторки.
+  const phone = usePhone()
+  const sheetOpen = useStore((s) => Boolean(s.selectedRequestId || s.crewView)) && !phone
+  useEffect(() => {
+    const map = mapRef.current
+    if (!map) return
+    map.easeTo({ padding: { top: 0, bottom: 0, left: sheetOpen ? SHEET_W : 0, right: 0 }, duration: 300 })
+  }, [sheetOpen])
   const styleThemeRef = useRef<Theme | null>(null)
   const sceneRef = useRef<Scene>(EMPTY)
   const progressRef = useRef<Record<string, number>>({})
@@ -621,10 +634,8 @@ export default function MapView() {
       const gone = sceneRef.current.missing.find((item) => item.requestId === focus.id)
       const point = dot?.point ?? gone?.point
       if (!point) return
-      // Карточка заявки стоит в левом нижнем углу карты: точку уводим
-      // правее и выше центра, чтобы карточка её не накрыла.
-      const short = map.getContainer().clientHeight < 700
-      map.flyTo({ center: point, zoom: Math.max(map.getZoom(), 12), duration: 600, offset: [short ? 160 : 120, short ? -120 : -60] })
+      // Шторка деталей слева: камера уже отдала ей левый край (padding выше).
+      map.flyTo({ center: point, zoom: Math.max(map.getZoom(), 12), duration: 600 })
     }
   }, [focus])
 
@@ -666,7 +677,7 @@ export default function MapView() {
   }, [notice])
 
   return (
-    <div className="relative h-full min-h-0 flex-1">
+    <div className={`relative h-full min-h-0 flex-1${sheetOpen ? ' b-map-sheet' : ''}`}>
       {/* Рост холста — долями, а не `inset-0`: свой `position: relative`
           из maplibre-gl.css перебивает `absolute`, и карта осталась бы
           нулевой высоты. */}
@@ -690,7 +701,7 @@ export default function MapView() {
         </span>
       ) : null}
 
-      <span className="absolute top-3 right-3 z-10 flex gap-2">
+      <span className="b-map-tools absolute top-3 right-3 z-10 flex gap-2">
         {hasPlanNow ? (
           <Button
             view={dropping ? 'action' : 'normal'}
@@ -735,7 +746,7 @@ export default function MapView() {
         </div>
       ) : null}
       {hasDrafts ? <DraftPanel /> : null}
-      <RequestPopup />
+      {phone ? null : <DetailSheet placement="map" />}
       <ImportOverlay />
     </div>
   )

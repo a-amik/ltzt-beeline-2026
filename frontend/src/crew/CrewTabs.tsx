@@ -1,22 +1,30 @@
 /**
  * Вкладки приложения бригады кроме смены: BeeGPT — переписка
- * по смене с диспетчером, поданная как помощник, — и профиль — адреса старта, история смен, отзывы.
+ * по смене с диспетчером, поданная как помощник и свёрстанная как
+ * мессенджер, — и профиль — адреса старта, история смен, отзывы.
  */
 
 import { useEffect, useRef, useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Button, TextInput } from '@gravity-ui/uikit'
 import { num, plural } from '../lib/ui'
-import { IconClose, IconPlus, IconStar } from '../lib/icons'
+import { IconArrowRight, IconCalendar, IconClock, IconClose, IconPlus, IconRoute, IconStar, IconWarning } from '../lib/icons'
 import BeeMark from '../components/settings/BeeMark'
 import { crewApi, type Address, type CrewProfile } from './crewApi'
+import InfoTip from './InfoTip'
 
-const QUICK = ['Буду через 10 минут', 'Задерживаюсь на предыдущей заявке', 'Клиент перенёс время', 'Нужна помощь по заявке']
+// Готовые фразы: на пустом экране — карточками, в переписке — строкой над полем.
+const QUICK: { text: string; Icon: (p: { className?: string }) => React.ReactNode }[] = [
+  { text: 'Буду через 10 минут', Icon: IconClock },
+  { text: 'Задерживаюсь на предыдущей заявке', Icon: IconRoute },
+  { text: 'Клиент перенёс время', Icon: IconCalendar },
+  { text: 'Нужна помощь по заявке', Icon: IconWarning },
+]
 
 export function ChatTab({ region, engineerId, requestId }: { region: string; engineerId: string; requestId: string | null }) {
   const client = useQueryClient()
   const [text, setText] = useState('')
-  const end = useRef<HTMLDivElement>(null)
+  const scroller = useRef<HTMLOListElement>(null)
   const messages = useQuery({
     queryKey: ['crew-chat', region, engineerId],
     queryFn: () => crewApi.messages(region, engineerId),
@@ -34,49 +42,91 @@ export function ChatTab({ region, engineerId, requestId }: { region: string; eng
   useEffect(() => {
     const data = messages.data ?? []
     if (data.some((m) => m.author === 'dispatcher' && !m.read)) void crewApi.read(region, engineerId, 'crew')
-    end.current?.scrollIntoView?.({ block: 'end' })
+    const node = scroller.current
+    if (node) node.scrollTop = node.scrollHeight
   }, [messages.data, region, engineerId])
+  const send = (value: string) => {
+    if (value.trim() && !say.isPending) say.mutate({ text: value.trim() })
+  }
   return (
-    <div className="b-crew-body b-chat">
-      <header className="b-help-top b-chat-top">
-        <BeeMark size={28} className="b-help-mark" />
-        <div className="b-help-name">
+    <div className="b-chat">
+      <header className="b-chat-head">
+        <BeeMark size={36} className="b-help-mark" />
+        <span>
           <b>BeeGPT</b>
-        </div>
+          <small>
+            <i aria-hidden="true" />
+            на связи
+          </small>
+        </span>
+        <InfoTip label="Что здесь" className="b-chat-tip">
+          <p>Вопросы по смене и заявкам. Отвечает диспетчер смены.</p>
+          <p>Звонки клиентам ложатся сюда же отметкой — без номеров.</p>
+        </InfoTip>
       </header>
-      <p className="b-crew-muted">Вопросы по смене и заявкам. Звонки клиентам ложатся сюда же отметкой — без номеров.</p>
-      <ol className="b-chat-list" aria-live="polite">
-        {list.map((m) => (
-          <li key={m.id} className={`${m.author} ${m.kind}`}>
-            <span>{m.text}</span>
-            <time>
-              {m.time}
-              {m.request_id ? ` · заявка ${m.request_id}` : ''}
-            </time>
-          </li>
-        ))}
-        {!list.length ? <li className="empty">Сообщений пока нет</li> : null}
-      </ol>
-      <div ref={end} />
-      <div className="b-chat-quick">
-        {QUICK.map((q) => (
-          <button key={q} type="button" onClick={() => say.mutate({ text: q })}>
-            {q}
+      {list.length ? (
+        <ol ref={scroller} className="b-chat-list b-scroll" aria-live="polite">
+          <li className="day">Сегодня</li>
+          {list.map((m, i) => (
+            <li
+              key={m.id}
+              className={`${m.author} ${m.kind}${list[i + 1]?.author === m.author && m.kind !== 'call' ? ' cont' : ''}`}
+            >
+              <span>{m.text}</span>
+              <time>
+                {m.request_id ? `заявка ${m.request_id} · ` : ''}
+                {m.time}
+              </time>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <div className="b-chat-hello">
+          <div className="b-chat-hello-mark">
+            <BeeMark size={64} className="b-help-mark" />
+          </div>
+          <h2>Чем помочь на смене?</h2>
+          <p>Спросите про заявку, дорогу или клиента — ответ придёт сюда.</p>
+          <div className="b-chat-starts">
+            {QUICK.map(({ text: q, Icon }) => (
+              <button key={q} type="button" onClick={() => send(q)} disabled={say.isPending}>
+                <Icon />
+                {q}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+      <div className="b-chat-foot">
+        {list.length ? (
+          <div className="b-chat-quick">
+            {QUICK.map(({ text: q }) => (
+              <button key={q} type="button" onClick={() => send(q)} disabled={say.isPending}>
+                {q}
+              </button>
+            ))}
+          </div>
+        ) : null}
+        <form
+          className="b-chat-form"
+          onSubmit={(event) => {
+            event.preventDefault()
+            send(text)
+          }}
+        >
+          <input
+            type="text"
+            value={text}
+            onChange={(event) => setText(event.target.value)}
+            placeholder="Сообщение"
+            aria-label="Сообщение BeeGPT"
+            enterKeyHint="send"
+          />
+          <button type="submit" aria-label="Отправить" disabled={!text.trim() || say.isPending}>
+            <IconArrowRight />
           </button>
-        ))}
+        </form>
       </div>
-      <form
-        className="b-chat-form"
-        onSubmit={(event) => {
-          event.preventDefault()
-          if (text.trim()) say.mutate({ text: text.trim() })
-        }}
-      >
-        <TextInput size="l" value={text} onUpdate={setText} placeholder="Спросите BeeGPT" />
-        <Button type="submit" view="action" size="l" disabled={!text.trim() || say.isPending}>
-          Отправить
-        </Button>
-      </form>
     </div>
   )
 }

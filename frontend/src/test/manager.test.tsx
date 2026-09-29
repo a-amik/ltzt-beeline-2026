@@ -1,5 +1,5 @@
 /**
- * Экран руководителя: итоги города против цели и против контроля, сигналы,
+ * Экран руководителя: итоги города против цели и против контроля,
  * нагрузка участков и бригады. Версии дня: действующая помечена, «Вернуть» зовёт сервер.
  */
 
@@ -54,22 +54,22 @@ vi.mock('../manager/managerApi', () => ({
 const wrap = (node: React.ReactNode) =>
   render(<QueryClientProvider client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}>{node}</QueryClientProvider>)
 
-test('руководитель видит итоги города, довод против контроля, сигналы и бригады', async () => {
+test('руководитель видит итоги города, довод против контроля и бригады', async () => {
   wrap(<ManagerApp />)
   expect(await screen.findByText('190 из 205')).toBeInTheDocument()
   expect(screen.getByText('190 из 205').closest('.b-dash-kpi')).toHaveClass('bad')
   expect(screen.getByText('−10 бригад · +33 вовремя · +230 тыс. ₽')).toBeInTheDocument()
-  expect(screen.getByText('Нужна помощь')).toBeInTheDocument()
   expect(screen.getByRole('link', { name: 'Лебедев' })).toHaveAttribute('href', '#crew/lebedev')
   expect(screen.getByRole('link', { name: '120 %' })).toHaveAttribute('href', '/deficit?sector=vostok')
-  expect(screen.getByRole('link', { name: 'Руководитель' })).toHaveAttribute('aria-current', 'page')
 })
 
 test('общие правила дня открывает руководитель', async () => {
   wrap(<ManagerApp />)
-  const button = await screen.findByRole('button', { name: /Правила дня/ })
-  await waitFor(() => expect(button).not.toBeDisabled())
-  fireEvent.click(button)
+  // Правила дня — пункт меню «…» в шапке.
+  fireEvent.click(await screen.findByRole('button', { name: /Ещё/ }))
+  const item = await screen.findByRole('menuitem', { name: /Правила дня/ })
+  await waitFor(() => expect(item).not.toHaveAttribute('aria-disabled', 'true'))
+  fireEvent.click(item)
   expect(await screen.findByRole('dialog', { name: 'Правила дня' })).toBeInTheDocument()
   expect(screen.getByRole('button', { name: 'Сохранить правила' })).toBeInTheDocument()
 })

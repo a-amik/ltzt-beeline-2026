@@ -80,7 +80,10 @@ export type NoShowNote =
   | 'client_moved'
   | 'we_moved'
 
-export type PlanEvent =
+/** Комментарий диспетчера к событию: едет с ним в пачку и в историю плана. */
+type Commented = { comment?: string | null }
+
+export type PlanEvent = Commented & (
   | { id: string; type: 'urgent'; time: string; request: RequestItem; policy?: EventPolicy }
   | { id: string; type: 'new_request'; time: string; request: RequestItem; policy?: EventPolicy }
   | { id: string; type: 'cancel'; time: string; request_id: string }
@@ -89,6 +92,7 @@ export type PlanEvent =
   | { id: string; type: 'delay'; time: string; engineer_id: string; delay_min: number }
   | { id: string; type: 'engineer_off'; time: string; engineer_id: string }
   | { id: string; type: 'manual'; time: string; request_id: string; engineer_id: string }
+)
 
 /** Заявка, явно перенесённая на следующий день, и почему. */
 export interface Deferred {

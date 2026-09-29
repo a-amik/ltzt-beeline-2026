@@ -21,7 +21,7 @@
  */
 
 import { useState } from 'react'
-import { Button, SegmentedRadioGroup, Select, TextInput } from '@gravity-ui/uikit'
+import { Button, SegmentedRadioGroup, Select, TextArea, TextInput } from '@gravity-ui/uikit'
 import { activePlan, useStore, type DialogKind } from '../store'
 import { assignmentIndex, knownRequests } from '../lib/plan'
 import { nextRequestId } from '../lib/drafts'
@@ -97,6 +97,9 @@ export default function EventDialog({ kind }: Props) {
   const [policy, setPolicy] = useState<EventPolicy>(kind === 'urgent' ? 'direct' : 'offer')
   const [note, setNote] = useState<NoShowNote>('absent')
   const [delay, setDelay] = useState('30')
+  // Комментарий диспетчера едет с событием: его видно в шторке заявки и в истории плана.
+  const [comment, setComment] = useState('')
+  const memo = comment.trim() || undefined
   const [requestId, setRequestId] = useState(
     store.selectedRequestId ??
       (scenario && 'request_id' in scenario ? scenario.request_id : (plan?.routes[0]?.stops[0]?.request_id ?? '')),
@@ -141,7 +144,7 @@ export default function EventDialog({ kind }: Props) {
         skill,
         transport: null,
       }
-      onSubmit({ id: stamp(), type: kind, time, request, policy })
+      onSubmit({ id: stamp(), type: kind, time, request, policy, comment: memo })
       if (more) {
         setSaved((n) => n + 1)
         setAddress('')
@@ -152,22 +155,22 @@ export default function EventDialog({ kind }: Props) {
       return
     }
     if (kind === 'cancel') {
-      onSubmit({ id: stamp(), type: 'cancel', time, request_id: requestId })
+      onSubmit({ id: stamp(), type: 'cancel', time, request_id: requestId, comment: memo })
       return
     }
     if (kind === 'no_show') {
-      onSubmit({ id: stamp(), type: 'no_show', time: pickedStop?.arrive ?? time, request_id: requestId, note })
+      onSubmit({ id: stamp(), type: 'no_show', time: pickedStop?.arrive ?? time, request_id: requestId, note, comment: memo })
       return
     }
     if (kind === 'reschedule') {
-      onSubmit({ id: stamp(), type: 'reschedule', time, request_id: requestId, window_start: windowStart, window_end: windowEnd })
+      onSubmit({ id: stamp(), type: 'reschedule', time, request_id: requestId, window_start: windowStart, window_end: windowEnd, comment: memo })
       return
     }
     if (kind === 'delay') {
-      onSubmit({ id: stamp(), type: 'delay', time, engineer_id: engineerId, delay_min: Number(delay) })
+      onSubmit({ id: stamp(), type: 'delay', time, engineer_id: engineerId, delay_min: Number(delay), comment: memo })
       return
     }
-    onSubmit({ id: stamp(), type: 'engineer_off', time, engineer_id: engineerId })
+    onSubmit({ id: stamp(), type: 'engineer_off', time, engineer_id: engineerId, comment: memo })
   }
 
   const valid = isNew
@@ -185,7 +188,7 @@ export default function EventDialog({ kind }: Props) {
 
   return (
     <div
-      className={`fixed inset-0 z-30 flex items-start justify-center pt-16 transition-opacity ${
+      className={`b-dialog-wrap fixed inset-0 z-50 flex items-center justify-center p-4 transition-opacity ${
         hidden ? 'pointer-events-none opacity-0' : ''
       }`}
     >
@@ -352,6 +355,12 @@ export default function EventDialog({ kind }: Props) {
               <TextInput size="l" type="number" value={delay} onUpdate={setDelay} />
             </Field>
           ) : null}
+        </div>
+
+        <div className="mt-2.5">
+          <Field label="Комментарий">
+            <TextArea size="l" minRows={2} maxRows={5} value={comment} onUpdate={setComment} placeholder="Что важно знать бригаде и диспетчеру" />
+          </Field>
         </div>
 
         <p className="mt-3 text-[12px] leading-snug text-[var(--b-text-3)]">

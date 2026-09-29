@@ -37,7 +37,7 @@ createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
       {/* Плашка режима стенда стоит над любым из трёх экранов; в разработке её нет. */}
-      <div className="b-shell">
+      <div className={`b-shell ${crew ? 'crew' : manager ? 'manager' : 'app'}`}>
         <AccessBar />
         <div className="b-shell-app">{crew ? <CrewApp /> : manager ? <ManagerApp /> : <App />}</div>
       </div>

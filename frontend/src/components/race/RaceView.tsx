@@ -42,9 +42,9 @@ export const REGION_NAMES: Record<string, string> = {
 }
 
 const DURATIONS = [
+  { value: '5', content: '5 с' },
   { value: '10', content: '10 с' },
-  { value: '20', content: '20 с' },
-  { value: '30', content: '30 с' },
+  { value: '15', content: '15 с' },
 ]
 
 const share = (on: number, due: number) => (due ? on / due : 1)
@@ -118,7 +118,7 @@ export default function RaceView({ onClose }: { onClose: () => void }) {
   const options = (store.rules as { options?: { intraday_share_pct?: number; hybrid_home_km?: number } } | null)?.options
   const sharePct = Number(options?.intraday_share_pct ?? 12)
   const hybridKm = Number(options?.hybrid_home_km ?? 4.6)
-  const [seconds, setSeconds] = useState(20)
+  const [seconds, setSeconds] = useState(10)
   const [pos, setPos] = useState(0)
   const [playing, setPlaying] = useState(false)
 

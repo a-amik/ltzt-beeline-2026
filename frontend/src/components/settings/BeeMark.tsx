@@ -10,6 +10,10 @@
  * свет; строки стираются, и круг заново. Ответ приходит в миг вспышки
  * (`ANSWER_AT`). Движение — функция доли круга, крутится по кадрам; при
  * `prefers-reduced-motion` знак стоит в обычном виде.
+ *
+ * В покое (`idle`) знак не крутится сам по себе: то же движение проходит один
+ * круг раз в девять секунд и доигрывает до конца — так знак-кнопка напоминает
+ * о помощнике, не мельтеша.
  */
 
 import { useEffect, useId, useRef } from 'react'
@@ -27,6 +31,9 @@ const INK = '#1f2429'
 export const PERIOD = 1600
 /** Доля круга, когда вспыхивает искра: обе строки дописаны — тут и приходит ответ. */
 const FLASH = 0.52
+/** Покой: первый круг вскоре после появления знака, дальше — раз в девять секунд. */
+const IDLE_FIRST = 1200
+const IDLE_EVERY = 9000
 /** Сколько BeeGPT «думает»: круг и ещё до вспышки — ответ совпадает с ней. */
 export const ANSWER_AT = Math.round(PERIOD * (1 + FLASH))
 
@@ -55,7 +62,13 @@ function frame(u: number): Frame {
   }
 }
 
-export default function BeeMark({ size = 28, busy = false, className }: { size?: number; busy?: boolean; className?: string }) {
+export default function BeeMark({ size = 28, busy = false, idle = false, className }: {
+  size?: number
+  busy?: boolean
+  /** Знак в покое оживает одним кругом движения раз в девять секунд. */
+  idle?: boolean
+  className?: string
+}) {
   const clip = `bee-${useId().replace(/:/g, '')}`
   const s1 = useRef<SVGRectElement>(null)
   const s2 = useRef<SVGRectElement>(null)
@@ -75,9 +88,33 @@ export default function BeeMark({ size = 28, busy = false, className }: { size?:
       glow.current?.setAttribute('opacity', f.glow.toFixed(3))
     }
     const still = Boolean(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches)
-    if (!busy || still) {
+    if (still || (!busy && !idle)) {
       paint(REST)
       return
+    }
+    if (!busy) {
+      // Покой: один круг, доигранный до конца, и пауза до следующего.
+      paint(REST)
+      let frameId = 0
+      let timer = window.setTimeout(function play() {
+        const from = performance.now()
+        const step = (now: number) => {
+          const u = (now - from) / PERIOD
+          if (u >= 1) {
+            paint(REST)
+            timer = window.setTimeout(play, IDLE_EVERY)
+            return
+          }
+          paint(frame(u))
+          frameId = requestAnimationFrame(step)
+        }
+        frameId = requestAnimationFrame(step)
+      }, IDLE_FIRST)
+      return () => {
+        window.clearTimeout(timer)
+        cancelAnimationFrame(frameId)
+        paint(REST)
+      }
     }
     let raf = 0
     const start = performance.now()
@@ -90,7 +127,7 @@ export default function BeeMark({ size = 28, busy = false, className }: { size?:
       cancelAnimationFrame(raf)
       paint(REST)
     }
-  }, [busy])
+  }, [busy, idle])
 
   return (
     <svg className={`b-bee${className ? ` ${className}` : ''}`} width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" style={{ overflow: 'visible' }}>

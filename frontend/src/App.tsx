@@ -17,7 +17,7 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { MobileProvider, ThemeProvider, Button } from '@gravity-ui/uikit'
+import { MobileProvider, ThemeProvider } from '@gravity-ui/uikit'
 import { loadDataset, loadDatasets, runPlan } from './data'
 import { applyTheme, useStore, type DialogKind } from './store'
 import { usePhone } from './lib/media'
@@ -30,7 +30,7 @@ import EngineerPanel from './components/EngineerPanel'
 import MetricsBar from './components/MetricsBar'
 import SummaryChip from './dispatch/SummaryChip'
 import FeedPanel from './dispatch/FeedPanel'
-import CrewCard from './dispatch/CrewCard'
+import DetailSheet from './components/DetailSheet'
 import { IconMap } from './lib/icons'
 import { useAutoHide } from './crew/useAutoHide'
 import EventDialog from './components/EventDialog'
@@ -331,7 +331,9 @@ export default function App() {
                   onEvent={onEvent}
                   onSimulate={onSimulate}
                 />
-                <div className="relative flex min-h-0 flex-1 flex-col">
+                {/* isolate: слои карты (у «Нагрузки» z-index 30) считаются внутри неё и не накрывают
+                    колонку слева — её место под полосу прокрутки вынесено на кромку карты. */}
+                <div className="relative isolate flex min-h-0 flex-1 flex-col">
                   <MapBoundary>
                     <MapView />
                   </MapBoundary>
@@ -593,19 +595,8 @@ function PhoneScreen({
         </div>
       </div>
 
-      {store.crewView && store.crewSheet ? (
-        <div className="b-dsheet-scrim" onClick={() => store.setCrewSheet(false)}>
-          <div className="b-dsheet" role="dialog" aria-label="Детали бригады" onClick={(e) => e.stopPropagation()}>
-            <div className="b-grab" />
-            <CrewCard engineerId={store.crewView} />
-            <div className="b-dsheet-foot">
-              <Button view="normal" size="l" width="max" onClick={() => store.setCrewSheet(false)}>
-                Маршрут в списке
-              </Button>
-            </div>
-          </div>
-        </div>
-      ) : null}
+      {/* Телефон: детали заявки и бригады — нижней шторкой поверх экрана; на широком — справа в карте. */}
+      <DetailSheet placement="phone" />
 
       <div ref={navRef} className="b-pnav-wrap">
         <PhoneNav />

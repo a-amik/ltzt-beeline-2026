@@ -1,7 +1,8 @@
 /**
  * Приложение бригады — упрощённый аналог приложения курьера, открывается
- * по адресу `#crew/<бригада>`. Пять вкладок внизу, как у Яндекс Про и Uber
- * Driver: смена, карта, маршрут, BeeGPT, профиль. BeeGPT — та же
+ * по адресу `#crew/<бригада>`. Четыре вкладки внизу, как у Яндекс Про и Uber
+ * Driver: смена, карта, BeeGPT, профиль. Маршрут дня — плашка на карте:
+ * список визитов и путь до любого из них в одном месте. BeeGPT — та же
  * переписка по смене с диспетчером, поданная как помощник.
  *
  * Смена: начать, перерыв, завершить с итогом дня. Карточка «Сейчас» —
@@ -27,7 +28,7 @@ import { api } from './api'
 import { applyTheme, initialTheme, type Theme } from './store'
 import { num, plural } from './lib/ui'
 import {
-  IconBriefcase, IconCall, IconCompass, IconDots, IconMap, IconMoon, IconNavigate, IconRoute, IconSun, IconUser,
+  IconBriefcase, IconCall, IconCompass, IconDots, IconMap, IconMoon, IconNavigate, IconSun, IconUser,
   IconUsers, IconWarning,
 } from './lib/icons'
 import { crewsOf } from './components/CrewSettings'
@@ -68,11 +69,10 @@ const NEXT: Record<MarkKind | 'planned', { kind: MarkKind; label: string } | nul
 /** Подписи устройств; ключи — как в данных заявки. */
 const KIT: Record<string, string> = { router: 'роутер', tv_box: 'ТВ-приставка', speaker: 'умная колонка' }
 
-type Tab = 'shift' | 'map' | 'route' | 'chat' | 'profile'
+type Tab = 'shift' | 'map' | 'chat' | 'profile'
 const TABS: { id: Tab; label: string; Icon: (p: { className?: string }) => React.ReactNode }[] = [
   { id: 'shift', label: 'Смена', Icon: IconBriefcase },
   { id: 'map', label: 'Карта', Icon: IconMap },
-  { id: 'route', label: 'Маршрут', Icon: IconRoute },
   { id: 'chat', label: 'BeeGPT', Icon: ({ className }) => <BeeMark size={22} className={`b-i-bee${className ? ` ${className}` : ''}`} /> },
   { id: 'profile', label: 'Профиль', Icon: IconUser },
 ]
@@ -200,7 +200,6 @@ export default function CrewApp() {
             dataset={dataset.data ?? null}
             tab={tab}
             theme={theme}
-            onTab={setTab}
             onSheet={setSheetOpen}
           />
         )}
@@ -258,14 +257,13 @@ function Picker({ engineers, plan }: { engineers: Engineer[]; plan: Plan | null 
 
 type SheetKind = 'ways' | 'call' | 'report' | 'problem' | 'summary' | 'delay' | null
 
-function Day({ engineerId, region, plan, dataset, tab, theme, onTab, onSheet }: {
+function Day({ engineerId, region, plan, dataset, tab, theme, onSheet }: {
   engineerId: string
   region: string
   plan: Plan | null
   dataset: Dataset | null
   tab: Tab
   theme: Theme
-  onTab: (tab: Tab) => void
   onSheet: (open: boolean) => void
 }) {
   const client = useQueryClient()
@@ -615,56 +613,6 @@ function Day({ engineerId, region, plan, dataset, tab, theme, onTab, onSheet }: 
     </div>
   )
 
-  const routeTab = (
-    <div className="b-crew-body">
-      <section className="b-crew-card route">
-        <h3>
-          Маршрут дня · {stops.length} {plural(stops.length, 'визит', 'визита', 'визитов')}
-        </h3>
-        <ol className="b-crew-route">
-          {stops.map((stop) => {
-            const request = requests.get(stop.request_id)
-            const status = stop.status === 'no_show' ? 'no_show' : statusOf(data.marks, stop.request_id)
-            return (
-              <li key={stop.request_id} className={`${status}${stop.request_id === next?.request_id ? ' next' : ''}`}>
-                <time>{stop.arrive}</time>
-                <span>
-                  <b>{request?.type_bk ?? stop.request_id}</b>
-                  <em>{request?.address ?? ''}</em>
-                  <em>
-                    окно {request?.window_start}–{request?.window_end} · дорога {stop.travel_min} мин
-                  </em>
-                </span>
-                <Label size="xs" theme={status === 'done' ? 'success' : status === 'no_show' ? 'danger' : 'normal'}>
-                  {STATUS[status]}
-                </Label>
-              </li>
-            )
-          })}
-        </ol>
-        {data.route.break_start ? (
-          <p className="b-crew-muted">Обед {data.route.break_start}–{data.route.break_end}</p>
-        ) : null}
-        {waits.length ? (
-          <div className="b-waits">
-            <h4>Где ждать между визитами</h4>
-            {waits.map((w) => (
-              <p key={`${w.after_request_id}-${w.start}`}>
-                <time>
-                  {w.start}–{w.end}
-                </time>
-                {w.text}
-              </p>
-            ))}
-          </div>
-        ) : null}
-        <Button view="normal" size="l" width="max" onClick={() => onTab('map')}>
-          Показать на карте
-        </Button>
-      </section>
-    </div>
-  )
-
   return (
     <>
       {tab === 'shift' ? shiftTab : null}
@@ -675,10 +623,16 @@ function Day({ engineerId, region, plan, dataset, tab, theme, onTab, onSheet }: 
           statusOf={(id) => statusOf(data.marks, id)}
           nextId={next?.request_id ?? null}
           way={way}
+          chosen={chosen}
+          onWay={(requestId, kind) => {
+            const updated = { ...chosen, [requestId]: kind }
+            setChosen(updated)
+            writeJson(waysKey, updated)
+          }}
           theme={theme}
+          waits={waits}
         />
       ) : null}
-      {tab === 'route' ? routeTab : null}
       {tab === 'chat' ? <ChatTab region={region} engineerId={engineerId} requestId={next?.request_id ?? null} /> : null}
       {tab === 'profile' ? (
         <ProfileTab region={region} engineerId={engineerId} name={data.engineer.name}>

@@ -35,7 +35,7 @@ const ROAD_FACTOR = 1.28
 const SPEED: Record<Transport, number> = { car: 32, bike: 14, foot: 5, transit: 18 }
 const WAITING: Record<Transport, number> = { car: 0, bike: 0, foot: 0, transit: 8 }
 
-const SKILL_NAME: Record<Skill, string> = {
+export const SKILL_NAME: Record<Skill, string> = {
   local: 'локальные работы',
   connect: 'подключение и дозаказы',
   emergency: 'аварийные работы',

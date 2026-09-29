@@ -15,6 +15,9 @@ export default defineConfig({
   server: {
     proxy: {
       '/tiles': { target: 'https://tiles.openfreemap.org', changeOrigin: true, rewrite: (path) => path.replace(/^\/tiles/, '') },
+      // Схема стенда в разработке: интерфейс ходит в /api, как на стенде (VITE_API_URL=/api),
+      // а BEE_API_PROXY указывает, кто за этим путём — маршрутизатор гостевого режима и входа.
+      ...(process.env.BEE_API_PROXY ? { '/api': { target: process.env.BEE_API_PROXY } } : {}),
     },
   },
   // Тесты интерфейса: jsdom, Testing Library; карта в них не рисуется.

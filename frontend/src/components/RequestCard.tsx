@@ -14,7 +14,7 @@ import { KIND_LABEL, kindOf, type Kind } from '../lib/kinds'
 
 // Вид заявки читается значком раньше слов: авария — молния, ремонт — ключ,
 // подключение — вилка, дозаказ — коробка. Подтип заказчика — серым рядом.
-const KIND_ICON: Record<Kind, React.ReactNode> = {
+export const KIND_ICON: Record<Kind, React.ReactNode> = {
   accident: <IconBolt />,
   repair: <IconWrench />,
   connect: <IconPlug />,

@@ -111,7 +111,7 @@ export default function Helper({ fields, valueOf, onApply, readOnly, onClose }: 
   return (
     <aside className="b-help" aria-label="BeeGPT: помощник настроек">
       <header className="b-help-top">
-        <BeeMark size={28} className="b-help-mark" />
+        <BeeMark size={28} idle className="b-help-mark" />
         <div className="b-help-name">
           <b>BeeGPT</b>
         </div>

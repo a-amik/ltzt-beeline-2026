@@ -1,0 +1,176 @@
+/*
+ * Шторка деталей заявки и бригады. На широком экране — справа поверх карты,
+ * на телефоне — нижней шторкой. Своих цветов нет: токены стенда, обе темы.
+ */
+
+.b-ds {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--b-surface);
+  color: var(--b-text);
+  font: 400 14px/20px var(--b-font);
+}
+/* Шторка прижата к левому краю карты, рядом с колонкой: от шапки до низа экрана,
+   без скруглений и полей. */
+.b-ds-map {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 20;
+  width: 400px;
+  max-width: 100%;
+  box-shadow: inset -1px 0 0 var(--b-line), 8px 0 24px rgb(0 0 0 / 0.08);
+  overflow: hidden;
+  animation: b-ds-in 0.2s ease-out;
+}
+@keyframes b-ds-in { from { transform: translateX(-24px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .b-ds-map, .b-ds-phone { animation: none; } }
+
+/* Переключатель «До / После» слева уходит вправо от шторки, а не под неё. */
+.b-map-sheet .b-map-view { left: 412px; transition: left 0.2s ease; }
+
+/* Телефон: шторка снизу поверх экрана, из списка в заявку «проваливаются». */
+.b-ds-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 42;
+  display: flex;
+  align-items: flex-end;
+  background: rgb(0 0 0 / 0.35);
+}
+.b-ds-phone {
+  position: relative;
+  width: 100%;
+  max-height: 88dvh;
+  padding-bottom: env(safe-area-inset-bottom);
+  border-radius: 20px 20px 0 0;
+  animation: b-ds-up 0.22s ease-out;
+}
+@keyframes b-ds-up { from { transform: translateY(40px); opacity: 0; } }
+.b-ds-phone .b-grab { margin: 8px auto 0; }
+
+/* Шапка: значок вида, заголовок, номер; справа — закрыть, слева — назад к бригаде. */
+.b-ds-head { display: flex; flex: none; align-items: flex-start; gap: 4px; padding: 14px 10px 6px 20px; }
+.b-ds-head .b-ds-back { margin-left: -12px; }
+.b-ds-back .b-i { transform: rotate(90deg); }
+.b-ds-title { display: flex; flex: 1; min-width: 0; flex-direction: column; gap: 4px; padding-top: 4px; }
+.b-ds-title h2 { margin: 0; font: 600 20px/26px var(--b-font); letter-spacing: -0.01em; }
+.b-ds-title p { margin: 0; color: var(--b-text-2); font-size: 13px; line-height: 18px; }
+.b-ds-title .b-kind { align-self: flex-start; }
+.b-ds-crewdot { display: inline-block; flex: none; width: 12px; height: 12px; border-radius: 50%; background: var(--c); }
+.b-ds-title h2 .b-ds-crewdot { margin: 0 8px 2px 0; vertical-align: middle; }
+
+.b-ds-body { flex: 1; min-height: 0; overflow-y: auto; padding: 0 20px 20px; }
+
+.b-ds-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 14px; }
+
+/* Действия — круглые кнопки с подписью, как в карточке места; главное — залито жёлтым. */
+.b-ds-acts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+  margin: 0 -8px;
+  padding: 2px 0 14px;
+  box-shadow: inset 0 -1px 0 var(--b-line);
+}
+.b-ds-acts button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 2px;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: var(--b-text);
+  font: 500 12px/15px var(--b-font);
+  text-align: center;
+  cursor: pointer;
+}
+.b-ds-acts button i {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--b-selection);
+  color: var(--b-text);
+}
+.b-ds-acts button i .b-i { width: 20px; height: 20px; }
+.b-ds-acts button.main i { background: var(--b-accent); color: var(--b-on-accent); }
+.b-ds-acts button.danger { color: var(--b-danger); }
+.b-ds-acts button.danger i { background: color-mix(in srgb, var(--b-danger) 14%, transparent); color: var(--b-danger); }
+.b-ds-acts button:hover:not(:disabled) i { filter: brightness(0.95); box-shadow: 0 0 0 3px var(--b-hover); }
+.b-ds-acts button:disabled { opacity: 0.5; cursor: default; }
+.b-ds-acts button:focus-visible { outline: 2px solid var(--b-focus, var(--b-info)); outline-offset: -2px; }
+
+/* Строки со значками: бригада, окно, адрес, взять, работа. */
+.b-ds-rows { list-style: none; margin: 0 -20px; padding: 4px 0; }
+.b-ds-row {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: start;
+  width: 100%;
+  padding: 10px 20px;
+  border: 0;
+  background: none;
+  color: var(--b-text);
+  text-align: left;
+}
+.b-ds-row > .b-i, .b-ds-row > .b-ds-crewdot { width: 20px; height: 20px; margin-top: 1px; color: var(--b-text-2); }
+.b-ds-row > .b-ds-crewdot { width: 12px; height: 12px; margin: 4px 4px 0; }
+.b-ds-rt { display: flex; min-width: 0; flex-direction: column; gap: 2px; }
+.b-ds-rt b { font: 500 14px/20px var(--b-font); overflow-wrap: anywhere; }
+.b-ds-rt small { color: var(--b-text-2); font-size: 12px; line-height: 16px; }
+.b-ds-row.warn > .b-i { color: var(--b-warning); }
+.b-ds-row.warn small { color: var(--b-warning); }
+.b-ds-row.link { cursor: pointer; transition: background var(--b-t-fast, 0.12s) ease; }
+.b-ds-row.link:hover { background: var(--b-hover); }
+.b-ds-row.link:focus-visible { outline: 2px solid var(--b-focus, var(--b-info)); outline-offset: -2px; }
+.b-ds-go { width: 16px; height: 16px; margin-top: 2px; color: var(--b-text-3); transform: rotate(-90deg); }
+
+/* Разделы ленты: приоритет, передача, предложения, обоснование. */
+.b-ds-sec { margin-top: 6px; padding-top: 14px; box-shadow: inset 0 1px 0 var(--b-line); }
+.b-ds-sec + .b-ds-sec { margin-top: 14px; }
+.b-ds-sec h3 { display: flex; align-items: center; gap: 6px; margin: 0 0 10px; font: 600 13px/18px var(--b-font); color: var(--b-text-2); }
+.b-ds-h-note { font-weight: 400; color: var(--b-text-3); }
+.b-ds-transfer { display: flex; gap: 8px; align-items: flex-start; }
+.b-ds-transfer > :first-child { flex: 1; min-width: 0; }
+/* Подсказки под полем — в потоке шторки, не отдельным окном. */
+.b-ds-combo { position: relative; }
+/* Список — в потоке под полем, а не поверх: шторка прокручивается и обрезала бы всплывающий. */
+.b-ds-hints {
+  list-style: none; margin: 6px 0 0; padding: 4px; max-height: 296px; overflow-y: auto;
+  border-radius: 10px; background: var(--b-surface); box-shadow: 0 0 0 1px var(--b-line);
+}
+.b-ds-hints li { display: flex; flex-direction: column; gap: 1px; padding: 6px 10px; border-radius: 8px; cursor: pointer; }
+.b-ds-hints li:hover { background: var(--b-hover); }
+.b-ds-hints li b { font: 500 13px/18px var(--b-font); }
+.b-ds-hints li small { overflow: hidden; color: var(--b-text-2); font-size: 12px; line-height: 16px; text-overflow: ellipsis; white-space: nowrap; }
+.b-ds-hints li.muted b { color: var(--b-text-2); }
+.b-ds-hints li.empty { color: var(--b-text-3); cursor: default; }
+.b-ds-opt { display: flex; min-width: 0; flex-direction: column; justify-content: center; height: 100%; }
+.b-ds-opt b { font: 500 13px/18px var(--b-font); }
+.b-ds-opt small { overflow: hidden; color: var(--b-text-2); font-size: 12px; line-height: 16px; text-overflow: ellipsis; white-space: nowrap; }
+.b-ds-opt.muted b { color: var(--b-text-2); }
+.b-ds-note { margin: 8px 0 0; color: var(--b-text-2); font-size: 12px; line-height: 17px; }
+.b-ds-offers { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.b-ds-offers li { display: flex; align-items: center; gap: 10px; }
+.b-ds-offers li .b-ds-rt { flex: 1; }
+.b-ds-sec .b-why-ok { margin: 0; }
+
+/* Бригада в шторке: её карточка без своей шапки и полей. */
+.b-ds .b-crewcard.embedded { padding: 0; background: none; box-shadow: none; }
+
+/* Итог передачи и комментарии. */
+.b-ds-result { display: flex; gap: 8px; align-items: flex-start; margin: 8px 0 0; padding: 8px 10px; border-radius: 10px;
+  background: color-mix(in srgb, var(--b-danger) 10%, transparent); color: var(--b-text); font-size: 13px; line-height: 18px; }
+.b-ds-result .b-i { flex: none; width: 16px; height: 16px; margin-top: 1px; color: var(--b-danger); }
+.b-ds-result.ok { background: color-mix(in srgb, var(--b-success) 12%, transparent); }
+.b-ds-result.ok .b-i { color: var(--b-success); }
+.b-ds-notes { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.b-ds-notes li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 8px; font-size: 13px; line-height: 18px; }
+.b-ds-notes time { color: var(--b-text-3); font-variant-numeric: tabular-nums; }

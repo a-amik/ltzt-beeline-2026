@@ -5,7 +5,7 @@
  * Клик по бригаде ведёт карту к её маршруту, повторный — снимает выбор
  * и возвращает общий вид.
  *
- * Клик по бригаде открывает её детали в левой колонке (`dispatch/CrewCard`):
+ * Клик по бригаде открывает её детали в шторке справа поверх карты (`DetailSheet`):
  * там её маршрут, запас, переписка и действия — задержка, выбытие, «Написать».
  */
 
@@ -20,7 +20,6 @@ import { changedIds, changedRoutes, frozenIds, knownRequests } from '../lib/plan
 import { colorIndex, colorVar } from '../lib/colors'
 import { DAY_END, DAY_START, toMin } from '../lib/time'
 import DayTimeline from './DayTimeline'
-import CrewCard from '../dispatch/CrewCard'
 import { usePhone } from '../lib/media'
 import { useInbox } from '../crew/DispatcherChat'
 import { usePlaces } from '../lib/places'
@@ -242,11 +241,6 @@ export default function EngineerPanel() {
                           eventMin={eventMin}
                           dimmed={Boolean(store.selectedEngineerId) && !selected}
                         />
-                        {store.crewView === engineer.id && !phone ? (
-                          <div className="b-tl-detail">
-                            <CrewCard engineerId={engineer.id} embedded />
-                          </div>
-                        ) : null}
                       </div>
                     )
                     })}
