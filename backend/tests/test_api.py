@@ -1,5 +1,7 @@
 """API по контракту: список регионов, план, перепланирование."""
 
+import re
+
 from fastapi.testclient import TestClient
 
 from bee_routing.api import app
@@ -11,9 +13,14 @@ client = TestClient(app)
 
 @needs_data
 def test_datasets_list():
-    """GET /datasets отдаёт три участка заказчика и «Вся Москва» — набор из них, со счётчиками."""
+    """GET /datasets отдаёт три участка заказчика и «Вся Москва» — набор из них, со счётчиками.
+
+    «Вся Москва» есть и на каждый день сверх 17 августа: `moskva-<дата>`.
+    """
     body = client.get("/datasets").json()
-    assert {item["id"] for item in body if item["source"] == "customer"} == set(REGIONS) | {"moskva"}
+    days = {m[0] for r in REGIONS if (m := re.search(r"\d{4}-\d{2}-\d{2}$", r))}
+    assert {item["id"] for item in body if item["source"] == "customer"} == set(REGIONS) | {"moskva"} | {
+        f"moskva-{day}" for day in days}
     assert all(item["requests_count"] and item["engineers_count"] for item in body)
 
 

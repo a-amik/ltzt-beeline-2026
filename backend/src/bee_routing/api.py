@@ -53,6 +53,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 import threading
 from contextlib import asynccontextmanager
@@ -122,9 +123,12 @@ async def lifespan(_: FastAPI):
     """
     _load_state()
     if ready.enabled():
-        ready.warm_up(dataset_ids(), _next_id)
+        # Дни сверх 17 августа (`<набор>-<дата>`) считаются по первому открытию: прогрев
+        # всех одиннадцати наборов упирал службу стенда в её 3 ГБ (29.09.2026).
+        warm = [i for i in dataset_ids() if not re.search(r"-\d{4}-\d{2}-\d{2}$", i)]
+        ready.warm_up(warm, _next_id)
         # Утра «Живого дня» и «Имитации» для трёх стартов: первый сценарий не ждёт решателя.
-        mornings.warm_up(dataset_ids())
+        mornings.warm_up(warm)
     yield
     _save_state()
     _stop_pools()
