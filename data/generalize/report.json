@@ -1,0 +1,1302 @@
+{
+ "meta": {
+  "days": 10,
+  "budget_s": 4,
+  "matrix": "osrm"
+ },
+ "regions": {
+  "vostok": {
+   "name": "Восток",
+   "requests": 66,
+   "engineers": 12,
+   "days": [
+    {
+     "dataset_id": "scale-vostok-r66-e12-s1",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 57,
+      "unassigned": 9,
+      "engineers_used": 12,
+      "distance_km": 517.2,
+      "travel_min": 1611,
+      "risk_late": 1.63,
+      "net_rub": 199468
+     },
+     "solver": {
+      "on_time": 66,
+      "unassigned": 0,
+      "engineers_used": 10,
+      "distance_km": 291.6,
+      "travel_min": 1158,
+      "risk_late": 2.27,
+      "net_rub": 266358
+     },
+     "timing": {
+      "setup_s": 0.009,
+      "first_solution_s": 0.034,
+      "last_improvement_s": 3.872,
+      "search_s": 4.001,
+      "solutions": 158.0,
+      "budget_s": 4.0,
+      "total_s": 4.019
+     }
+    },
+    {
+     "dataset_id": "scale-vostok-r66-e12-s2",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 48,
+      "unassigned": 18,
+      "engineers_used": 12,
+      "distance_km": 330.3,
+      "travel_min": 1111,
+      "risk_late": 1.31,
+      "net_rub": 167867
+     },
+     "solver": {
+      "on_time": 66,
+      "unassigned": 0,
+      "engineers_used": 10,
+      "distance_km": 233.8,
+      "travel_min": 1003,
+      "risk_late": 1.65,
+      "net_rub": 276832
+     },
+     "timing": {
+      "setup_s": 0.003,
+      "first_solution_s": 0.018,
+      "last_improvement_s": 1.608,
+      "search_s": 3.144,
+      "solutions": 170.0,
+      "budget_s": 4.0,
+      "total_s": 3.157
+     }
+    },
+    {
+     "dataset_id": "scale-vostok-r66-e12-s3",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 57,
+      "unassigned": 9,
+      "engineers_used": 12,
+      "distance_km": 498.8,
+      "travel_min": 1447,
+      "risk_late": 1.7,
+      "net_rub": 196403
+     },
+     "solver": {
+      "on_time": 66,
+      "unassigned": 0,
+      "engineers_used": 10,
+      "distance_km": 271.2,
+      "travel_min": 1105,
+      "risk_late": 1.98,
+      "net_rub": 267545
+     },
+     "timing": {
+      "setup_s": 0.003,
+      "first_solution_s": 0.032,
+      "last_improvement_s": 3.206,
+      "search_s": 4.0,
+      "solutions": 140.0,
+      "budget_s": 4.0,
+      "total_s": 4.012
+     }
+    },
+    {
+     "dataset_id": "scale-vostok-r66-e12-s4",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 56,
+      "unassigned": 10,
+      "engineers_used": 12,
+      "distance_km": 338.5,
+      "travel_min": 1155,
+      "risk_late": 1.59,
+      "net_rub": 192653
+     },
+     "solver": {
+      "on_time": 66,
+      "unassigned": 0,
+      "engineers_used": 10,
+      "distance_km": 212.0,
+      "travel_min": 909,
+      "risk_late": 2.1,
+      "net_rub": 258832
+     },
+     "timing": {
+      "setup_s": 0.004,
+      "first_solution_s": 0.032,
+      "last_improvement_s": 1.521,
+      "search_s": 3.032,
+      "solutions": 182.0,
+      "budget_s": 4.0,
+      "total_s": 3.047
+     }
+    },
+    {
+     "dataset_id": "scale-vostok-r66-e12-s5",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 47,
+      "unassigned": 19,
+      "engineers_used": 12,
+      "distance_km": 479.7,
+      "travel_min": 1424,
+      "risk_late": 2.73,
+      "net_rub": 159961
+     },
+     "solver": {
+      "on_time": 66,
+      "unassigned": 0,
+      "engineers_used": 10,
+      "distance_km": 312.7,
+      "travel_min": 1137,
+      "risk_late": 3.92,
+      "net_rub": 267045
+     },
+     "timing": {
+      "setup_s": 0.008,
+      "first_solution_s": 0.032,
+      "last_improvement_s": 2.338,
+      "search_s": 3.857,
+      "solutions": 125.0,
+      "budget_s": 4.0,
+      "total_s": 3.874
+     }
+    },
+    {
+     "dataset_id": "scale-vostok-r66-e12-s6",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 57,
+      "unassigned": 9,
+      "engineers_used": 12,
+      "distance_km": 328.2,
+      "travel_min": 1168,
+      "risk_late": 1.52,
+      "net_rub": 210248
+     },
+     "solver": {
+      "on_time": 66,
+      "unassigned": 0,
+      "engineers_used": 10,
+      "distance_km": 209.3,
+      "travel_min": 933,
+      "risk_late": 3.22,
+      "net_rub": 277961
+     },
+     "timing": {
+      "setup_s": 0.004,
+      "first_solution_s": 0.031,
+      "last_improvement_s": 3.89,
+      "search_s": 4.0,
+      "solutions": 172.0,
+      "budget_s": 4.0,
+      "total_s": 4.021
+     }
+    },
+    {
+     "dataset_id": "scale-vostok-r66-e12-s7",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 64,
+      "unassigned": 2,
+      "engineers_used": 12,
+      "distance_km": 520.2,
+      "travel_min": 1578,
+      "risk_late": 3.4,
+      "net_rub": 240131
+     },
+     "solver": {
+      "on_time": 66,
+      "unassigned": 0,
+      "engineers_used": 10,
+      "distance_km": 321.7,
+      "travel_min": 1122,
+      "risk_late": 2.88,
+      "net_rub": 270388
+     },
+     "timing": {
+      "setup_s": 0.004,
+      "first_solution_s": 0.006,
+      "last_improvement_s": 3.706,
+      "search_s": 4.001,
+      "solutions": 236.0,
+      "budget_s": 4.0,
+      "total_s": 4.014
+     }
+    },
+    {
+     "dataset_id": "scale-vostok-r66-e12-s8",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 59,
+      "unassigned": 7,
+      "engineers_used": 12,
+      "distance_km": 372.9,
+      "travel_min": 1240,
+      "risk_late": 1.45,
+      "net_rub": 222883
+     },
+     "solver": {
+      "on_time": 66,
+      "unassigned": 0,
+      "engineers_used": 9,
+      "distance_km": 231.4,
+      "travel_min": 992,
+      "risk_late": 4.23,
+      "net_rub": 272568
+     },
+     "timing": {
+      "setup_s": 0.004,
+      "first_solution_s": 0.029,
+      "last_improvement_s": 2.668,
+      "search_s": 4.0,
+      "solutions": 89.0,
+      "budget_s": 4.0,
+      "total_s": 4.015
+     }
+    },
+    {
+     "dataset_id": "scale-vostok-r66-e12-s9",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 57,
+      "unassigned": 9,
+      "engineers_used": 12,
+      "distance_km": 509.8,
+      "travel_min": 1504,
+      "risk_late": 3.58,
+      "net_rub": 191854
+     },
+     "solver": {
+      "on_time": 66,
+      "unassigned": 0,
+      "engineers_used": 10,
+      "distance_km": 288.9,
+      "travel_min": 1033,
+      "risk_late": 2.78,
+      "net_rub": 261196
+     },
+     "timing": {
+      "setup_s": 0.006,
+      "first_solution_s": 0.033,
+      "last_improvement_s": 2.966,
+      "search_s": 4.0,
+      "solutions": 142.0,
+      "budget_s": 4.0,
+      "total_s": 4.015
+     }
+    },
+    {
+     "dataset_id": "scale-vostok-r66-e12-s10",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 61,
+      "unassigned": 5,
+      "engineers_used": 12,
+      "distance_km": 399.5,
+      "travel_min": 1316,
+      "risk_late": 2.28,
+      "net_rub": 191954
+     },
+     "solver": {
+      "on_time": 66,
+      "unassigned": 0,
+      "engineers_used": 9,
+      "distance_km": 236.2,
+      "travel_min": 984,
+      "risk_late": 4.17,
+      "net_rub": 238387
+     },
+     "timing": {
+      "setup_s": 0.004,
+      "first_solution_s": 0.027,
+      "last_improvement_s": 3.356,
+      "search_s": 4.0,
+      "solutions": 183.0,
+      "budget_s": 4.0,
+      "total_s": 4.014
+     }
+    }
+   ],
+   "summary": {
+    "on_time": {
+     "label": "Выполнено вовремя",
+     "less_is_better": false,
+     "baseline": {
+      "median": 57.0,
+      "min": 47,
+      "max": 64
+     },
+     "solver": {
+      "median": 66.0,
+      "min": 66,
+      "max": 66
+     },
+     "not_worse": 10,
+     "days": 10
+    },
+    "unassigned": {
+     "label": "Не назначено",
+     "less_is_better": true,
+     "baseline": {
+      "median": 9.0,
+      "min": 2,
+      "max": 19
+     },
+     "solver": {
+      "median": 0.0,
+      "min": 0,
+      "max": 0
+     },
+     "not_worse": 10,
+     "days": 10
+    },
+    "engineers_used": {
+     "label": "Бригад в работе",
+     "less_is_better": true,
+     "baseline": {
+      "median": 12.0,
+      "min": 12,
+      "max": 12
+     },
+     "solver": {
+      "median": 10.0,
+      "min": 9,
+      "max": 10
+     },
+     "not_worse": 10,
+     "days": 10
+    },
+    "distance_km": {
+     "label": "Пробег",
+     "less_is_better": true,
+     "baseline": {
+      "median": 439.6,
+      "min": 328.2,
+      "max": 520.2
+     },
+     "solver": {
+      "median": 253.7,
+      "min": 209.3,
+      "max": 321.7
+     },
+     "not_worse": 10,
+     "days": 10
+    },
+    "travel_min": {
+     "label": "Время в дороге",
+     "less_is_better": true,
+     "baseline": {
+      "median": 1370.0,
+      "min": 1111,
+      "max": 1611
+     },
+     "solver": {
+      "median": 1018.0,
+      "min": 909,
+      "max": 1158
+     },
+     "not_worse": 10,
+     "days": 10
+    },
+    "risk_late": {
+     "label": "Сорванных окон при шуме дороги, ожидаемо",
+     "less_is_better": true,
+     "baseline": {
+      "median": 1.665,
+      "min": 1.31,
+      "max": 3.58
+     },
+     "solver": {
+      "median": 2.83,
+      "min": 1.65,
+      "max": 4.23
+     },
+     "not_worse": 2,
+     "days": 10
+    },
+    "net_rub": {
+     "label": "Итог дня: ценность вовремя минус затраты",
+     "less_is_better": false,
+     "baseline": {
+      "median": 194528.0,
+      "min": 159961,
+      "max": 240131
+     },
+     "solver": {
+      "median": 267295.0,
+      "min": 238387,
+      "max": 277961
+     },
+     "not_worse": 10,
+     "days": 10
+    }
+   }
+  },
+  "yugo-vostok": {
+   "name": "Юго-восток",
+   "requests": 83,
+   "engineers": 12,
+   "days": [
+    {
+     "dataset_id": "scale-yugo-vostok-r83-e12-s1",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 54,
+      "unassigned": 29,
+      "engineers_used": 12,
+      "distance_km": 915.5,
+      "travel_min": 2327,
+      "risk_late": 3.58,
+      "net_rub": 146928
+     },
+     "solver": {
+      "on_time": 76,
+      "unassigned": 7,
+      "engineers_used": 12,
+      "distance_km": 368.7,
+      "travel_min": 1357,
+      "risk_late": 3.54,
+      "net_rub": 275130
+     },
+     "timing": {
+      "setup_s": 0.006,
+      "first_solution_s": 0.039,
+      "last_improvement_s": 2.009,
+      "search_s": 3.713,
+      "solutions": 142.0,
+      "budget_s": 4.0,
+      "total_s": 3.752
+     }
+    },
+    {
+     "dataset_id": "scale-yugo-vostok-r83-e12-s2",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 52,
+      "unassigned": 31,
+      "engineers_used": 12,
+      "distance_km": 1104.6,
+      "travel_min": 2677,
+      "risk_late": 2.53,
+      "net_rub": 151181
+     },
+     "solver": {
+      "on_time": 79,
+      "unassigned": 4,
+      "engineers_used": 12,
+      "distance_km": 564.1,
+      "travel_min": 1801,
+      "risk_late": 7.4,
+      "net_rub": 298655
+     },
+     "timing": {
+      "setup_s": 0.012,
+      "first_solution_s": 0.036,
+      "last_improvement_s": 2.342,
+      "search_s": 3.857,
+      "solutions": 165.0,
+      "budget_s": 4.0,
+      "total_s": 3.917
+     }
+    },
+    {
+     "dataset_id": "scale-yugo-vostok-r83-e12-s3",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 50,
+      "unassigned": 33,
+      "engineers_used": 12,
+      "distance_km": 1574.8,
+      "travel_min": 3548,
+      "risk_late": 4.36,
+      "net_rub": 136901
+     },
+     "solver": {
+      "on_time": 76,
+      "unassigned": 7,
+      "engineers_used": 12,
+      "distance_km": 530.9,
+      "travel_min": 1552,
+      "risk_late": 3.44,
+      "net_rub": 308534
+     },
+     "timing": {
+      "setup_s": 0.005,
+      "first_solution_s": 0.037,
+      "last_improvement_s": 3.963,
+      "search_s": 4.0,
+      "solutions": 188.0,
+      "budget_s": 4.0,
+      "total_s": 4.041
+     }
+    },
+    {
+     "dataset_id": "scale-yugo-vostok-r83-e12-s4",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 54,
+      "unassigned": 29,
+      "engineers_used": 12,
+      "distance_km": 1172.9,
+      "travel_min": 2614,
+      "risk_late": 2.1,
+      "net_rub": 172983
+     },
+     "solver": {
+      "on_time": 75,
+      "unassigned": 8,
+      "engineers_used": 12,
+      "distance_km": 611.7,
+      "travel_min": 1798,
+      "risk_late": 5.63,
+      "net_rub": 306807
+     },
+     "timing": {
+      "setup_s": 0.008,
+      "first_solution_s": 0.032,
+      "last_improvement_s": 3.702,
+      "search_s": 4.0,
+      "solutions": 264.0,
+      "budget_s": 4.0,
+      "total_s": 4.037
+     }
+    },
+    {
+     "dataset_id": "scale-yugo-vostok-r83-e12-s5",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 53,
+      "unassigned": 30,
+      "engineers_used": 12,
+      "distance_km": 1481.7,
+      "travel_min": 3346,
+      "risk_late": 3.26,
+      "net_rub": 138525
+     },
+     "solver": {
+      "on_time": 78,
+      "unassigned": 5,
+      "engineers_used": 11,
+      "distance_km": 581.0,
+      "travel_min": 1730,
+      "risk_late": 5.56,
+      "net_rub": 278790
+     },
+     "timing": {
+      "setup_s": 0.006,
+      "first_solution_s": 0.029,
+      "last_improvement_s": 3.729,
+      "search_s": 4.0,
+      "solutions": 184.0,
+      "budget_s": 4.0,
+      "total_s": 4.029
+     }
+    },
+    {
+     "dataset_id": "scale-yugo-vostok-r83-e12-s6",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 59,
+      "unassigned": 24,
+      "engineers_used": 12,
+      "distance_km": 977.8,
+      "travel_min": 2484,
+      "risk_late": 2.17,
+      "net_rub": 199637
+     },
+     "solver": {
+      "on_time": 79,
+      "unassigned": 4,
+      "engineers_used": 12,
+      "distance_km": 553.7,
+      "travel_min": 1691,
+      "risk_late": 5.51,
+      "net_rub": 311821
+     },
+     "timing": {
+      "setup_s": 0.006,
+      "first_solution_s": 0.029,
+      "last_improvement_s": 3.975,
+      "search_s": 3.999,
+      "solutions": 203.0,
+      "budget_s": 4.0,
+      "total_s": 4.032
+     }
+    },
+    {
+     "dataset_id": "scale-yugo-vostok-r83-e12-s7",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 52,
+      "unassigned": 31,
+      "engineers_used": 12,
+      "distance_km": 764.8,
+      "travel_min": 2102,
+      "risk_late": 0.96,
+      "net_rub": 145241
+     },
+     "solver": {
+      "on_time": 79,
+      "unassigned": 4,
+      "engineers_used": 12,
+      "distance_km": 735.9,
+      "travel_min": 1920,
+      "risk_late": 7.25,
+      "net_rub": 296951
+     },
+     "timing": {
+      "setup_s": 0.005,
+      "first_solution_s": 0.03,
+      "last_improvement_s": 2.821,
+      "search_s": 4.001,
+      "solutions": 156.0,
+      "budget_s": 4.0,
+      "total_s": 4.036
+     }
+    },
+    {
+     "dataset_id": "scale-yugo-vostok-r83-e12-s8",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 51,
+      "unassigned": 32,
+      "engineers_used": 12,
+      "distance_km": 1132.7,
+      "travel_min": 2972,
+      "risk_late": 3.13,
+      "net_rub": 128258
+     },
+     "solver": {
+      "on_time": 82,
+      "unassigned": 1,
+      "engineers_used": 12,
+      "distance_km": 787.7,
+      "travel_min": 1954,
+      "risk_late": 6.04,
+      "net_rub": 300858
+     },
+     "timing": {
+      "setup_s": 0.006,
+      "first_solution_s": 0.007,
+      "last_improvement_s": 3.906,
+      "search_s": 4.0,
+      "solutions": 194.0,
+      "budget_s": 4.0,
+      "total_s": 4.022
+     }
+    },
+    {
+     "dataset_id": "scale-yugo-vostok-r83-e12-s9",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 53,
+      "unassigned": 30,
+      "engineers_used": 12,
+      "distance_km": 1299.4,
+      "travel_min": 3024,
+      "risk_late": 2.09,
+      "net_rub": 169551
+     },
+     "solver": {
+      "on_time": 76,
+      "unassigned": 7,
+      "engineers_used": 12,
+      "distance_km": 431.2,
+      "travel_min": 1510,
+      "risk_late": 4.8,
+      "net_rub": 316978
+     },
+     "timing": {
+      "setup_s": 0.008,
+      "first_solution_s": 0.025,
+      "last_improvement_s": 3.548,
+      "search_s": 4.001,
+      "solutions": 184.0,
+      "budget_s": 4.0,
+      "total_s": 4.031
+     }
+    },
+    {
+     "dataset_id": "scale-yugo-vostok-r83-e12-s10",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 64,
+      "unassigned": 19,
+      "engineers_used": 12,
+      "distance_km": 1165.7,
+      "travel_min": 2826,
+      "risk_late": 2.75,
+      "net_rub": 203206
+     },
+     "solver": {
+      "on_time": 82,
+      "unassigned": 1,
+      "engineers_used": 11,
+      "distance_km": 368.6,
+      "travel_min": 1395,
+      "risk_late": 5.3,
+      "net_rub": 316617
+     },
+     "timing": {
+      "setup_s": 0.006,
+      "first_solution_s": 0.007,
+      "last_improvement_s": 3.974,
+      "search_s": 4.001,
+      "solutions": 167.0,
+      "budget_s": 4.0,
+      "total_s": 4.02
+     }
+    }
+   ],
+   "summary": {
+    "on_time": {
+     "label": "Выполнено вовремя",
+     "less_is_better": false,
+     "baseline": {
+      "median": 53.0,
+      "min": 50,
+      "max": 64
+     },
+     "solver": {
+      "median": 78.5,
+      "min": 75,
+      "max": 82
+     },
+     "not_worse": 10,
+     "days": 10
+    },
+    "unassigned": {
+     "label": "Не назначено",
+     "less_is_better": true,
+     "baseline": {
+      "median": 30.0,
+      "min": 19,
+      "max": 33
+     },
+     "solver": {
+      "median": 4.5,
+      "min": 1,
+      "max": 8
+     },
+     "not_worse": 10,
+     "days": 10
+    },
+    "engineers_used": {
+     "label": "Бригад в работе",
+     "less_is_better": true,
+     "baseline": {
+      "median": 12.0,
+      "min": 12,
+      "max": 12
+     },
+     "solver": {
+      "median": 12.0,
+      "min": 11,
+      "max": 12
+     },
+     "not_worse": 10,
+     "days": 10
+    },
+    "distance_km": {
+     "label": "Пробег",
+     "less_is_better": true,
+     "baseline": {
+      "median": 1149.2,
+      "min": 764.8,
+      "max": 1574.8
+     },
+     "solver": {
+      "median": 558.9000000000001,
+      "min": 368.6,
+      "max": 787.7
+     },
+     "not_worse": 10,
+     "days": 10
+    },
+    "travel_min": {
+     "label": "Время в дороге",
+     "less_is_better": true,
+     "baseline": {
+      "median": 2751.5,
+      "min": 2102,
+      "max": 3548
+     },
+     "solver": {
+      "median": 1710.5,
+      "min": 1357,
+      "max": 1954
+     },
+     "not_worse": 10,
+     "days": 10
+    },
+    "risk_late": {
+     "label": "Сорванных окон при шуме дороги, ожидаемо",
+     "less_is_better": true,
+     "baseline": {
+      "median": 2.6399999999999997,
+      "min": 0.96,
+      "max": 4.36
+     },
+     "solver": {
+      "median": 5.535,
+      "min": 3.44,
+      "max": 7.4
+     },
+     "not_worse": 2,
+     "days": 10
+    },
+    "net_rub": {
+     "label": "Итог дня: ценность вовремя минус затраты",
+     "less_is_better": false,
+     "baseline": {
+      "median": 149054.5,
+      "min": 128258,
+      "max": 203206
+     },
+     "solver": {
+      "median": 303832.5,
+      "min": 275130,
+      "max": 316978
+     },
+     "not_worse": 10,
+     "days": 10
+    }
+   }
+  },
+  "yugocentr": {
+   "name": "Югоцентр",
+   "requests": 56,
+   "engineers": 11,
+   "days": [
+    {
+     "dataset_id": "scale-yugocentr-r56-e11-s1",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 49,
+      "unassigned": 7,
+      "engineers_used": 11,
+      "distance_km": 361.3,
+      "travel_min": 1194,
+      "risk_late": 1.4,
+      "net_rub": 128156
+     },
+     "solver": {
+      "on_time": 56,
+      "unassigned": 0,
+      "engineers_used": 8,
+      "distance_km": 203.0,
+      "travel_min": 860,
+      "risk_late": 3.22,
+      "net_rub": 192920
+     },
+     "timing": {
+      "setup_s": 0.013,
+      "first_solution_s": 0.031,
+      "last_improvement_s": 3.022,
+      "search_s": 4.0,
+      "solutions": 186.0,
+      "budget_s": 4.0,
+      "total_s": 4.021
+     }
+    },
+    {
+     "dataset_id": "scale-yugocentr-r56-e11-s2",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 56,
+      "unassigned": 0,
+      "engineers_used": 11,
+      "distance_km": 426.8,
+      "travel_min": 1385,
+      "risk_late": 2.1,
+      "net_rub": 186173
+     },
+     "solver": {
+      "on_time": 56,
+      "unassigned": 0,
+      "engineers_used": 8,
+      "distance_km": 201.8,
+      "travel_min": 863,
+      "risk_late": 2.98,
+      "net_rub": 208702
+     },
+     "timing": {
+      "setup_s": 0.003,
+      "first_solution_s": 0.005,
+      "last_improvement_s": 0.809,
+      "search_s": 2.417,
+      "solutions": 172.0,
+      "budget_s": 4.0,
+      "total_s": 2.427
+     }
+    },
+    {
+     "dataset_id": "scale-yugocentr-r56-e11-s3",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 55,
+      "unassigned": 1,
+      "engineers_used": 11,
+      "distance_km": 398.3,
+      "travel_min": 1316,
+      "risk_late": 1.21,
+      "net_rub": 151572
+     },
+     "solver": {
+      "on_time": 56,
+      "unassigned": 0,
+      "engineers_used": 7,
+      "distance_km": 162.5,
+      "travel_min": 751,
+      "risk_late": 2.22,
+      "net_rub": 177954
+     },
+     "timing": {
+      "setup_s": 0.004,
+      "first_solution_s": 0.027,
+      "last_improvement_s": 1.263,
+      "search_s": 2.886,
+      "solutions": 175.0,
+      "budget_s": 4.0,
+      "total_s": 2.896
+     }
+    },
+    {
+     "dataset_id": "scale-yugocentr-r56-e11-s4",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 53,
+      "unassigned": 3,
+      "engineers_used": 11,
+      "distance_km": 439.0,
+      "travel_min": 1383,
+      "risk_late": 1.45,
+      "net_rub": 160674
+     },
+     "solver": {
+      "on_time": 56,
+      "unassigned": 0,
+      "engineers_used": 8,
+      "distance_km": 212.6,
+      "travel_min": 896,
+      "risk_late": 2.0,
+      "net_rub": 201104
+     },
+     "timing": {
+      "setup_s": 0.004,
+      "first_solution_s": 0.024,
+      "last_improvement_s": 3.012,
+      "search_s": 4.0,
+      "solutions": 236.0,
+      "budget_s": 4.0,
+      "total_s": 4.012
+     }
+    },
+    {
+     "dataset_id": "scale-yugocentr-r56-e11-s5",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 54,
+      "unassigned": 2,
+      "engineers_used": 11,
+      "distance_km": 373.7,
+      "travel_min": 1265,
+      "risk_late": 1.31,
+      "net_rub": 140086
+     },
+     "solver": {
+      "on_time": 56,
+      "unassigned": 0,
+      "engineers_used": 8,
+      "distance_km": 168.0,
+      "travel_min": 761,
+      "risk_late": 3.03,
+      "net_rub": 175494
+     },
+     "timing": {
+      "setup_s": 0.005,
+      "first_solution_s": 0.022,
+      "last_improvement_s": 0.632,
+      "search_s": 2.133,
+      "solutions": 165.0,
+      "budget_s": 4.0,
+      "total_s": 2.147
+     }
+    },
+    {
+     "dataset_id": "scale-yugocentr-r56-e11-s6",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 56,
+      "unassigned": 0,
+      "engineers_used": 11,
+      "distance_km": 428.8,
+      "travel_min": 1411,
+      "risk_late": 2.3,
+      "net_rub": 169062
+     },
+     "solver": {
+      "on_time": 56,
+      "unassigned": 0,
+      "engineers_used": 8,
+      "distance_km": 205.7,
+      "travel_min": 857,
+      "risk_late": 2.4,
+      "net_rub": 196278
+     },
+     "timing": {
+      "setup_s": 0.006,
+      "first_solution_s": 0.026,
+      "last_improvement_s": 0.715,
+      "search_s": 2.324,
+      "solutions": 140.0,
+      "budget_s": 4.0,
+      "total_s": 2.338
+     }
+    },
+    {
+     "dataset_id": "scale-yugocentr-r56-e11-s7",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 50,
+      "unassigned": 6,
+      "engineers_used": 11,
+      "distance_km": 355.4,
+      "travel_min": 1171,
+      "risk_late": 1.25,
+      "net_rub": 139807
+     },
+     "solver": {
+      "on_time": 56,
+      "unassigned": 0,
+      "engineers_used": 8,
+      "distance_km": 188.1,
+      "travel_min": 830,
+      "risk_late": 4.17,
+      "net_rub": 194100
+     },
+     "timing": {
+      "setup_s": 0.004,
+      "first_solution_s": 0.025,
+      "last_improvement_s": 1.702,
+      "search_s": 3.205,
+      "solutions": 250.0,
+      "budget_s": 4.0,
+      "total_s": 3.216
+     }
+    },
+    {
+     "dataset_id": "scale-yugocentr-r56-e11-s8",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 52,
+      "unassigned": 4,
+      "engineers_used": 11,
+      "distance_km": 362.8,
+      "travel_min": 1216,
+      "risk_late": 1.62,
+      "net_rub": 141790
+     },
+     "solver": {
+      "on_time": 56,
+      "unassigned": 0,
+      "engineers_used": 8,
+      "distance_km": 172.5,
+      "travel_min": 785,
+      "risk_late": 1.91,
+      "net_rub": 179390
+     },
+     "timing": {
+      "setup_s": 0.008,
+      "first_solution_s": 0.029,
+      "last_improvement_s": 2.591,
+      "search_s": 4.001,
+      "solutions": 247.0,
+      "budget_s": 4.0,
+      "total_s": 4.016
+     }
+    },
+    {
+     "dataset_id": "scale-yugocentr-r56-e11-s9",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 52,
+      "unassigned": 4,
+      "engineers_used": 11,
+      "distance_km": 333.4,
+      "travel_min": 1145,
+      "risk_late": 1.39,
+      "net_rub": 144353
+     },
+     "solver": {
+      "on_time": 56,
+      "unassigned": 0,
+      "engineers_used": 8,
+      "distance_km": 174.9,
+      "travel_min": 791,
+      "risk_late": 1.83,
+      "net_rub": 193034
+     },
+     "timing": {
+      "setup_s": 0.006,
+      "first_solution_s": 0.021,
+      "last_improvement_s": 0.549,
+      "search_s": 2.296,
+      "solutions": 201.0,
+      "budget_s": 4.0,
+      "total_s": 2.31
+     }
+    },
+    {
+     "dataset_id": "scale-yugocentr-r56-e11-s10",
+     "matrix": "osrm",
+     "baseline": {
+      "on_time": 46,
+      "unassigned": 10,
+      "engineers_used": 11,
+      "distance_km": 374.9,
+      "travel_min": 1177,
+      "risk_late": 1.26,
+      "net_rub": 141825
+     },
+     "solver": {
+      "on_time": 56,
+      "unassigned": 0,
+      "engineers_used": 9,
+      "distance_km": 198.5,
+      "travel_min": 847,
+      "risk_late": 2.75,
+      "net_rub": 213658
+     },
+     "timing": {
+      "setup_s": 0.004,
+      "first_solution_s": 0.028,
+      "last_improvement_s": 3.52,
+      "search_s": 4.0,
+      "solutions": 179.0,
+      "budget_s": 4.0,
+      "total_s": 4.011
+     }
+    }
+   ],
+   "summary": {
+    "on_time": {
+     "label": "Выполнено вовремя",
+     "less_is_better": false,
+     "baseline": {
+      "median": 52.5,
+      "min": 46,
+      "max": 56
+     },
+     "solver": {
+      "median": 56.0,
+      "min": 56,
+      "max": 56
+     },
+     "not_worse": 10,
+     "days": 10
+    },
+    "unassigned": {
+     "label": "Не назначено",
+     "less_is_better": true,
+     "baseline": {
+      "median": 3.5,
+      "min": 0,
+      "max": 10
+     },
+     "solver": {
+      "median": 0.0,
+      "min": 0,
+      "max": 0
+     },
+     "not_worse": 10,
+     "days": 10
+    },
+    "engineers_used": {
+     "label": "Бригад в работе",
+     "less_is_better": true,
+     "baseline": {
+      "median": 11.0,
+      "min": 11,
+      "max": 11
+     },
+     "solver": {
+      "median": 8.0,
+      "min": 7,
+      "max": 9
+     },
+     "not_worse": 10,
+     "days": 10
+    },
+    "distance_km": {
+     "label": "Пробег",
+     "less_is_better": true,
+     "baseline": {
+      "median": 374.29999999999995,
+      "min": 333.4,
+      "max": 439.0
+     },
+     "solver": {
+      "median": 193.3,
+      "min": 162.5,
+      "max": 212.6
+     },
+     "not_worse": 10,
+     "days": 10
+    },
+    "travel_min": {
+     "label": "Время в дороге",
+     "less_is_better": true,
+     "baseline": {
+      "median": 1240.5,
+      "min": 1145,
+      "max": 1411
+     },
+     "solver": {
+      "median": 838.5,
+      "min": 751,
+      "max": 896
+     },
+     "not_worse": 10,
+     "days": 10
+    },
+    "risk_late": {
+     "label": "Сорванных окон при шуме дороги, ожидаемо",
+     "less_is_better": true,
+     "baseline": {
+      "median": 1.395,
+      "min": 1.21,
+      "max": 2.3
+     },
+     "solver": {
+      "median": 2.575,
+      "min": 1.83,
+      "max": 4.17
+     },
+     "not_worse": 0,
+     "days": 10
+    },
+    "net_rub": {
+     "label": "Итог дня: ценность вовремя минус затраты",
+     "less_is_better": false,
+     "baseline": {
+      "median": 143089.0,
+      "min": 128156,
+      "max": 186173
+     },
+     "solver": {
+      "median": 193567.0,
+      "min": 175494,
+      "max": 213658
+     },
+     "not_worse": 10,
+     "days": 10
+    }
+   }
+  }
+ }
+}

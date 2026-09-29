@@ -1,0 +1,284 @@
+/* Экран диспетчера: детали бригады, лента от бригад, сводка на карте, телефон. Токены — index.css. */
+
+/* ── Колокольчик ── */
+.b-bell { position: relative; display: inline-flex; align-items: center; justify-content: center; height: 100%; }
+/* Кнопка из одного значка: Gravity ставит содержимое по строке текста, которого нет, и значок
+   прилипал к верху кнопки и обрезался. Содержимое кнопок верхней полосы — по центру. */
+.b-top .g-button__text { display: inline-flex; align-items: center; justify-content: center; height: 100%; }
+.b-top .g-button__text > .b-i { display: block; }
+.b-bell .b-i { width: 18px; height: 18px; }
+.b-bell b {
+  position: absolute; top: 3px; right: -9px; min-width: 16px; height: 16px; padding: 0 4px;
+  border-radius: 8px; background: var(--b-info, #2563eb); color: #fff; font: 600 10px/16px var(--b-font); text-align: center;
+}
+.b-bell b.hot { background: var(--b-danger, #dc2626); }
+
+/* ── Лента от бригад ── */
+/* Лента выпадает из колокольчика в шапке, под ним у правого края, а не панелью сбоку:
+   подложка прозрачная — нажатие мимо закрывает ленту, экран под ней не темнеет. */
+.b-feed-scrim { position: fixed; inset: 0; z-index: 45; display: flex; align-items: flex-start; justify-content: flex-end; padding: 52px 12px 12px; }
+.b-feed { width: min(420px, 100%); max-height: min(640px, 100%); display: flex; flex-direction: column; border-radius: var(--b-r-l); background: var(--b-float); color: var(--b-text); box-shadow: var(--b-shadow-float); }
+@media (max-width: 760px) { .b-feed-scrim { padding: 48px 8px 8px; } }
+.b-feed header { display: flex; align-items: center; padding: 14px 16px 6px; }
+.b-feed header h2 { margin: 0; font: 600 17px/22px var(--b-font); }
+.b-feed header button { margin-left: auto; width: 32px; height: 32px; border: 0; border-radius: 16px; background: var(--b-hover); color: var(--b-text); cursor: pointer; }
+.b-feed-filter { display: flex; gap: 6px; padding: 4px 16px 10px; }
+.b-feed-filter button { padding: 5px 10px; border: 0; border-radius: 14px; background: var(--b-hover); color: var(--b-text-2); font: 500 13px/16px var(--b-font); cursor: pointer; }
+.b-feed-filter button[aria-selected='true'] { background: var(--b-text); color: var(--b-surface); }
+.b-feed ol { list-style: none; margin: 0; padding: 0 8px 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 4px; }
+.b-feed li.empty { padding: 24px 8px; text-align: center; color: var(--b-text-2); }
+.b-feed li button {
+  width: 100%; display: grid; grid-template-columns: auto 1fr auto; gap: 2px 8px; align-items: baseline;
+  padding: 9px 10px; border: 0; border-radius: 10px; background: none; color: var(--b-text); text-align: left; cursor: pointer;
+}
+.b-feed li button:hover { background: var(--b-hover); }
+.b-feed li button.unread { background: color-mix(in srgb, var(--b-info, #2563eb) 8%, transparent); }
+.b-feed li .k { font: 600 11px/14px var(--b-font); text-transform: uppercase; letter-spacing: 0.03em; color: var(--b-text-2); }
+.b-feed li button.sos .k, .b-feed li button.problem .k { color: var(--b-danger, #dc2626); }
+.b-feed li button.delay .k { color: var(--b-warning, #b45309); }
+.b-feed li b { font-weight: 600; }
+.b-feed li time { font-size: 12px; color: var(--b-text-3); font-variant-numeric: tabular-nums; }
+.b-feed li .t { grid-column: 1 / -1; font-size: 13px; line-height: 18px; color: var(--b-text-2); }
+
+/* ── Детали бригады ── */
+.b-crewcard { display: flex; flex-direction: column; gap: 8px; margin: 0 12px 8px; padding: 12px; border-radius: 12px; background: var(--b-surface); }
+.b-crewcard header { display: flex; align-items: center; gap: 8px; }
+.b-crewcard header i { width: 10px; height: 10px; border-radius: 3px; background: var(--c); flex: none; }
+.b-crewcard header h3 { margin: 0; flex: 1; font: 600 16px/20px var(--b-font); }
+.b-crewcard-sub { margin: 0; font-size: 12px; line-height: 16px; color: var(--b-text-2); }
+.b-crewcard-kpi { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin: 0; }
+.b-crewcard-kpi div { padding: 6px 8px; border-radius: 8px; background: var(--b-hover); min-width: 0; }
+.b-crewcard-kpi dt { font-size: 11px; color: var(--b-text-2); }
+.b-crewcard-kpi dd { margin: 0; font: 600 13px/18px var(--b-font); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-variant-numeric: tabular-nums; }
+.b-crewcard-kpi .bad dd { color: var(--b-danger, #dc2626); }
+.b-crewcard-line { margin: 0; font-size: 13px; line-height: 18px; }
+.b-crewcard-line.muted { color: var(--b-text-3); font-size: 12px; }
+/* Маршрут адресами: номер визита цветом бригады, время, адрес в строку, окно под ним. */
+.b-crewroute { list-style: none; margin: 0 -6px; padding: 0; display: flex; flex-direction: column; }
+.b-crewroute button {
+  display: grid; grid-template-columns: 20px 40px minmax(0, 1fr); column-gap: 8px; width: 100%; padding: 5px 6px;
+  border: 0; border-radius: var(--b-r-s); background: none; color: var(--b-text); font: 400 13px/18px var(--b-font); text-align: left; cursor: pointer;
+}
+.b-crewroute button:hover { background: var(--b-hover); }
+.b-crewroute button.on { background: var(--b-selection); }
+.b-crewroute i {
+  grid-row: 1 / 3; align-self: start; display: grid; place-items: center; width: 20px; height: 20px; margin-top: 1px;
+  border-radius: 10px; background: var(--c); color: #fff; font: 600 11px/1 var(--b-font); font-style: normal; font-variant-numeric: tabular-nums;
+}
+.b-crewroute time { font-weight: 600; font-variant-numeric: tabular-nums; }
+.b-crewroute .a { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.b-crewroute .w { grid-column: 3; color: var(--b-text-2); font-size: 12px; line-height: 16px; font-variant-numeric: tabular-nums; }
+.b-crewroute .late .w { color: var(--b-danger); }
+.b-crewroute .off .a, .b-crewroute .off time { color: var(--b-text-3); text-decoration: line-through; }
+.b-crewcard-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 18px; }
+.b-crewcard-list time { margin-right: 6px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.b-crewcard-list.warn li { color: var(--b-warning, #b45309); }
+.b-crewcard-list.talk li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 6px; }
+.b-crewcard-list.talk li.unread { font-weight: 500; }
+.b-crewcard-acts { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.b-crewcard-app { margin-left: auto; display: inline-flex; width: 32px; height: 32px; align-items: center; justify-content: center; border-radius: 8px; color: var(--b-text-2); }
+.b-crewcard-app:hover { background: var(--b-hover); color: var(--b-text); }
+
+/* ── Сводка дня поверх карты ── */
+.b-daysum { position: absolute; left: 12px; bottom: 12px; z-index: 6; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; max-width: calc(100% - 24px); pointer-events: none; }
+.b-daysum > * { pointer-events: auto; }
+.b-daysum-line:focus { outline: none; }
+.b-daysum-line:focus-visible { outline: 2px solid color-mix(in srgb, var(--b-text) 30%, transparent); outline-offset: 2px; }
+.b-daysum-line {
+  display: flex; align-items: center; gap: 12px; max-width: 100%; padding: 7px 12px; border: 0; border-radius: 18px;
+  background: var(--b-surface); color: var(--b-text-2); font: 400 13px/18px var(--b-font); box-shadow: var(--b-shadow-float, 0 4px 16px rgb(0 0 0 / 0.16)); cursor: pointer; white-space: nowrap; overflow: hidden;
+}
+.b-daysum-line b { color: var(--b-text); font-weight: 600; font-variant-numeric: tabular-nums; }
+.b-daysum-line .bad b { color: var(--b-danger, #dc2626); }
+.b-daysum-line .info b { color: var(--b-info, #2563eb); }
+.b-daysum-line .b-i { flex: none; }
+.b-daysum-line .b-i.up { transform: rotate(180deg); }
+.b-daysum-full { max-width: min(760px, 100%); border-radius: 14px; background: var(--b-surface); box-shadow: var(--b-shadow-float, 0 10px 34px rgb(0 0 0 / 0.22)); animation: b-summary-in 0.18s ease-out; }
+/* Раскрытая сводка — таблица 4 × 2: одинаковые ячейки, текст влево, между рядами волосяная линия.
+   В полосе метрики стояли строкой по центру с разделителями; перенесённые на два ряда, они
+   разъезжались по ширине подписей и читались россыпью. */
+.b-daysum-full { width: min(680px, 100%); padding: 6px 8px; }
+.b-daysum-full > .p-3 { padding: 0; }
+.b-daysum-full .b-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 0; align-items: stretch; overflow: visible; }
+.b-daysum-full .b-metric { min-width: 0; padding: 10px 12px; text-align: left; box-shadow: none; }
+.b-daysum-full .b-metric + .b-metric { box-shadow: none; }
+.b-daysum-full .b-metric:nth-child(n + 5) { box-shadow: inset 0 1px 0 var(--b-line); }
+.b-daysum-full .b-metric small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.b-daysum-full .b-metric b { font: 600 20px/26px var(--b-font); font-variant-numeric: tabular-nums; }
+.b-daysum-full .b-metric > span { min-height: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 760px) { .b-daysum-full .b-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); } .b-daysum-full .b-metric:nth-child(n + 3) { box-shadow: inset 0 1px 0 var(--b-line); } }
+@keyframes b-summary-in { from { opacity: 0; transform: translateY(6px); } }
+@media (prefers-reduced-motion: reduce) { .b-daysum-full { animation: none; } }
+.b-daysum.phone { left: 8px; bottom: 8px; }
+.b-daysum.phone .b-daysum-line:focus { outline: none; }
+.b-daysum-line:focus-visible { outline: 2px solid color-mix(in srgb, var(--b-text) 30%, transparent); outline-offset: 2px; }
+.b-daysum-line { gap: 8px; padding: 5px 10px; font-size: 12px; }
+
+/* ── Телефон: карта под шторкой ── */
+.b-phone { position: relative; height: 100dvh; overflow: hidden; }
+.b-phone-top { position: absolute; top: 0; left: 0; right: 0; z-index: 30; transition: transform 0.22s ease; }
+.b-phone-top.away { transform: translateY(-100%); }
+.b-phone-map { position: absolute; left: 0; right: 0; z-index: 1; }
+.b-psheet {
+  position: absolute; top: 0; left: 0; right: 0; z-index: 20; height: 100dvh;
+  display: flex; flex-direction: column; background: var(--b-surface);
+  border-radius: 16px 16px 0 0; box-shadow: 0 -6px 24px rgb(0 0 0 / 0.12);
+  transition: transform 0.24s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.b-psheet.full { border-radius: 0; box-shadow: none; }
+.b-psheet .b-grabzone { flex: none; height: 16px; display: flex; align-items: center; justify-content: center; touch-action: none; cursor: grab; }
+.b-psheet .b-tabs { flex: none; }
+.b-psheet-body { display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
+.b-psheet-body > .b-cb { flex: 1; min-height: 0; }
+.b-psheet-scroll { overflow-y: auto; min-height: 0; }
+.b-fab { position: absolute; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 25; transition: transform 0.22s ease, opacity 0.22s ease; }
+.b-fab.away { transform: translateY(96px); opacity: 0; pointer-events: none; }
+/* Кнопка «плюс» с веером действий (speed dial). Значок — SVG по центру flex-ом: текстовый «+»
+   сидел на базовой линии шрифта и съезжал с центра круга. */
+.b-dial { position: relative; display: flex; flex-direction: column; align-items: flex-end; gap: 12px; }
+.b-dial-scrim { position: fixed; inset: 0; z-index: -1; background: color-mix(in srgb, var(--b-surface) 70%, transparent); }
+.b-dial-main { width: 56px; height: 56px; border: 0; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: var(--b-accent); color: var(--b-on-accent); box-shadow: 0 6px 18px rgb(0 0 0 / 0.24); cursor: pointer; }
+.b-dial-main:disabled { opacity: 0.5; }
+.b-dial-main .b-i { width: 24px; height: 24px; stroke-width: 1.8; transition: transform 0.2s ease; }
+.b-dial.open .b-dial-main .b-i { transform: rotate(45deg); }
+.b-dial ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+.b-dial li { animation: b-dial-in 0.16s ease-out both; animation-delay: calc(var(--i) * 30ms); }
+.b-dial li button { display: flex; align-items: center; gap: 10px; padding: 0; border: 0; background: none; color: var(--b-text); font: 500 14px/18px var(--b-font); cursor: pointer; }
+.b-dial li span { padding: 6px 10px; border-radius: 8px; background: var(--b-surface); box-shadow: 0 2px 10px rgb(0 0 0 / 0.16); }
+.b-dial li i { width: 44px; height: 44px; margin-right: 6px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: var(--b-surface); color: var(--b-text); box-shadow: 0 2px 10px rgb(0 0 0 / 0.2); font-style: normal; }
+.b-dial li i .b-i { width: 20px; height: 20px; }
+@keyframes b-dial-in { from { opacity: 0; transform: translateY(10px) scale(0.92); } }
+@media (prefers-reduced-motion: reduce) { .b-dial li { animation: none; } .b-dial-main .b-i { transition: none; } }
+.b-tabs-map { margin-left: auto; display: inline-flex !important; align-items: center; gap: 6px; padding: 4px 10px !important; border-radius: 14px; background: var(--b-hover) !important; color: var(--b-text) !important; font: 500 13px/18px var(--b-font); align-self: center; }
+.b-tabs-map::after { display: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .b-phone-top, .b-psheet, .b-fab { transition: none; }
+}
+.b-offline-note { position: fixed; left: 50%; bottom: 8px; transform: translateX(-50%); margin: 0; padding: 4px 10px; border-radius: 12px; background: var(--b-surface); color: var(--b-text-3); font-size: 12px; box-shadow: var(--b-shadow-float); z-index: 5; }
+.b-prio { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--b-text-2); }
+
+/* Строка бригады — ряд общей сетки ленты (subgrid). Раскрытая бригада — прямоугольный блок
+   во всю ширину колонки с кромкой её цвета: имя, лента дня и детали вместе. Скруглений
+   у плашки нет нарочно (скруглённая плашка с полосой слева читается как уведомление, а не как строка). */
+.b-tl-row { position: relative; grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: center; margin: 0 -12px; padding: 0 12px; }
+/* Заливки у раскрытой строки нет: цвет бригады несёт одна кромка слева, фон остаётся фоном колонки. */
+.b-tl-row.open { box-shadow: inset 3px 0 0 var(--c); }
+.b-tl-row.open .eng[aria-pressed='true'], .b-tl-row.open .eng:hover { background: none; }
+.b-tl-row.open .eng em { font-weight: 600; }
+.b-tl-detail { grid-column: 1 / -1; padding: 2px 0 12px; }
+.b-crewcard.embedded { margin: 0; padding: 0; border-radius: 0; background: none; box-shadow: none; }
+.b-crewcard.embedded .b-crewcard-kpi div { border-radius: 6px; }
+/* Тег бригады в поле поиска: список ищется по её маршруту. */
+.b-tagchip { display: inline-flex; align-items: center; gap: 5px; max-width: 150px; margin: 0 2px 0 6px; padding: 2px 6px 2px 7px; border: 0; border-radius: 4px; background: color-mix(in srgb, var(--c) 16%, var(--b-surface)); color: var(--b-text); font: 500 12px/18px var(--b-font); cursor: pointer; white-space: nowrap; }
+.b-tagchip i { flex: none; width: 8px; height: 8px; border-radius: 2px; background: var(--c); }
+.b-tagchip span { overflow: hidden; text-overflow: ellipsis; }
+.b-tagchip b { font-weight: 400; color: var(--b-text-2); }
+/* Телефон: шторка с деталями бригады. */
+.b-dsheet-scrim { position: fixed; inset: 0; z-index: 40; display: flex; align-items: flex-end; background: rgb(0 0 0 / 0.35); }
+.b-dsheet { width: 100%; max-height: 82dvh; overflow-y: auto; border-radius: 16px 16px 0 0; background: var(--b-bg, var(--b-surface)); padding: 6px 0 calc(12px + env(safe-area-inset-bottom)); animation: b-dsheet-in 0.22s ease-out; }
+.b-dsheet .b-grab { margin: 2px auto 8px; }
+.b-dsheet .b-crewcard { margin: 0 10px; }
+.b-dsheet-foot { display: flex; gap: 8px; padding: 10px 10px 0; }
+@keyframes b-dsheet-in { from { transform: translateY(40px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .b-dsheet { animation: none; } }
+/* В раскрытой строке бонус уже стоит в деталях: имя бригады получает место целиком. */
+
+/* Телефон: шторку тянут — без перехода, иначе она отстаёт от пальца. */
+.b-psheet.drag { transition: none; }
+/* Шторка внизу: кнопка «плюс» встаёт над её ручкой и вкладками. */
+.b-fab.up { bottom: calc(52px + 16px + env(safe-area-inset-bottom)); }
+/* Вкладка «Итог дня» на телефоне — та же ровная таблица, что сводка на десктопе, в две колонки. */
+.b-daygrid > .p-3 { padding: 4px 4px 24px; }
+.b-daygrid .b-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 0; align-items: stretch; }
+.b-daygrid .b-metric { min-width: 0; padding: 12px; text-align: left; box-shadow: none; }
+.b-daygrid .b-metric + .b-metric { box-shadow: none; }
+.b-daygrid .b-metric:nth-child(n + 3) { box-shadow: inset 0 1px 0 var(--b-line); }
+.b-daygrid .b-metric b { font: 600 22px/28px var(--b-font); font-variant-numeric: tabular-nums; }
+.b-daygrid .b-metric > span { min-height: 16px; }
+
+/* ── Телефон: нижняя панель разделов ── */
+/* Те же разделы, что в колонке компьютера, по образцу вкладок приложения бригады.
+   Стоит всегда: разделы без крестиков, уходят из них отсюда. */
+:root { --b-pnav-h: 0px; }
+body:has(.b-pnav) { --b-pnav-h: calc(60px + env(safe-area-inset-bottom)); }
+.b-pnav-wrap { position: absolute; left: 0; right: 0; bottom: 0; z-index: 38; }
+.b-pnav {
+  display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
+  box-sizing: border-box; height: var(--b-pnav-h);
+  padding: 2px 2px calc(2px + env(safe-area-inset-bottom));
+  background: var(--b-surface); box-shadow: inset 0 1px 0 var(--b-line);
+}
+.b-pnav button {
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 3px;
+  min-width: 0; height: 56px; padding: 6px 0 2px; border: 0; border-radius: 10px;
+  background: none; color: var(--b-text-2); font: 500 11px/12px var(--b-font); cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+/* Длинная подпись («Живой день», «Настройки» на 360 px) переносится второй строкой, а не обрезается. */
+.b-pnav button span { max-width: 100%; padding: 0 1px; overflow: hidden; text-align: center; hyphens: auto; -webkit-hyphens: auto; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.b-pnav button .b-i { flex: none; width: 20px; height: 20px; }
+.b-pnav button.on { color: var(--b-text); background: var(--b-hover); }
+.b-pnav button.on .b-i { color: var(--b-accent-press, var(--b-text)); }
+.b-pnav button:disabled { opacity: 0.4; cursor: default; }
+.b-pnav button:focus-visible { outline: 2px solid var(--b-info, #2563eb); outline-offset: -2px; }
+/* Разделы — экраны между верхом и панелью: панель под ними не прячется. */
+body:has(.b-pnav) .b-demo { bottom: var(--b-pnav-h); }
+
+/* «Плюс» на карте: над краем шторки у правого края, едет вместе с ней. */
+.b-mapfab { position: absolute; right: 16px; z-index: 25; transition: bottom 0.24s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.18s ease; }
+.b-mapfab.drag { transition: none; }
+.b-mapfab.away { opacity: 0; visibility: hidden; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .b-mapfab { transition: none; } }
+/* Бренд в шапке телефона — знак и «билайн бизнес», как у бригады. */
+.b-phone .b-top .b-brand b { font-size: 15px; }
+
+/* ── Телефон: «Диспетчер», шапки разделов, живой день, имитация ── */
+/* «Плюс» в шапке: жёлтый квадрат одной высоты с соседними кнопками. */
+.b-top .b-plus { --_--height: 36px; width: 36px; padding: 0; }
+.b-top .b-plus .g-button__text { display: inline-flex; align-items: center; justify-content: center; }
+.b-top .b-plus .b-i { width: 18px; height: 18px; }
+
+/* Вкладки шторки: четыре раздела «Диспетчера» и календарь у правого края. */
+@media (max-width: 760px) {
+  .b-psheet .b-tabs { gap: 14px; align-items: center; }
+  .b-psheet .b-tabs > button { flex: none; white-space: nowrap; }
+  .b-psheet .b-tabs > button:disabled { opacity: 0.4; }
+  .b-tabs-end { display: flex; align-items: center; gap: 2px; margin-left: auto; }
+  .b-tabs-end .b-day-btn > span, .b-tabs-end .b-day-btn > .b-i:last-child { display: none; }
+  .b-tabs-end .b-day-btn { flex: none; justify-content: center; width: 32px; height: 32px; padding: 0; }
+  .b-psheet .b-tabs .b-tabs-map { display: grid !important; place-items: center; width: 32px; height: 32px; padding: 0 !important; border-radius: 8px; }
+  /* Заголовки колонок внутри шторки лишние: что открыто, говорит вкладка. */
+  .b-psheet-body .b-ch { display: none; }
+}
+@media (max-width: 370px) {
+  .b-psheet .b-tabs { gap: 10px; padding: 0 10px; }
+  .b-psheet .b-tabs > button em { display: none; }
+}
+
+@media (max-width: 760px) {
+  /* Живой день: полосы чисел под каждой картой сняты — карты выше, а итог говорит
+     сводка «Наш план к этой минуте», собранная блоками «число над подписью». */
+  .b-demo-duo .b-demo-strip { display: none; }
+  .b-demo .b-demo-delta { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; padding: 8px 10px 10px; }
+  .b-demo .b-demo-delta > b { grid-column: 1 / -1; font-size: 14px; line-height: 18px; }
+  .b-demo .b-demo-delta > span { display: flex; flex-direction: column; gap: 1px; min-width: 0; padding: 7px 10px; border-radius: var(--b-r-m); background: var(--b-hover); }
+  .b-demo .b-demo-delta > span b { font: 700 18px/22px var(--b-font); color: inherit; }
+  .b-demo .b-demo-delta > span small { overflow: hidden; font: 400 12px/15px var(--b-font); color: var(--b-text-2); text-overflow: ellipsis; white-space: nowrap; }
+
+  /* Имитация: три плана одной строкой с прокруткой вбок, «Наш план» первым —
+     он на первом экране, соседний видно наполовину, и строка сама говорит, что листается. */
+  .b-race .b-race-cards { display: flex; gap: 10px; margin: 0 -12px 12px; padding: 0 12px 2px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .b-race .b-race-cards::-webkit-scrollbar { display: none; }
+  .b-race .b-race-card { flex: 0 0 62%; padding: 10px 12px; scroll-snap-align: start; }
+  .b-race .b-race-card.ours { order: -1; }
+  .b-race .b-race-card > b { font-size: 28px; line-height: 34px; }
+  .b-race .b-race-card .row { font-size: 12px; line-height: 18px; }
+
+  /* Отчёты: страницы — бургером в шапке, выпадающий список над страницей не нужен. */
+  .b-an-main > .b-an-phone-nav { display: none; }
+
+  /* Настройки: в шапке раздела — поиск значком, бургер групп и «…». */
+  .b-st-acts { display: flex; align-items: center; gap: 2px; margin-left: auto; }
+  .b-st-side .b-csearch.shut { display: none; }
+  .b-st .b-st-nav { display: none; }
+}

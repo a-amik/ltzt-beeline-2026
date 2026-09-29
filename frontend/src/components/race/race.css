@@ -1,0 +1,112 @@
+/* Имитация: гонка трёх планов. Цвета планов — от токенов темы: контроль
+   синий (как «информация»), базовый серый, наш — зелёный (как «хорошо»):
+   жёлтый бренда на белом тонкой линией не читался и спорил с выделением. */
+:root {
+  --race-control: var(--b-info);
+  --race-baseline: var(--b-text-3);
+  --race-ours: var(--b-success);
+  --race-l0: var(--b-line-2);
+  --race-l1: color-mix(in srgb, var(--b-text-3) 55%, transparent);
+  --race-bad: var(--b-danger);
+}
+
+/* Прежняя форма имитации открывается поверх экранов показа кнопкой «Тест дня»
+   или «Сценарий»: окно показа стоит на 40, форма — выше. */
+.b-drawer.z-30 { z-index: 45; }
+
+.b-race { flex: 1; min-height: 0; overflow: auto; padding: 14px 16px 24px; }
+.b-race > * { max-width: 1540px; }
+.b-race-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 12px; }
+.b-race-card { position: relative; padding: 12px 14px; border-radius: var(--b-r-m); background: var(--b-surface); box-shadow: inset 0 0 0 1px var(--b-line); transition: box-shadow var(--b-t-mid) var(--b-ease); }
+.b-race-card.lead { box-shadow: inset 0 0 0 2px var(--c); }
+.b-race-card .h { display: flex; align-items: center; gap: 8px; font: 600 15px/20px var(--b-font); }
+.b-race-card .h i { width: 10px; height: 10px; border-radius: 5px; background: var(--c); }
+.b-race-card .h em { margin-left: auto; padding: 1px 8px; border-radius: 10px; background: var(--c); color: var(--b-surface); font: 600 11px/18px var(--b-font); font-style: normal; }
+.b-race-card > b { display: block; margin: 4px 0 0; font: 700 40px/46px var(--b-font); font-variant-numeric: tabular-nums; color: var(--c); }
+.b-race-card .n { margin-bottom: 6px; font: 400 12px/16px var(--b-font); color: var(--b-text-3); }
+.b-race-card .row { display: flex; justify-content: space-between; font: 400 13px/20px var(--b-font); color: var(--b-text-2); font-variant-numeric: tabular-nums; }
+.b-race-card .row span:last-child { color: var(--b-text); }
+/* Строка «К контролю» у нашего плана: главный довод — меньше бригад и пробега при той же доле вовремя. */
+
+.b-race-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-bottom: 12px; }
+.b-race-fig { margin: 0; padding: 12px; border-radius: var(--b-r-m); background: var(--b-surface); box-shadow: inset 0 0 0 1px var(--b-line); }
+.b-race-fig .t { display: flex; align-items: center; gap: 6px; margin-bottom: 6px; font: 400 13px/18px var(--b-font); color: var(--b-text-2); }
+.b-race-fig .t b { color: var(--b-text); }
+.b-race-fig svg { display: block; width: 100%; height: auto; }
+.b-race-fig svg text { font: 400 14px/16px var(--b-font); fill: var(--b-text-3); } /* SVG ужимается до ширины колонки: 14 в нём — около 12 px на экране */
+.b-race-fig .grid { stroke: var(--b-line); }
+.b-race-fig .due { fill: var(--b-neutral-bg); stroke: var(--b-line-2); }
+.b-race-fig .cursor { stroke: var(--b-text-3); stroke-dasharray: 3 3; }
+.b-race-fig .band line { stroke: var(--b-line-2); stroke-dasharray: 2 4; }
+.b-race-fig .band text { font-size: 13px; opacity: 0.5; }
+.b-race-fig .band.on text { opacity: 1; fill: var(--b-text-2); }
+/* Опоздания по часам: строка на план, в клетке часа — число опозданий; пусто — ноль.
+   Столбики в треть часа шириной не читались: при одном-двух опозданиях их не видно. */
+.b-race-fig .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 4px; font: 400 12px/16px var(--b-font); color: var(--b-text-2); }
+.b-race-fig .legend i { display: inline-block; width: 14px; height: 3px; margin-right: 5px; vertical-align: 3px; border-radius: 2px; }
+.b-race-fig .legend i.f { height: 10px; vertical-align: -1px; background: var(--b-neutral-bg); box-shadow: inset 0 0 0 1px var(--b-line-2); }
+
+.b-race-strip .rows { display: grid; gap: 4px; }
+.b-race-strip .r { display: grid; grid-template-columns: 130px minmax(0, 1fr); align-items: center; gap: 8px; }
+.b-race-strip .l { font: 600 12px/16px var(--b-font); color: var(--b-text-2); }
+.b-race-strip .cells { display: grid; gap: 2px; height: 18px; }
+.b-race-strip .cells > * { display: block; min-width: 0; padding: 0; border: 0; border-radius: 2px; background: var(--b-hover); }
+.b-race-strip .cells button { cursor: pointer; }
+.b-race-strip .cells button:hover { outline: 2px solid var(--b-text-3); outline-offset: 0; }
+.b-race-strip .scrub { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 0 8px; margin-top: 10px; font: 400 11px/14px var(--b-font); color: var(--b-text-3); }
+.b-race-strip .scrub input { grid-column: 2; width: 100%; accent-color: var(--b-accent); }
+.b-race-strip .scrub span:nth-of-type(1) { grid-column: 2; grid-row: 2; }
+.b-race-strip .scrub span:nth-of-type(2) { grid-column: 2; grid-row: 2; justify-self: end; }
+.b-race-help { max-width: 320px; padding: 4px 2px; font: 400 13px/18px var(--b-font); }
+
+@media (max-width: 1100px) {
+  .b-race-grid { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .b-race { padding: 10px 12px 20px; }
+  .b-race-cards { grid-template-columns: minmax(0, 1fr); }
+  .b-race-card > b { font-size: 32px; line-height: 38px; }
+  .b-race-strip .r, .b-race-strip .scrub { grid-template-columns: 76px minmax(0, 1fr); }
+  .b-race-strip .cells { gap: 1px; }
+}
+
+/* «Тест дня» из имитации выезжает справа: слева — колонка разделов и карточки гонки. */
+body:has(.b-race) .b-app.railed .b-drawer,
+body:has(.b-race) .b-drawer { left: 0; justify-content: flex-end; }
+
+/* Заголовок экрана показа без подзаголовка: пояснение — в ⓘ рядом с именем. */
+.b-demo-name { display: inline-flex; align-items: center; gap: 6px; }
+.b-demo-name .g-help-mark,
+.b-demo-pane h3 .g-help-mark,
+.b-race-card .h .g-help-mark { color: var(--b-text-3); }
+.b-demo-pane h3 { display: flex; align-items: center; gap: 6px; }
+.b-demo-info { max-width: 340px; padding: 4px 2px; font: 400 13px/18px var(--b-font); color: var(--b-text); }
+
+/* Крестик у разделов колонки — только на телефоне: на компьютере из раздела уходят колонкой, Esc закрывает. */
+.b-demo-close.phone { display: none; }
+/* Телефон: разделы переключает нижняя панель — крестиков у экранов нет, закрывает Esc. */
+@media (max-width: 760px) { .b-demo-close { display: none; } }
+
+/* Итог прогона полосами: вовремя цветом плана, опоздание — оранжевым, не сделано — красным.
+   Чем длиннее цветная часть, тем лучше; лучший — первым. */
+.b-race-out { display: grid; gap: 14px; padding: 6px 0 4px; }
+.b-race-out .oh { display: flex; align-items: baseline; gap: 8px; margin-bottom: 4px; }
+.b-race-out .name { font: 600 15px/20px var(--b-font); }
+.b-race-out em { padding: 0 8px; border-radius: 10px; color: var(--b-surface); font: 600 11px/18px var(--b-font); font-style: normal; text-transform: uppercase; letter-spacing: 0.08em; }
+.b-race-out .sum { margin-left: auto; font: 400 13px/18px var(--b-font); color: var(--b-text-2); font-variant-numeric: tabular-nums; }
+.b-race-out .sum b { font: 700 16px/20px var(--b-font); color: var(--b-text); }
+.b-race-out .track { display: flex; height: 28px; border-radius: 6px; overflow: hidden; background: var(--b-hover); }
+.b-race-out .track span { display: grid; place-items: center; min-width: 22px; font: 600 12px/16px var(--b-font); color: var(--b-surface); font-variant-numeric: tabular-nums; transition: width var(--b-t-mid) var(--b-ease); }
+.b-race-out .track .late { background: color-mix(in srgb, var(--b-warn) 45%, var(--b-accent)); color: #13171b; }
+.b-race-out .track .miss { background: repeating-linear-gradient(135deg, var(--b-danger) 0 6px, color-mix(in srgb, var(--b-danger) 70%, #000) 6px 12px); }
+.b-race-out .meta { margin-top: 4px; font: 400 12px/16px var(--b-font); color: var(--b-text-3); font-variant-numeric: tabular-nums; }
+.b-race-out .key { display: flex; gap: 14px; font: 400 12px/16px var(--b-font); color: var(--b-text-2); }
+.b-race-out .key i { display: inline-block; width: 10px; height: 10px; margin-right: 5px; vertical-align: -1px; border-radius: 2px; }
+.b-race-out .key i.ok { background: var(--b-text-3); }
+.b-race-out .key i.late { background: color-mix(in srgb, var(--b-warn) 45%, var(--b-accent)); }
+.b-race-out .key i.miss { background: repeating-linear-gradient(135deg, var(--b-danger) 0 3px, color-mix(in srgb, var(--b-danger) 70%, #000) 3px 6px); }
+
+/* Путь и экономия — подписью под полосой плана: разница к контролю, каждая цифра своим цветом. */
+.b-race-out .meta .d b { font-weight: 600; }
+.b-race-out .meta .d .good { color: var(--b-success); }
+.b-race-out .meta .d .bad { color: var(--b-danger); }

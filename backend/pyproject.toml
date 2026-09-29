@@ -1,0 +1,34 @@
+[project]
+name = "bee-routing"
+version = "0.1.0"
+description = "Планировщик маршрутов выездных инженеров: FastAPI + OR-Tools"
+readme = "README.md"
+authors = [
+    { name = "a-amik", email = "amik@amik.am" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "ortools",
+    "pydantic>=2",
+    "httpx",
+    "python-multipart",
+    "pyvrp>=0.14.0",
+]
+
+[project.scripts]
+bee-routing = "bee_routing:main"
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "ruff",
+]
+
+[tool.ruff]
+line-length = 100
+
+[build-system]
+requires = ["uv_build>=0.11.7,<0.12.0"]
+build-backend = "uv_build"

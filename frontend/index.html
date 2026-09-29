@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#13171b" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Маршрут дня</title>
+    <script>
+      // Тема ставится до первой отрисовки, иначе экран загрузки мигнёт чужой.
+      try {
+        var saved = localStorage.getItem('b-theme')
+        document.documentElement.dataset.theme =
+          saved === 'light' || saved === 'dark' ? saved : matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+      } catch (e) {}
+    </script>
+    <script src="/route-loader.js"></script>
+    <style>
+      @font-face { font-family: 'Beeline Sans'; font-weight: 400; font-display: swap; src: url('/fonts/BeelineSans-Regular.woff2') format('woff2'); }
+      @font-face { font-family: 'Beeline Sans'; font-weight: 700; font-display: swap; src: url('/fonts/BeelineSans-Bold.woff2') format('woff2'); }
+      #boot {
+        position: fixed; inset: 0; z-index: 1000;
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+        background: #f4f5f6; color: #13171b;
+        font-family: 'Beeline Sans', system-ui, sans-serif;
+        transition: opacity 0.25s ease;
+      }
+      [data-theme='dark'] #boot { background: #0f1215; color: #f2f3f4; --route-loader-bg: #262b31; }
+      #boot.is-done { opacity: 0; pointer-events: none; }
+      #boot route-loader { width: 88px; height: 88px; }
+      #boot b { font-size: 22px; line-height: 28px; font-weight: 700; }
+      #boot span { margin-top: -12px; font-size: 14px; line-height: 20px; opacity: 0.64; }
+      @media (prefers-reduced-motion: reduce) { #boot { transition: none; } }
+    </style>
+  </head>
+  <body>
+    <div id="boot">
+      <route-loader aria-label="Загружаем данные"></route-loader>
+      <b>Маршрут дня</b>
+      <span aria-hidden="true">Загружаем данные</span>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

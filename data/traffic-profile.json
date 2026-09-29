@@ -1,0 +1,978 @@
+{
+ "_": "Профиль часа из архива YMArchive (баллы «Яндекс Пробок» по Москве, 1.09.2013—1.12.2015). score — средний балл и 90-й процентиль; k — форма: отношение к плато рабочего дня 11—17 ч (3.90 балла), пересчитанное в множитель времени в пути по линейной модели k = 1 + alpha·score, alpha подбирается замером сегодняшнего маршрутизатора (шаг 2 листа); по умолчанию alpha = 0.10, т.е. 6 баллов = +60 % к свободной дороге. Велосипед и пешеход: k = 1.",
+ "source": "https://sourceforge.net/projects/ymarchive/",
+ "plateau_score": 3.9,
+ "alpha_default": 0.1,
+ "day_types": {
+  "workday": [
+   {
+    "hour": 0,
+    "score_mean": 0.14,
+    "score_p90": 1,
+    "k_mean": 1.01,
+    "k_p90": 1.1,
+    "n": 452
+   },
+   {
+    "hour": 1,
+    "score_mean": 0.02,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 453
+   },
+   {
+    "hour": 2,
+    "score_mean": 0.0,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 451
+   },
+   {
+    "hour": 3,
+    "score_mean": 0.0,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 453
+   },
+   {
+    "hour": 4,
+    "score_mean": 0,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 453
+   },
+   {
+    "hour": 5,
+    "score_mean": 0,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 452
+   },
+   {
+    "hour": 6,
+    "score_mean": 0.02,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 451
+   },
+   {
+    "hour": 7,
+    "score_mean": 1.39,
+    "score_p90": 2,
+    "k_mean": 1.14,
+    "k_p90": 1.2,
+    "n": 452
+   },
+   {
+    "hour": 8,
+    "score_mean": 3.77,
+    "score_p90": 6,
+    "k_mean": 1.38,
+    "k_p90": 1.6,
+    "n": 453
+   },
+   {
+    "hour": 9,
+    "score_mean": 5.21,
+    "score_p90": 6,
+    "k_mean": 1.52,
+    "k_p90": 1.6,
+    "n": 452
+   },
+   {
+    "hour": 10,
+    "score_mean": 4.65,
+    "score_p90": 6,
+    "k_mean": 1.47,
+    "k_p90": 1.6,
+    "n": 452
+   },
+   {
+    "hour": 11,
+    "score_mean": 3.91,
+    "score_p90": 6,
+    "k_mean": 1.39,
+    "k_p90": 1.6,
+    "n": 451
+   },
+   {
+    "hour": 12,
+    "score_mean": 3.67,
+    "score_p90": 6,
+    "k_mean": 1.37,
+    "k_p90": 1.6,
+    "n": 454
+   },
+   {
+    "hour": 13,
+    "score_mean": 3.71,
+    "score_p90": 6,
+    "k_mean": 1.37,
+    "k_p90": 1.6,
+    "n": 452
+   },
+   {
+    "hour": 14,
+    "score_mean": 3.9,
+    "score_p90": 6,
+    "k_mean": 1.39,
+    "k_p90": 1.6,
+    "n": 451
+   },
+   {
+    "hour": 15,
+    "score_mean": 3.99,
+    "score_p90": 6,
+    "k_mean": 1.4,
+    "k_p90": 1.6,
+    "n": 451
+   },
+   {
+    "hour": 16,
+    "score_mean": 3.98,
+    "score_p90": 6,
+    "k_mean": 1.4,
+    "k_p90": 1.6,
+    "n": 451
+   },
+   {
+    "hour": 17,
+    "score_mean": 4.13,
+    "score_p90": 6,
+    "k_mean": 1.41,
+    "k_p90": 1.6,
+    "n": 452
+   },
+   {
+    "hour": 18,
+    "score_mean": 5.65,
+    "score_p90": 7,
+    "k_mean": 1.56,
+    "k_p90": 1.7,
+    "n": 451
+   },
+   {
+    "hour": 19,
+    "score_mean": 6.59,
+    "score_p90": 7,
+    "k_mean": 1.66,
+    "k_p90": 1.7,
+    "n": 450
+   },
+   {
+    "hour": 20,
+    "score_mean": 4.99,
+    "score_p90": 7,
+    "k_mean": 1.5,
+    "k_p90": 1.7,
+    "n": 452
+   },
+   {
+    "hour": 21,
+    "score_mean": 2.42,
+    "score_p90": 5,
+    "k_mean": 1.24,
+    "k_p90": 1.5,
+    "n": 452
+   },
+   {
+    "hour": 22,
+    "score_mean": 1.43,
+    "score_p90": 2,
+    "k_mean": 1.14,
+    "k_p90": 1.2,
+    "n": 452
+   },
+   {
+    "hour": 23,
+    "score_mean": 1,
+    "score_p90": 2,
+    "k_mean": 1.1,
+    "k_p90": 1.2,
+    "n": 247
+   }
+  ],
+  "friday": [
+   {
+    "hour": 0,
+    "score_mean": 0.38,
+    "score_p90": 1,
+    "k_mean": 1.04,
+    "k_p90": 1.1,
+    "n": 112
+   },
+   {
+    "hour": 1,
+    "score_mean": 0.09,
+    "score_p90": 0,
+    "k_mean": 1.01,
+    "k_p90": 1.0,
+    "n": 112
+   },
+   {
+    "hour": 2,
+    "score_mean": 0.06,
+    "score_p90": 0,
+    "k_mean": 1.01,
+    "k_p90": 1.0,
+    "n": 112
+   },
+   {
+    "hour": 3,
+    "score_mean": 0.05,
+    "score_p90": 0,
+    "k_mean": 1.01,
+    "k_p90": 1.0,
+    "n": 112
+   },
+   {
+    "hour": 4,
+    "score_mean": 0.05,
+    "score_p90": 0,
+    "k_mean": 1.01,
+    "k_p90": 1.0,
+    "n": 112
+   },
+   {
+    "hour": 5,
+    "score_mean": 0.05,
+    "score_p90": 0,
+    "k_mean": 1.01,
+    "k_p90": 1.0,
+    "n": 112
+   },
+   {
+    "hour": 6,
+    "score_mean": 0.06,
+    "score_p90": 0,
+    "k_mean": 1.01,
+    "k_p90": 1.0,
+    "n": 112
+   },
+   {
+    "hour": 7,
+    "score_mean": 1.36,
+    "score_p90": 2,
+    "k_mean": 1.14,
+    "k_p90": 1.2,
+    "n": 112
+   },
+   {
+    "hour": 8,
+    "score_mean": 3.15,
+    "score_p90": 6,
+    "k_mean": 1.32,
+    "k_p90": 1.6,
+    "n": 112
+   },
+   {
+    "hour": 9,
+    "score_mean": 4.63,
+    "score_p90": 6,
+    "k_mean": 1.46,
+    "k_p90": 1.6,
+    "n": 112
+   },
+   {
+    "hour": 10,
+    "score_mean": 4.01,
+    "score_p90": 6,
+    "k_mean": 1.4,
+    "k_p90": 1.6,
+    "n": 112
+   },
+   {
+    "hour": 11,
+    "score_mean": 3.57,
+    "score_p90": 6,
+    "k_mean": 1.36,
+    "k_p90": 1.6,
+    "n": 111
+   },
+   {
+    "hour": 12,
+    "score_mean": 3.71,
+    "score_p90": 6,
+    "k_mean": 1.37,
+    "k_p90": 1.6,
+    "n": 111
+   },
+   {
+    "hour": 13,
+    "score_mean": 4.14,
+    "score_p90": 6,
+    "k_mean": 1.41,
+    "k_p90": 1.6,
+    "n": 112
+   },
+   {
+    "hour": 14,
+    "score_mean": 4.66,
+    "score_p90": 6,
+    "k_mean": 1.47,
+    "k_p90": 1.6,
+    "n": 110
+   },
+   {
+    "hour": 15,
+    "score_mean": 4.96,
+    "score_p90": 6,
+    "k_mean": 1.5,
+    "k_p90": 1.6,
+    "n": 112
+   },
+   {
+    "hour": 16,
+    "score_mean": 5.51,
+    "score_p90": 7,
+    "k_mean": 1.55,
+    "k_p90": 1.7,
+    "n": 112
+   },
+   {
+    "hour": 17,
+    "score_mean": 6.21,
+    "score_p90": 7,
+    "k_mean": 1.62,
+    "k_p90": 1.7,
+    "n": 112
+   },
+   {
+    "hour": 18,
+    "score_mean": 6.64,
+    "score_p90": 7,
+    "k_mean": 1.66,
+    "k_p90": 1.7,
+    "n": 112
+   },
+   {
+    "hour": 19,
+    "score_mean": 6.19,
+    "score_p90": 7,
+    "k_mean": 1.62,
+    "k_p90": 1.7,
+    "n": 109
+   },
+   {
+    "hour": 20,
+    "score_mean": 4.57,
+    "score_p90": 6,
+    "k_mean": 1.46,
+    "k_p90": 1.6,
+    "n": 112
+   },
+   {
+    "hour": 21,
+    "score_mean": 2.13,
+    "score_p90": 5,
+    "k_mean": 1.21,
+    "k_p90": 1.5,
+    "n": 112
+   },
+   {
+    "hour": 22,
+    "score_mean": 1.59,
+    "score_p90": 2,
+    "k_mean": 1.16,
+    "k_p90": 1.2,
+    "n": 112
+   },
+   {
+    "hour": 23,
+    "score_mean": 1.32,
+    "score_p90": 2,
+    "k_mean": 1.13,
+    "k_p90": 1.2,
+    "n": 63
+   }
+  ],
+  "saturday": [
+   {
+    "hour": 0,
+    "score_mean": 0.56,
+    "score_p90": 1,
+    "k_mean": 1.06,
+    "k_p90": 1.1,
+    "n": 112
+   },
+   {
+    "hour": 1,
+    "score_mean": 0.18,
+    "score_p90": 1,
+    "k_mean": 1.02,
+    "k_p90": 1.1,
+    "n": 113
+   },
+   {
+    "hour": 2,
+    "score_mean": 0.01,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 113
+   },
+   {
+    "hour": 3,
+    "score_mean": 0.02,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 112
+   },
+   {
+    "hour": 4,
+    "score_mean": 0,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 113
+   },
+   {
+    "hour": 5,
+    "score_mean": 0.01,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 113
+   },
+   {
+    "hour": 6,
+    "score_mean": 0,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 112
+   },
+   {
+    "hour": 7,
+    "score_mean": 0.03,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 113
+   },
+   {
+    "hour": 8,
+    "score_mean": 0.11,
+    "score_p90": 1,
+    "k_mean": 1.01,
+    "k_p90": 1.1,
+    "n": 112
+   },
+   {
+    "hour": 9,
+    "score_mean": 0.62,
+    "score_p90": 1,
+    "k_mean": 1.06,
+    "k_p90": 1.1,
+    "n": 112
+   },
+   {
+    "hour": 10,
+    "score_mean": 1.12,
+    "score_p90": 2,
+    "k_mean": 1.11,
+    "k_p90": 1.2,
+    "n": 112
+   },
+   {
+    "hour": 11,
+    "score_mean": 1.57,
+    "score_p90": 2,
+    "k_mean": 1.16,
+    "k_p90": 1.2,
+    "n": 113
+   },
+   {
+    "hour": 12,
+    "score_mean": 1.67,
+    "score_p90": 2,
+    "k_mean": 1.17,
+    "k_p90": 1.2,
+    "n": 112
+   },
+   {
+    "hour": 13,
+    "score_mean": 2.45,
+    "score_p90": 5,
+    "k_mean": 1.25,
+    "k_p90": 1.5,
+    "n": 113
+   },
+   {
+    "hour": 14,
+    "score_mean": 3.15,
+    "score_p90": 6,
+    "k_mean": 1.32,
+    "k_p90": 1.6,
+    "n": 112
+   },
+   {
+    "hour": 15,
+    "score_mean": 3.5,
+    "score_p90": 6,
+    "k_mean": 1.35,
+    "k_p90": 1.6,
+    "n": 113
+   },
+   {
+    "hour": 16,
+    "score_mean": 3.44,
+    "score_p90": 6,
+    "k_mean": 1.34,
+    "k_p90": 1.6,
+    "n": 113
+   },
+   {
+    "hour": 17,
+    "score_mean": 2.98,
+    "score_p90": 6,
+    "k_mean": 1.3,
+    "k_p90": 1.6,
+    "n": 113
+   },
+   {
+    "hour": 18,
+    "score_mean": 2.4,
+    "score_p90": 6,
+    "k_mean": 1.24,
+    "k_p90": 1.6,
+    "n": 113
+   },
+   {
+    "hour": 19,
+    "score_mean": 1.78,
+    "score_p90": 5,
+    "k_mean": 1.18,
+    "k_p90": 1.5,
+    "n": 111
+   },
+   {
+    "hour": 20,
+    "score_mean": 1.25,
+    "score_p90": 2,
+    "k_mean": 1.12,
+    "k_p90": 1.2,
+    "n": 113
+   },
+   {
+    "hour": 21,
+    "score_mean": 1.02,
+    "score_p90": 2,
+    "k_mean": 1.1,
+    "k_p90": 1.2,
+    "n": 113
+   },
+   {
+    "hour": 22,
+    "score_mean": 0.8,
+    "score_p90": 1,
+    "k_mean": 1.08,
+    "k_p90": 1.1,
+    "n": 112
+   },
+   {
+    "hour": 23,
+    "score_mean": 0.63,
+    "score_p90": 1,
+    "k_mean": 1.06,
+    "k_p90": 1.1,
+    "n": 62
+   }
+  ],
+  "sunday": [
+   {
+    "hour": 0,
+    "score_mean": 0.21,
+    "score_p90": 1,
+    "k_mean": 1.02,
+    "k_p90": 1.1,
+    "n": 113
+   },
+   {
+    "hour": 1,
+    "score_mean": 0.04,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 113
+   },
+   {
+    "hour": 2,
+    "score_mean": 0,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 114
+   },
+   {
+    "hour": 3,
+    "score_mean": 0,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 114
+   },
+   {
+    "hour": 4,
+    "score_mean": 0,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 114
+   },
+   {
+    "hour": 5,
+    "score_mean": 0,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 113
+   },
+   {
+    "hour": 6,
+    "score_mean": 0,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 114
+   },
+   {
+    "hour": 7,
+    "score_mean": 0.01,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 114
+   },
+   {
+    "hour": 8,
+    "score_mean": 0.01,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 114
+   },
+   {
+    "hour": 9,
+    "score_mean": 0.01,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 113
+   },
+   {
+    "hour": 10,
+    "score_mean": 0.06,
+    "score_p90": 0,
+    "k_mean": 1.01,
+    "k_p90": 1.0,
+    "n": 114
+   },
+   {
+    "hour": 11,
+    "score_mean": 0.32,
+    "score_p90": 1,
+    "k_mean": 1.03,
+    "k_p90": 1.1,
+    "n": 114
+   },
+   {
+    "hour": 12,
+    "score_mean": 0.82,
+    "score_p90": 1,
+    "k_mean": 1.08,
+    "k_p90": 1.1,
+    "n": 114
+   },
+   {
+    "hour": 13,
+    "score_mean": 1.14,
+    "score_p90": 2,
+    "k_mean": 1.11,
+    "k_p90": 1.2,
+    "n": 114
+   },
+   {
+    "hour": 14,
+    "score_mean": 1.42,
+    "score_p90": 2,
+    "k_mean": 1.14,
+    "k_p90": 1.2,
+    "n": 114
+   },
+   {
+    "hour": 15,
+    "score_mean": 1.48,
+    "score_p90": 2,
+    "k_mean": 1.15,
+    "k_p90": 1.2,
+    "n": 114
+   },
+   {
+    "hour": 16,
+    "score_mean": 1.41,
+    "score_p90": 2,
+    "k_mean": 1.14,
+    "k_p90": 1.2,
+    "n": 114
+   },
+   {
+    "hour": 17,
+    "score_mean": 1.34,
+    "score_p90": 2,
+    "k_mean": 1.13,
+    "k_p90": 1.2,
+    "n": 114
+   },
+   {
+    "hour": 18,
+    "score_mean": 1.29,
+    "score_p90": 2,
+    "k_mean": 1.13,
+    "k_p90": 1.2,
+    "n": 114
+   },
+   {
+    "hour": 19,
+    "score_mean": 1.11,
+    "score_p90": 2,
+    "k_mean": 1.11,
+    "k_p90": 1.2,
+    "n": 114
+   },
+   {
+    "hour": 20,
+    "score_mean": 0.85,
+    "score_p90": 1,
+    "k_mean": 1.09,
+    "k_p90": 1.1,
+    "n": 114
+   },
+   {
+    "hour": 21,
+    "score_mean": 0.59,
+    "score_p90": 1,
+    "k_mean": 1.06,
+    "k_p90": 1.1,
+    "n": 114
+   },
+   {
+    "hour": 22,
+    "score_mean": 0.29,
+    "score_p90": 1,
+    "k_mean": 1.03,
+    "k_p90": 1.1,
+    "n": 114
+   },
+   {
+    "hour": 23,
+    "score_mean": 0.19,
+    "score_p90": 1,
+    "k_mean": 1.02,
+    "k_p90": 1.1,
+    "n": 63
+   }
+  ],
+  "holiday": [
+   {
+    "hour": 0,
+    "score_mean": 0.24,
+    "score_p90": 1,
+    "k_mean": 1.02,
+    "k_p90": 1.1,
+    "n": 29
+   },
+   {
+    "hour": 1,
+    "score_mean": 0.1,
+    "score_p90": 1,
+    "k_mean": 1.01,
+    "k_p90": 1.1,
+    "n": 29
+   },
+   {
+    "hour": 2,
+    "score_mean": 0.03,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 29
+   },
+   {
+    "hour": 3,
+    "score_mean": 0,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 29
+   },
+   {
+    "hour": 4,
+    "score_mean": 0,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 29
+   },
+   {
+    "hour": 5,
+    "score_mean": 0,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 29
+   },
+   {
+    "hour": 6,
+    "score_mean": 0.03,
+    "score_p90": 0,
+    "k_mean": 1.0,
+    "k_p90": 1.0,
+    "n": 29
+   },
+   {
+    "hour": 7,
+    "score_mean": 0.07,
+    "score_p90": 0,
+    "k_mean": 1.01,
+    "k_p90": 1.0,
+    "n": 29
+   },
+   {
+    "hour": 8,
+    "score_mean": 0.07,
+    "score_p90": 0,
+    "k_mean": 1.01,
+    "k_p90": 1.0,
+    "n": 29
+   },
+   {
+    "hour": 9,
+    "score_mean": 0.1,
+    "score_p90": 0,
+    "k_mean": 1.01,
+    "k_p90": 1.0,
+    "n": 29
+   },
+   {
+    "hour": 10,
+    "score_mean": 0.14,
+    "score_p90": 1,
+    "k_mean": 1.01,
+    "k_p90": 1.1,
+    "n": 29
+   },
+   {
+    "hour": 11,
+    "score_mean": 0.17,
+    "score_p90": 1,
+    "k_mean": 1.02,
+    "k_p90": 1.1,
+    "n": 29
+   },
+   {
+    "hour": 12,
+    "score_mean": 0.45,
+    "score_p90": 1,
+    "k_mean": 1.04,
+    "k_p90": 1.1,
+    "n": 29
+   },
+   {
+    "hour": 13,
+    "score_mean": 0.79,
+    "score_p90": 1,
+    "k_mean": 1.08,
+    "k_p90": 1.1,
+    "n": 29
+   },
+   {
+    "hour": 14,
+    "score_mean": 1,
+    "score_p90": 2,
+    "k_mean": 1.1,
+    "k_p90": 1.2,
+    "n": 29
+   },
+   {
+    "hour": 15,
+    "score_mean": 1.14,
+    "score_p90": 2,
+    "k_mean": 1.11,
+    "k_p90": 1.2,
+    "n": 29
+   },
+   {
+    "hour": 16,
+    "score_mean": 1.1,
+    "score_p90": 2,
+    "k_mean": 1.11,
+    "k_p90": 1.2,
+    "n": 29
+   },
+   {
+    "hour": 17,
+    "score_mean": 1.14,
+    "score_p90": 2,
+    "k_mean": 1.11,
+    "k_p90": 1.2,
+    "n": 29
+   },
+   {
+    "hour": 18,
+    "score_mean": 1,
+    "score_p90": 2,
+    "k_mean": 1.1,
+    "k_p90": 1.2,
+    "n": 29
+   },
+   {
+    "hour": 19,
+    "score_mean": 0.9,
+    "score_p90": 2,
+    "k_mean": 1.09,
+    "k_p90": 1.2,
+    "n": 29
+   },
+   {
+    "hour": 20,
+    "score_mean": 0.66,
+    "score_p90": 1,
+    "k_mean": 1.07,
+    "k_p90": 1.1,
+    "n": 29
+   },
+   {
+    "hour": 21,
+    "score_mean": 0.34,
+    "score_p90": 1,
+    "k_mean": 1.03,
+    "k_p90": 1.1,
+    "n": 29
+   },
+   {
+    "hour": 22,
+    "score_mean": 0.31,
+    "score_p90": 1,
+    "k_mean": 1.03,
+    "k_p90": 1.1,
+    "n": 29
+   },
+   {
+    "hour": 23,
+    "score_mean": 0.07,
+    "score_p90": 0,
+    "k_mean": 1.01,
+    "k_p90": 1.0,
+    "n": 15
+   }
+  ]
+ }
+}

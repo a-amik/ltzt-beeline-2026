@@ -1,0 +1,44 @@
+/* Поле поиска колонки: метки мест в начале, воронка в конце. */
+.b-csearch { flex: none; padding: 4px 12px 8px; }
+.b-csearch .g-text-input__content { min-width: 0; }
+.b-csearch .g-text-input__additional-content:first-child { flex: 0 1 auto; min-width: 0; max-width: calc(100% - 72px); }
+.b-csearch .g-text-input__control { flex: 1 1 48px; width: 0; min-width: 48px; }
+.b-csearch-chips { display: flex; align-items: center; min-width: 0; overflow: hidden; }
+.b-csearch-chips .b-tagchip { flex: 0 1 auto; min-width: 44px; max-width: 132px; margin: 0 0 0 4px; }
+.b-csearch-chips .b-tagchip:first-child { margin-left: 6px; }
+.b-placechip { --c: var(--b-text-3); background: var(--b-hover-2); }
+.b-csearch-f { display: grid; place-items: center; width: 26px; height: 26px; margin-right: 2px; padding: 0; border: 0; border-radius: 6px; background: none; color: var(--b-text-3); cursor: pointer; }
+.b-csearch-f:hover, .b-csearch-f.open { background: var(--b-hover); color: var(--b-text); }
+.b-csearch-f.on { color: var(--b-text); }
+.b-csearch-f.on .b-i { fill: var(--b-accent); }
+.b-csearch-f:focus-visible { outline: none; box-shadow: var(--b-focus); }
+
+/* Окно фильтра: строка поиска, дерево «участок → районы», низ со сбросом. */
+.b-pf { display: flex; flex-direction: column; width: 300px; max-height: min(460px, 70vh); font: 400 13px/18px var(--b-font); }
+.b-pf-q { flex: none; padding: 10px 10px 6px; }
+.b-pf-list { flex: 1; min-height: 0; overflow-y: auto; padding: 2px 4px 6px; }
+.b-pf-row { display: flex; align-items: center; gap: 8px; width: 100%; min-height: 32px; padding: 0 8px; border: 0; border-radius: 6px; background: none; color: var(--b-text); font: inherit; text-align: left; cursor: pointer; }
+.b-pf-row:hover { background: var(--b-hover); }
+.b-pf-row span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.b-pf-row small { color: var(--b-text-3); font-size: 12px; white-space: nowrap; }
+.b-pf-row em { font-style: normal; color: var(--b-text-3); font-variant-numeric: tabular-nums; }
+.b-pf-row.s { padding: 0 8px 0 0; font-weight: 600; }
+.b-pf-row.s.on { background: var(--b-selection); }
+.b-pf-row.s:not(:has(.b-pf-tw)) { padding-left: 8px; }
+.b-pf-tw { display: grid; place-items: center; flex: none; width: 28px; height: 32px; padding: 0; border: 0; background: none; color: var(--b-text-3); cursor: pointer; }
+.b-pf-tw .b-i { transition: transform var(--b-t-fast) var(--b-ease); }
+.b-pf-tw .b-i.shut { transform: rotate(-90deg); }
+.b-pf-lb { display: flex; flex: 1; align-items: center; gap: 8px; min-width: 0; height: 32px; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.b-pf-sub .b-pf-row { padding-left: 28px; }
+.b-pf-box { flex: none; width: 14px; height: 14px; border-radius: 3px; box-shadow: inset 0 0 0 1.5px var(--b-line-2); }
+.b-pf-row.d.on .b-pf-box { background: var(--b-accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%2313171b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 12px no-repeat; box-shadow: none; }
+.b-pf-none { margin: 0; padding: 14px 10px; color: var(--b-text-3); text-align: center; }
+.b-pf-foot { display: flex; flex: none; justify-content: space-between; padding: 8px 10px; box-shadow: inset 0 1px 0 var(--b-line); }
+.b-pf-foot button { padding: 4px 10px; border: 0; border-radius: 6px; background: none; color: var(--b-text-2); font: 500 13px/18px var(--b-font); cursor: pointer; }
+.b-pf-foot button:hover:not(:disabled) { background: var(--b-hover); color: var(--b-text); }
+.b-pf-foot button:disabled { opacity: 0.45; cursor: default; }
+.b-pf-foot .ok { background: var(--b-accent); color: #13171b; }
+.b-pf-foot .ok:hover:not(:disabled) { background: var(--b-accent-press); color: #13171b; }
+
+/* Вкладки окна фильтра «Заявок»: место и тип. */
+.b-pf-tabs { padding: 10px 10px 0; width: 300px; box-sizing: border-box; }

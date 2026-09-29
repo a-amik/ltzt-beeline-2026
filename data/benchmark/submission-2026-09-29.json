@@ -1,0 +1,266 @@
+{
+  "date": "2026-09-29",
+  "source_revision": "606395f2",
+  "search_budget_s": 8,
+  "start": "home",
+  "regions": [
+    {
+      "dataset_id": "vostok",
+      "rows": [
+        {
+          "key": "control",
+          "label": "Контрольное распределение",
+          "kpis": {
+            "requests_total": 66.0,
+            "on_time": 63.0,
+            "late": 1.0,
+            "late_min": 38.0,
+            "unassigned": 2.0,
+            "engineers_used": 12.0,
+            "travel_min": 962.0,
+            "distance_km": 260.4,
+            "travel_per_visit_min": 15.0,
+            "wait_min": 2306.0,
+            "risk_late": 1.45,
+            "utilization_pct": 51.3,
+            "emergencies_served": 3.0,
+            "emergency_start_min": 411.7,
+            "over_norm_engineers": 3.0,
+            "norm_spread_min": 370.0,
+            "breaks": 0.0,
+            "value_on_time_rub": 390300.0,
+            "bonus_rub": 5940.0,
+            "total_cost_rub": 136062.0,
+            "net_rub": 254238.0
+          }
+        },
+        {
+          "key": "baseline",
+          "label": "Базовый вариант, п. 2.3",
+          "kpis": {
+            "requests_total": 66.0,
+            "on_time": 52.0,
+            "late": 0.0,
+            "late_min": 0.0,
+            "unassigned": 14.0,
+            "engineers_used": 12.0,
+            "travel_min": 1129.0,
+            "distance_km": 346.5,
+            "travel_per_visit_min": 21.7,
+            "wait_min": 3397.0,
+            "risk_late": 2.25,
+            "utilization_pct": 47.1,
+            "emergencies_served": 2.0,
+            "emergency_start_min": 600.0,
+            "over_norm_engineers": 2.0,
+            "norm_spread_min": 470.0,
+            "breaks": 0.0,
+            "value_on_time_rub": 347000.0,
+            "bonus_rub": 4050.0,
+            "total_cost_rub": 136522.0,
+            "net_rub": 210478.0
+          }
+        },
+        {
+          "key": "solver",
+          "label": "Наш план из дома",
+          "kpis": {
+            "requests_total": 66.0,
+            "on_time": 66.0,
+            "late": 0.0,
+            "late_min": 0.0,
+            "unassigned": 0.0,
+            "engineers_used": 8.0,
+            "travel_min": 772.0,
+            "distance_km": 203.8,
+            "travel_per_visit_min": 11.7,
+            "wait_min": 838.0,
+            "risk_late": 3.86,
+            "utilization_pct": 75.2,
+            "emergencies_served": 3.0,
+            "emergency_start_min": 410.3,
+            "over_norm_engineers": 8.0,
+            "norm_spread_min": 130.0,
+            "breaks": 8.0,
+            "value_on_time_rub": 402800.0,
+            "bonus_rub": 28080.0,
+            "total_cost_rub": 117622.0,
+            "net_rub": 285178.0
+          }
+        }
+      ]
+    },
+    {
+      "dataset_id": "yugo-vostok",
+      "rows": [
+        {
+          "key": "control",
+          "label": "Контрольное распределение",
+          "kpis": {
+            "requests_total": 83.0,
+            "on_time": 55.0,
+            "late": 27.0,
+            "late_min": 3979.0,
+            "unassigned": 1.0,
+            "engineers_used": 12.0,
+            "travel_min": 1065.0,
+            "distance_km": 293.2,
+            "travel_per_visit_min": 13.0,
+            "wait_min": 1289.0,
+            "risk_late": 29.0,
+            "utilization_pct": 63.9,
+            "emergencies_served": 12.0,
+            "emergency_start_min": 222.7,
+            "over_norm_engineers": 7.0,
+            "norm_spread_min": 970.0,
+            "breaks": 0.0,
+            "value_on_time_rub": 1581800.0,
+            "bonus_rub": 38790.0,
+            "total_cost_rub": 171008.0,
+            "net_rub": 1410792.0
+          }
+        },
+        {
+          "key": "baseline",
+          "label": "Базовый вариант, п. 2.3",
+          "kpis": {
+            "requests_total": 83.0,
+            "on_time": 56.0,
+            "late": 0.0,
+            "late_min": 0.0,
+            "unassigned": 27.0,
+            "engineers_used": 12.0,
+            "travel_min": 2448.0,
+            "distance_km": 1277.1,
+            "travel_per_visit_min": 43.7,
+            "wait_min": 1311.0,
+            "risk_late": 5.25,
+            "utilization_pct": 62.5,
+            "emergencies_served": 3.0,
+            "emergency_start_min": 622.3,
+            "over_norm_engineers": 2.0,
+            "norm_spread_min": 420.0,
+            "breaks": 0.0,
+            "value_on_time_rub": 298600.0,
+            "bonus_rub": 2160.0,
+            "total_cost_rub": 168053.0,
+            "net_rub": 130547.0
+          }
+        },
+        {
+          "key": "solver",
+          "label": "Наш план из дома",
+          "kpis": {
+            "requests_total": 83.0,
+            "on_time": 83.0,
+            "late": 0.0,
+            "late_min": 0.0,
+            "unassigned": 0.0,
+            "engineers_used": 11.0,
+            "travel_min": 1249.0,
+            "distance_km": 456.1,
+            "travel_per_visit_min": 15.0,
+            "wait_min": 427.0,
+            "risk_late": 5.06,
+            "utilization_pct": 72.5,
+            "emergencies_served": 12.0,
+            "emergency_start_min": 384.8,
+            "over_norm_engineers": 8.0,
+            "norm_spread_min": 310.0,
+            "breaks": 11.0,
+            "value_on_time_rub": 1729300.0,
+            "bonus_rub": 29970.0,
+            "total_cost_rub": 158513.0,
+            "net_rub": 1570787.0
+          }
+        }
+      ]
+    },
+    {
+      "dataset_id": "yugocentr",
+      "rows": [
+        {
+          "key": "control",
+          "label": "Контрольное распределение",
+          "kpis": {
+            "requests_total": 56.0,
+            "on_time": 54.0,
+            "late": 2.0,
+            "late_min": 30.0,
+            "unassigned": 0.0,
+            "engineers_used": 11.0,
+            "travel_min": 858.0,
+            "distance_km": 203.0,
+            "travel_per_visit_min": 15.3,
+            "wait_min": 2955.0,
+            "risk_late": 2.31,
+            "utilization_pct": 46.6,
+            "emergencies_served": 0.0,
+            "emergency_start_min": 0.0,
+            "over_norm_engineers": 1.0,
+            "norm_spread_min": 410.0,
+            "breaks": 0.0,
+            "value_on_time_rub": 277000.0,
+            "bonus_rub": 3240.0,
+            "total_cost_rub": 121154.0,
+            "net_rub": 155846.0
+          }
+        },
+        {
+          "key": "baseline",
+          "label": "Базовый вариант, п. 2.3",
+          "kpis": {
+            "requests_total": 56.0,
+            "on_time": 47.0,
+            "late": 0.0,
+            "late_min": 0.0,
+            "unassigned": 9.0,
+            "engineers_used": 11.0,
+            "travel_min": 994.0,
+            "distance_km": 285.5,
+            "travel_per_visit_min": 21.1,
+            "wait_min": 2762.0,
+            "risk_late": 1.45,
+            "utilization_pct": 44.2,
+            "emergencies_served": 0.0,
+            "emergency_start_min": 0.0,
+            "over_norm_engineers": 0.0,
+            "norm_spread_min": 310.0,
+            "breaks": 0.0,
+            "value_on_time_rub": 259500.0,
+            "bonus_rub": 0.0,
+            "total_cost_rub": 120344.0,
+            "net_rub": 139156.0
+          }
+        },
+        {
+          "key": "solver",
+          "label": "Наш план из дома",
+          "kpis": {
+            "requests_total": 56.0,
+            "on_time": 56.0,
+            "late": 0.0,
+            "late_min": 0.0,
+            "unassigned": 0.0,
+            "engineers_used": 6.0,
+            "travel_min": 698.0,
+            "distance_km": 163.4,
+            "travel_per_visit_min": 12.5,
+            "wait_min": 502.0,
+            "risk_late": 2.84,
+            "utilization_pct": 81.7,
+            "emergencies_served": 0.0,
+            "emergency_start_min": 0.0,
+            "over_norm_engineers": 5.0,
+            "norm_spread_min": 250.0,
+            "breaks": 6.0,
+            "value_on_time_rub": 291000.0,
+            "bonus_rub": 29430.0,
+            "total_cost_rub": 98955.0,
+            "net_rub": 192045.0
+          }
+        }
+      ]
+    }
+  ]
+}

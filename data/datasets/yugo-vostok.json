@@ -1,0 +1,2351 @@
+{
+ "id": "yugo-vostok",
+ "name": "Юго-восток",
+ "date": "2026-08-17",
+ "office": {
+  "address": "Москва, Бирюлёвская улица, 1с1",
+  "lat": 55.588927,
+  "lon": 37.664614
+ },
+ "requests": [
+  {
+   "id": "19463",
+   "type_bk": "Подключение",
+   "type_hd": "Заказ подключения/Дозаказ оборудования",
+   "address": "Московская область, Домодедово, Огнеупорный Завод улица, 6",
+   "district": "Домодедово",
+   "lat": 55.441403,
+   "lon": 37.773693,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "16:00",
+   "window_end": "18:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "speaker"
+   ]
+  },
+  {
+   "id": "35277",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Москва, Гурьевский проезд, 27к1",
+   "district": "Орехово Борисово Южное",
+   "lat": 55.608024,
+   "lon": 37.755847,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "18:00",
+   "window_end": "20:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "58164",
+   "type_bk": "Подключение",
+   "type_hd": "Заказ подключения/Дозаказ оборудования",
+   "address": "Москва, Кустанайская улица, 11к1",
+   "district": "Зябликово",
+   "lat": 55.616472,
+   "lon": 37.75365,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "16:00",
+   "window_end": "18:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "tv_box"
+   ]
+  },
+  {
+   "id": "31622",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Москва, Ясеневая улица, 8",
+   "district": "Орехово Борисово Южное",
+   "lat": 55.59958,
+   "lon": 37.717797,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "16:00",
+   "window_end": "18:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "tv_box",
+    "speaker"
+   ]
+  },
+  {
+   "id": "33129",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Московская область, Домодедово, Каширское шоссе, 101",
+   "district": "Домодедово",
+   "lat": 55.423347,
+   "lon": 37.775056,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "10:00",
+   "window_end": "12:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "tv_box"
+   ]
+  },
+  {
+   "id": "28200",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Москва, Каширское шоссе, 46к2",
+   "district": "Москворечье - Сабурово",
+   "lat": 55.647364,
+   "lon": 37.664232,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "tv_box"
+   ]
+  },
+  {
+   "id": "17567",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Москва, Загорьевская улица, 4с4",
+   "district": "Бирюлево Восточное",
+   "lat": 55.577557,
+   "lon": 37.674295,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "10:00",
+   "window_end": "12:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "tv_box"
+   ]
+  },
+  {
+   "id": "71300",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Москва, 6-я Радиальная улица, 5к2",
+   "district": "Бирюлево Восточное",
+   "lat": 55.604731,
+   "lon": 37.6586,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "14:00",
+   "window_end": "16:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "55415",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Москва, Ряжская улица, 9",
+   "district": "Бирюлево Восточное",
+   "lat": 55.591118,
+   "lon": 37.66635,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "14:00",
+   "window_end": "16:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "speaker"
+   ]
+  },
+  {
+   "id": "19390",
+   "type_bk": "Подключение",
+   "type_hd": "Заказ подключения/Дозаказ оборудования",
+   "address": "Московская область, Кашира, Ленина улица, 5к3",
+   "district": "Кашира",
+   "lat": 54.840458,
+   "lon": 38.193502,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "14:00",
+   "window_end": "16:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "speaker"
+   ]
+  },
+  {
+   "id": "49384",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Москва, Братеевская улица, 20к2",
+   "district": "Братеево",
+   "lat": 55.634252,
+   "lon": 37.771195,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "11862",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Москва, Ореховый бульвар, 22к2",
+   "district": "Зябликово",
+   "lat": 55.6122,
+   "lon": 37.737695,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "tv_box"
+   ]
+  },
+  {
+   "id": "64041",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Москва, Ореховый бульвар, 22к2",
+   "district": "Зябликово",
+   "lat": 55.6122,
+   "lon": 37.737695,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "speaker"
+   ]
+  },
+  {
+   "id": "22304",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Москва, Пролетарский проспект, 16к1",
+   "district": "Царицыно",
+   "lat": 55.635051,
+   "lon": 37.656069,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "16:00",
+   "window_end": "18:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "23571",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Московская область, Домодедово, Каширское шоссе, 112",
+   "district": "Домодедово",
+   "lat": 55.420649,
+   "lon": 37.773229,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "tv_box"
+   ]
+  },
+  {
+   "id": "24058",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Московская область, Домодедово, Корнеева улица, 3",
+   "district": "Домодедово",
+   "lat": 55.428369,
+   "lon": 37.778766,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "14:00",
+   "window_end": "16:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "32106",
+   "type_bk": "Подключение",
+   "type_hd": "Заказ подключения/Дозаказ оборудования",
+   "address": "Московская область, Домодедово, Каширское шоссе, 101",
+   "district": "Домодедово",
+   "lat": 55.423347,
+   "lon": 37.775056,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "10:00",
+   "window_end": "12:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "tv_box",
+    "speaker"
+   ]
+  },
+  {
+   "id": "36661",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Москва, Ереванская улица, 26к1",
+   "district": "Царицыно",
+   "lat": 55.628046,
+   "lon": 37.676955,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "10:00",
+   "window_end": "12:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "91587",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Москва, Бакинская улица, 20",
+   "district": "Царицыно",
+   "lat": 55.622271,
+   "lon": 37.656427,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "10:00",
+   "window_end": "12:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "97930",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Москва, 6-я Радиальная улица, 7/1к1",
+   "district": "Бирюлево Восточное",
+   "lat": 55.604984,
+   "lon": 37.652401,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "16:00",
+   "window_end": "18:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "62345",
+   "type_bk": "Подключение",
+   "type_hd": "Заказ подключения/Дозаказ оборудования",
+   "address": "Москва, Загорьевская улица, 4с4",
+   "district": "Бирюлево Восточное",
+   "lat": 55.577557,
+   "lon": 37.674295,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "10:00",
+   "window_end": "12:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "tv_box",
+    "speaker"
+   ]
+  },
+  {
+   "id": "90135",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Московская область, Кашира, Новокаширская улица, 37",
+   "district": "Кашира",
+   "lat": 54.843344,
+   "lon": 38.242384,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "10:00",
+   "window_end": "12:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "tv_box"
+   ]
+  },
+  {
+   "id": "67997",
+   "type_bk": "Подключение",
+   "type_hd": "Заказ подключения/Дозаказ оборудования",
+   "address": "Московская область, Кашира, Сергея Ионова улица, 1",
+   "district": "Кашира",
+   "lat": 54.849971,
+   "lon": 38.246914,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "12512",
+   "type_bk": "Подключение",
+   "type_hd": "Заявка на подключение",
+   "address": "Москва, Паромная улица, 5к1",
+   "district": "Братеево",
+   "lat": 55.638912,
+   "lon": 37.761144,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "14:00",
+   "window_end": "16:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "tv_box"
+   ]
+  },
+  {
+   "id": "13203",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Москва, Братеевская улица, 20к1с4",
+   "district": "Братеево",
+   "lat": 55.634984,
+   "lon": 37.77042,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "10:00",
+   "window_end": "12:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "14418",
+   "type_bk": "Подключение",
+   "type_hd": "Заявка на подключение",
+   "address": "Москва, Борисовские Пруды улица, 18к1",
+   "district": "Братеево",
+   "lat": 55.636993,
+   "lon": 37.750648,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "tv_box"
+   ]
+  },
+  {
+   "id": "86857",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Московская область, Кашира, Садовая улица, 39к4",
+   "district": "Кашира",
+   "lat": 54.836954,
+   "lon": 38.250484,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "10:00",
+   "window_end": "12:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "speaker"
+   ]
+  },
+  {
+   "id": "42531",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Московская область, Кашира, 8-го Марта улица, 37",
+   "district": "Кашира",
+   "lat": 54.842931,
+   "lon": 38.24113,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "speaker"
+   ]
+  },
+  {
+   "id": "30455",
+   "type_bk": "Подключение",
+   "type_hd": "Заявка на подключение",
+   "address": "Москва, Ореховый бульвар, 10к1",
+   "district": "Орехово Борисово Северное",
+   "lat": 55.608229,
+   "lon": 37.707191,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "10:00",
+   "window_end": "12:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "tv_box"
+   ]
+  },
+  {
+   "id": "18727",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Москва, Каширское (дублёр) шоссе, 102к2",
+   "district": "Орехово Борисово Северное",
+   "lat": 55.612426,
+   "lon": 37.712051,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "45505",
+   "type_bk": "Подключение",
+   "type_hd": "Заказ подключения/Дозаказ оборудования",
+   "address": "Москва, Каширское (дублёр) шоссе, 98к2",
+   "district": "Орехово Борисово Северное",
+   "lat": 55.61346,
+   "lon": 37.71268,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "tv_box"
+   ]
+  },
+  {
+   "id": "61903",
+   "type_bk": "Подключение",
+   "type_hd": "Заявка на подключение",
+   "address": "Москва, Ореховый бульвар, 21к2",
+   "district": "Орехово Борисово Северное",
+   "lat": 55.613632,
+   "lon": 37.724418,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "10:00",
+   "window_end": "12:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "86545",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Москва, Ореховый проезд, 35к1",
+   "district": "Зябликово",
+   "lat": 55.618421,
+   "lon": 37.731332,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "10:00",
+   "window_end": "12:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "tv_box"
+   ]
+  },
+  {
+   "id": "70892",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Московская область, Домодедово, Жуковского улица, 15",
+   "district": "Домодедово",
+   "lat": 55.412823,
+   "lon": 37.838094,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "14:00",
+   "window_end": "16:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "tv_box"
+   ]
+  },
+  {
+   "id": "77466",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Московская область, Кашира, Новокаширская улица, 20",
+   "district": "Кашира",
+   "lat": 54.843406,
+   "lon": 38.243093,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "14:00",
+   "window_end": "16:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "72406",
+   "type_bk": "Подключение",
+   "type_hd": "Конвергенция абонента",
+   "address": "Москва, Кустанайская улица, 10к3",
+   "district": "Зябликово",
+   "lat": 55.617296,
+   "lon": 37.752483,
+   "geo_quality": "house",
+   "duration_min": 70,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "router",
+    "tv_box"
+   ]
+  },
+  {
+   "id": "73943",
+   "type_bk": "Дозаказ",
+   "type_hd": "Дозаказ оборудования",
+   "address": "Москва, Бехтерева улица, 15с2",
+   "district": "Царицыно",
+   "lat": 55.632224,
+   "lon": 37.650551,
+   "geo_quality": "house",
+   "duration_min": 20,
+   "window_start": "18:00",
+   "window_end": "20:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "39821",
+   "type_bk": "Дозаказ",
+   "type_hd": "Заказ подключения/Дозаказ оборудования",
+   "address": "Москва, Борисовские Пруды улица, 18к1",
+   "district": "Братеево",
+   "lat": 55.636993,
+   "lon": 37.750648,
+   "geo_quality": "house",
+   "duration_min": 20,
+   "window_start": "18:00",
+   "window_end": "20:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "tv_box"
+   ]
+  },
+  {
+   "id": "30664",
+   "type_bk": "Дозаказ",
+   "type_hd": "Конвергенция абонента",
+   "address": "Московская область, Кашира, Кржижановского улица, 5",
+   "district": "Кашира",
+   "lat": 54.840378,
+   "lon": 38.237586,
+   "geo_quality": "house",
+   "duration_min": 20,
+   "window_start": "20:00",
+   "window_end": "22:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "tv_box",
+    "speaker"
+   ]
+  },
+  {
+   "id": "99809",
+   "type_bk": "Дозаказ",
+   "type_hd": "Дозаказ оборудования",
+   "address": "Москва, Булатниковский проезд, 10Бс2",
+   "district": "Бирюлево Западное",
+   "lat": 55.589202,
+   "lon": 37.651678,
+   "geo_quality": "house",
+   "duration_min": 20,
+   "window_start": "14:00",
+   "window_end": "16:00",
+   "priority": "normal",
+   "skill": "connect",
+   "transport": null,
+   "equipment": [
+    "tv_box",
+    "speaker"
+   ]
+  },
+  {
+   "id": "98360",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Нет линка",
+   "address": "Московская область, Домодедово, Гагарина улица, 45",
+   "district": "Домодедово",
+   "lat": 55.45078,
+   "lon": 37.743497,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "16:00",
+   "window_end": "18:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "10647",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Нет линка",
+   "address": "Московская область, Домодедово, 1-я Коммунистическая улица, 38",
+   "district": "Домодедово",
+   "lat": 55.45417,
+   "lon": 37.746648,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "18:00",
+   "window_end": "20:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "84862",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Работа с кабелем",
+   "address": "Москва, Алма-Атинская улица, 7к1",
+   "district": "Братеево",
+   "lat": 55.640026,
+   "lon": 37.771154,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "18:00",
+   "window_end": "20:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "20229",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Работа с кабелем",
+   "address": "Московская область, Ступино, Андропова улица, 60с2",
+   "district": "Ступино",
+   "lat": 54.888818,
+   "lon": 38.066575,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "20:00",
+   "window_end": "22:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "49415",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Низкая скорость",
+   "address": "Москва, Ореховый бульвар, 8",
+   "district": "Орехово Борисово Южное",
+   "lat": 55.60728,
+   "lon": 37.705029,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "20:00",
+   "window_end": "22:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "68624",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Нет линка",
+   "address": "Москва, Востряковский проезд, 17к2",
+   "district": "Бирюлево Западное",
+   "lat": 55.574978,
+   "lon": 37.648395,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "20:00",
+   "window_end": "22:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "68507",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Нет линка",
+   "address": "Москва, Михневская улица, 19к1",
+   "district": "Бирюлево Восточное",
+   "lat": 55.579547,
+   "lon": 37.66628,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "18:00",
+   "window_end": "20:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "99222",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Низкая скорость",
+   "address": "Москва, Домодедовская улица, 26",
+   "district": "Орехово Борисово Южное",
+   "lat": 55.605433,
+   "lon": 37.711801,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "66839",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Рост ошибок на порту",
+   "address": "Москва, Луганская улица, 8",
+   "district": "Царицыно",
+   "lat": 55.623517,
+   "lon": 37.666292,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "20:00",
+   "window_end": "22:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "79335",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Работа с кабелем",
+   "address": "Московская область, Ступино, Андропова улица, 60с2",
+   "district": "Ступино",
+   "lat": 54.888818,
+   "lon": 38.066575,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "10:00",
+   "window_end": "12:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "18884",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Нет линка",
+   "address": "Московская область, Домодедово, Гагарина площадь, 3",
+   "district": "Домодедово",
+   "lat": 55.415101,
+   "lon": 37.837987,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "29458",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Роутер. Замена техническим специалистом",
+   "address": "Москва, Востряковский проезд, 15к3",
+   "district": "Бирюлево Западное",
+   "lat": 55.575878,
+   "lon": 37.64902,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "16:00",
+   "window_end": "18:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "72785",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Нет линка",
+   "address": "Московская область, Домодедово, Корнеева улица, 37",
+   "district": "Домодедово",
+   "lat": 55.421903,
+   "lon": 37.778993,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "10:00",
+   "window_end": "12:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "53988",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Переключение на Гбит/с",
+   "address": "Москва, Луганская улица, 11",
+   "district": "Царицыно",
+   "lat": 55.622028,
+   "lon": 37.669493,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "18:00",
+   "window_end": "20:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "61688",
+   "type_bk": "Локальная заявка",
+   "type_hd": "TVE/ENT. Замена приставки техником",
+   "address": "Москва, Кавказский бульвар, 27",
+   "district": "Царицыно",
+   "lat": 55.629379,
+   "lon": 37.666671,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "71745",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Рост ошибок на порту",
+   "address": "Москва, Луганская улица, 8",
+   "district": "Царицыно",
+   "lat": 55.623517,
+   "lon": 37.666292,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "14:00",
+   "window_end": "16:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "74547",
+   "type_bk": "Локальная заявка",
+   "type_hd": "IP-адрес 169...",
+   "address": "Москва, Кавказский бульвар, 26",
+   "district": "Царицыно",
+   "lat": 55.629269,
+   "lon": 37.659602,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "16:00",
+   "window_end": "18:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "56124",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Низкая скорость",
+   "address": "Москва, Медиков улица, 18к2",
+   "district": "Царицыно",
+   "lat": 55.631723,
+   "lon": 37.676894,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "18:00",
+   "window_end": "20:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "48856",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Низкая скорость",
+   "address": "Москва, Михневский проезд, 6к1",
+   "district": "Бирюлево Восточное",
+   "lat": 55.575984,
+   "lon": 37.668877,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "10:00",
+   "window_end": "12:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "32665",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Переключение на Гбит/с",
+   "address": "Москва, Маршала Захарова улица, 18к3",
+   "district": "Орехово Борисово Северное",
+   "lat": 55.621022,
+   "lon": 37.696183,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "16:00",
+   "window_end": "18:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "91339",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Нет линка",
+   "address": "Москва, Генерала Белова улица, 28к3",
+   "district": "Орехово Борисово Южное",
+   "lat": 55.604899,
+   "lon": 37.721694,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "14:00",
+   "window_end": "16:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "34882",
+   "type_bk": "Локальная заявка",
+   "type_hd": "IP-адрес 169...",
+   "address": "Москва, Шипиловская улица, 42/30",
+   "district": "Орехово Борисово Северное",
+   "lat": 55.620856,
+   "lon": 37.726857,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "24421",
+   "type_bk": "Локальная заявка",
+   "type_hd": "TVE/ENT. Замена приставки техником",
+   "address": "Москва, Тамбовская улица, 3/13",
+   "district": "Орехово Борисово Южное",
+   "lat": 55.604647,
+   "lon": 37.747594,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "16:00",
+   "window_end": "18:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "27525",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Рост ошибок на порту",
+   "address": "Москва, Ореховый бульвар, 21к2",
+   "district": "Орехово Борисово Северное",
+   "lat": 55.613632,
+   "lon": 37.724418,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "10:00",
+   "window_end": "12:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "14017",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Нет линка",
+   "address": "Москва, Шипиловская улица, 44А",
+   "district": "Зябликово",
+   "lat": 55.621285,
+   "lon": 37.728576,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "18:00",
+   "window_end": "20:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "46787",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Разрывы",
+   "address": "Москва, Булатниковская улица, 6",
+   "district": "Бирюлево Западное",
+   "lat": 55.581003,
+   "lon": 37.645005,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "76544",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Нет линка",
+   "address": "Москва, Ореховый бульвар, 26к3",
+   "district": "Зябликово",
+   "lat": 55.613907,
+   "lon": 37.757623,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "10:00",
+   "window_end": "12:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "11199",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Нет линка",
+   "address": "Московская область, Домодедово, Рабочая улица, 3",
+   "district": "Домодедово",
+   "lat": 55.440089,
+   "lon": 37.75931,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "14:00",
+   "window_end": "16:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "89221",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Нет линка",
+   "address": "Московская область, Кашира, Ленина улица, 9",
+   "district": "Кашира",
+   "lat": 54.84263,
+   "lon": 38.193723,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "43538",
+   "type_bk": "Локальная заявка",
+   "type_hd": "Рост ошибок на порту",
+   "address": "Московская область, Кашира, Металлургов улица, 9",
+   "district": "Кашира",
+   "lat": 54.843409,
+   "lon": 38.189839,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "14:00",
+   "window_end": "16:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": [
+    "router"
+   ]
+  },
+  {
+   "id": "78852",
+   "type_bk": "Локальная заявка",
+   "type_hd": "IP-адрес 169...",
+   "address": "Москва, Мусы Джалиля улица, 10к1",
+   "district": "Зябликово",
+   "lat": 55.62629,
+   "lon": 37.739343,
+   "geo_quality": "house",
+   "duration_min": 30,
+   "window_start": "12:00",
+   "window_end": "14:00",
+   "priority": "normal",
+   "skill": "local",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "17544",
+   "type_bk": "Глобальная проблема",
+   "type_hd": "Авария",
+   "address": "Московская область, Домодедово, Востряково-1, Жуковского улица, 14/18",
+   "district": "Домодедово",
+   "lat": 55.408712,
+   "lon": 37.909431,
+   "geo_quality": "house",
+   "duration_min": 80,
+   "window_start": "20:00",
+   "window_end": "22:00",
+   "priority": "normal",
+   "skill": "emergency",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "44353",
+   "type_bk": "Глобальная проблема",
+   "type_hd": "Авария",
+   "address": "Московская область, Кашира, Кржижановского улица, 1к1",
+   "district": "Кашира",
+   "lat": 54.842785,
+   "lon": 38.238195,
+   "geo_quality": "house",
+   "duration_min": 80,
+   "window_start": "00:01",
+   "window_end": "23:59",
+   "priority": "normal",
+   "skill": "emergency",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "89930",
+   "type_bk": "Глобальная проблема",
+   "type_hd": "Авария",
+   "address": "Московская область, Кашира, Вахрушева улица, 16к2",
+   "district": "Кашира",
+   "lat": 54.838602,
+   "lon": 38.243455,
+   "geo_quality": "house",
+   "duration_min": 80,
+   "window_start": "00:01",
+   "window_end": "23:59",
+   "priority": "normal",
+   "skill": "emergency",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "95267",
+   "type_bk": "Глобальная проблема",
+   "type_hd": "Авария",
+   "address": "Московская область, Кашира, Садовая улица, 31",
+   "district": "Кашира",
+   "lat": 54.841719,
+   "lon": 38.246421,
+   "geo_quality": "house",
+   "duration_min": 80,
+   "window_start": "00:01",
+   "window_end": "23:59",
+   "priority": "normal",
+   "skill": "emergency",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "45981",
+   "type_bk": "Глобальная проблема",
+   "type_hd": "Авария",
+   "address": "Московская область, Кашира, Вахрушева улица, 16к3",
+   "district": "Кашира",
+   "lat": 54.839034,
+   "lon": 38.242287,
+   "geo_quality": "house",
+   "duration_min": 80,
+   "window_start": "00:01",
+   "window_end": "23:59",
+   "priority": "normal",
+   "skill": "emergency",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "61366",
+   "type_bk": "Глобальная проблема",
+   "type_hd": "Авария",
+   "address": "Московская область, Кашира, Кржижановского улица, 4",
+   "district": "Кашира",
+   "lat": 54.841408,
+   "lon": 38.238156,
+   "geo_quality": "house",
+   "duration_min": 80,
+   "window_start": "00:01",
+   "window_end": "23:59",
+   "priority": "normal",
+   "skill": "emergency",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "93538",
+   "type_bk": "Глобальная проблема",
+   "type_hd": "Авария",
+   "address": "Московская область, Кашира, Вахрушева улица, 16к2",
+   "district": "Кашира",
+   "lat": 54.838602,
+   "lon": 38.243455,
+   "geo_quality": "house",
+   "duration_min": 80,
+   "window_start": "00:01",
+   "window_end": "23:59",
+   "priority": "normal",
+   "skill": "emergency",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "40098",
+   "type_bk": "Глобальная проблема",
+   "type_hd": "Авария",
+   "address": "Московская область, Ступино, Победы проспект, 14",
+   "district": "Ступино",
+   "lat": 54.88464,
+   "lon": 38.078346,
+   "geo_quality": "house",
+   "duration_min": 80,
+   "window_start": "00:01",
+   "window_end": "23:59",
+   "priority": "normal",
+   "skill": "emergency",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "70152",
+   "type_bk": "Глобальная проблема",
+   "type_hd": "Авария",
+   "address": "Московская область, Ступино, Пушкина улица, 24к1",
+   "district": "Ступино",
+   "lat": 54.884686,
+   "lon": 38.085639,
+   "geo_quality": "house",
+   "duration_min": 80,
+   "window_start": "00:01",
+   "window_end": "23:59",
+   "priority": "normal",
+   "skill": "emergency",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "80407",
+   "type_bk": "Глобальная проблема",
+   "type_hd": "Авария",
+   "address": "Московская область, Кашира, Центральная улица, 4",
+   "district": "Кашира",
+   "lat": 54.842949,
+   "lon": 38.243708,
+   "geo_quality": "house",
+   "duration_min": 80,
+   "window_start": "00:01",
+   "window_end": "23:59",
+   "priority": "normal",
+   "skill": "emergency",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "90302",
+   "type_bk": "Глобальная проблема",
+   "type_hd": "Авария",
+   "address": "Москва, Бирюлёвская улица, 43",
+   "district": "Бирюлево Восточное",
+   "lat": 55.586632,
+   "lon": 37.666682,
+   "geo_quality": "house",
+   "duration_min": 80,
+   "window_start": "00:01",
+   "window_end": "23:59",
+   "priority": "normal",
+   "skill": "emergency",
+   "transport": null,
+   "equipment": []
+  },
+  {
+   "id": "60108",
+   "type_bk": "Глобальная проблема",
+   "type_hd": "Авария",
+   "address": "Москва, Медынская улица, 2А",
+   "district": "Бирюлево Западное",
+   "lat": 55.593207,
+   "lon": 37.647487,
+   "geo_quality": "house",
+   "duration_min": 80,
+   "window_start": "00:01",
+   "window_end": "23:59",
+   "priority": "normal",
+   "skill": "emergency",
+   "transport": null,
+   "equipment": []
+  }
+ ],
+ "engineers": [
+  {
+   "id": "afanasev",
+   "name": "Афанасьев",
+   "start": {
+    "lat": 55.588927,
+    "lon": 37.664614
+   },
+   "shift_start": "10:00",
+   "shift_end": "22:00",
+   "skills": [
+    "connect",
+    "emergency",
+    "local"
+   ],
+   "transport": "car",
+   "transports": [
+    "car",
+    "foot"
+   ],
+   "extra_load": true,
+   "extra_limit_min": 240,
+   "home": {
+    "lat": 55.429806,
+    "lon": 37.786515,
+    "address": "Домодедово, улица Корнеева, 1"
+   },
+   "remote_km": 19.7,
+   "anchor": {
+    "lat": 55.4364,
+    "lon": 37.7664
+   },
+   "anchor_name": "Домодедово"
+  },
+  {
+   "id": "morozov",
+   "name": "Морозов",
+   "start": {
+    "lat": 55.588927,
+    "lon": 37.664614
+   },
+   "shift_start": "10:00",
+   "shift_end": "22:00",
+   "skills": [
+    "connect",
+    "local"
+   ],
+   "transport": "foot",
+   "transports": [
+    "foot",
+    "transit"
+   ],
+   "extra_load": true,
+   "extra_limit_min": 240,
+   "home": {
+    "lat": 55.614791,
+    "lon": 37.731612,
+    "address": "Москва, Ореховый проезд, 45к1"
+   },
+   "remote_km": 4.7
+  },
+  {
+   "id": "rodionov",
+   "name": "Родионов",
+   "start": {
+    "lat": 55.588927,
+    "lon": 37.664614
+   },
+   "shift_start": "10:00",
+   "shift_end": "22:00",
+   "skills": [
+    "connect",
+    "local"
+   ],
+   "transport": "foot",
+   "transports": [
+    "foot",
+    "transit"
+   ],
+   "extra_load": true,
+   "extra_limit_min": 240,
+   "home": {
+    "lat": 55.611471,
+    "lon": 37.732277,
+    "address": "Москва, Ореховый бульвар, 22А"
+   },
+   "remote_km": 5.8
+  },
+  {
+   "id": "novikov",
+   "name": "Новиков",
+   "start": {
+    "lat": 55.588927,
+    "lon": 37.664614
+   },
+   "shift_start": "10:00",
+   "shift_end": "22:00",
+   "skills": [
+    "connect",
+    "local"
+   ],
+   "transport": "foot",
+   "transports": [
+    "foot",
+    "transit"
+   ],
+   "extra_load": true,
+   "extra_limit_min": 240,
+   "home": {
+    "lat": 55.61064,
+    "lon": 37.717756,
+    "address": "Москва, Каширское шоссе (дублёр), 61/15"
+   },
+   "remote_km": 4.0
+  },
+  {
+   "id": "grigorev",
+   "name": "Григорьев",
+   "start": {
+    "lat": 55.588927,
+    "lon": 37.664614
+   },
+   "shift_start": "10:00",
+   "shift_end": "22:00",
+   "skills": [
+    "connect",
+    "emergency",
+    "local"
+   ],
+   "transport": "foot",
+   "transports": [
+    "foot",
+    "transit"
+   ],
+   "extra_load": true,
+   "extra_limit_min": 240,
+   "home": {
+    "lat": 55.616211,
+    "lon": 37.661691,
+    "address": "Москва, Бакинская улица, 31"
+   },
+   "remote_km": 3.8
+  },
+  {
+   "id": "savelev",
+   "name": "Савельев",
+   "start": {
+    "lat": 55.588927,
+    "lon": 37.664614
+   },
+   "shift_start": "10:00",
+   "shift_end": "22:00",
+   "skills": [
+    "connect",
+    "local"
+   ],
+   "transport": "foot",
+   "transports": [
+    "foot",
+    "transit"
+   ],
+   "extra_load": true,
+   "extra_limit_min": 240,
+   "home": {
+    "lat": 55.587354,
+    "lon": 37.665871,
+    "address": "Москва, Бирюлёвская улица, 41/7"
+   },
+   "remote_km": 1.4
+  },
+  {
+   "id": "ershov",
+   "name": "Ершов",
+   "start": {
+    "lat": 55.588927,
+    "lon": 37.664614
+   },
+   "shift_start": "10:00",
+   "shift_end": "22:00",
+   "skills": [
+    "connect",
+    "emergency",
+    "local"
+   ],
+   "transport": "car",
+   "transports": [
+    "car",
+    "foot"
+   ],
+   "extra_load": true,
+   "extra_limit_min": 240,
+   "home": {
+    "lat": 54.861232,
+    "lon": 38.156631,
+    "address": "Ступино, Белопесоцкая улица, 152"
+   },
+   "remote_km": 89.3,
+   "anchor": {
+    "lat": 54.8352,
+    "lon": 38.1515
+   },
+   "anchor_name": "Кашира"
+  },
+  {
+   "id": "nikitin",
+   "name": "Никитин",
+   "start": {
+    "lat": 55.588927,
+    "lon": 37.664614
+   },
+   "shift_start": "10:00",
+   "shift_end": "22:00",
+   "skills": [
+    "connect"
+   ],
+   "transport": "car",
+   "transports": [
+    "car",
+    "foot"
+   ],
+   "extra_load": true,
+   "extra_limit_min": 240,
+   "home": {
+    "lat": 55.635051,
+    "lon": 37.656069,
+    "address": "Москва, Пролетарский проспект, 16к1"
+   },
+   "remote_km": 5.2
+  },
+  {
+   "id": "sorokin",
+   "name": "Сорокин",
+   "start": {
+    "lat": 55.588927,
+    "lon": 37.664614
+   },
+   "shift_start": "10:00",
+   "shift_end": "22:00",
+   "skills": [
+    "connect",
+    "emergency",
+    "local"
+   ],
+   "transport": "car",
+   "transports": [
+    "car",
+    "foot"
+   ],
+   "extra_load": true,
+   "extra_limit_min": 240,
+   "home": {
+    "lat": 54.842223,
+    "lon": 38.238345,
+    "address": "Кашира, улица Кржижановского, 1к1"
+   },
+   "remote_km": 90.7,
+   "anchor": {
+    "lat": 54.8352,
+    "lon": 38.1515
+   },
+   "anchor_name": "Кашира"
+  },
+  {
+   "id": "maslov",
+   "name": "Маслов",
+   "start": {
+    "lat": 55.588927,
+    "lon": 37.664614
+   },
+   "shift_start": "10:00",
+   "shift_end": "22:00",
+   "skills": [
+    "connect",
+    "local"
+   ],
+   "transport": "car",
+   "transports": [
+    "car",
+    "foot"
+   ],
+   "extra_load": true,
+   "extra_limit_min": 240,
+   "home": {
+    "lat": 55.637582,
+    "lon": 37.760803,
+    "address": "Москва, Паромная улица, 7к1"
+   },
+   "remote_km": 8.2
+  },
+  {
+   "id": "pavlov",
+   "name": "Павлов",
+   "start": {
+    "lat": 55.588927,
+    "lon": 37.664614
+   },
+   "shift_start": "10:00",
+   "shift_end": "22:00",
+   "skills": [
+    "connect"
+   ],
+   "transport": "car",
+   "transports": [
+    "car",
+    "foot"
+   ],
+   "extra_load": false,
+   "extra_limit_min": 240,
+   "home": {
+    "lat": 55.412823,
+    "lon": 37.838094,
+    "address": "Домодедово, улица Жуковского, 15"
+   },
+   "remote_km": 22.4,
+   "anchor": {
+    "lat": 55.4364,
+    "lon": 37.7664
+   },
+   "anchor_name": "Домодедово"
+  },
+  {
+   "id": "egorov",
+   "name": "Егоров",
+   "start": {
+    "lat": 55.588927,
+    "lon": 37.664614
+   },
+   "shift_start": "10:00",
+   "shift_end": "22:00",
+   "skills": [
+    "local"
+   ],
+   "transport": "bike",
+   "transports": [
+    "bike",
+    "foot",
+    "transit"
+   ],
+   "extra_load": false,
+   "extra_limit_min": 240,
+   "home": {
+    "lat": 55.581003,
+    "lon": 37.645005,
+    "address": "Москва, Булатниковская улица, 6"
+   },
+   "remote_km": 1.5
+  }
+ ],
+ "events": [
+  {
+   "id": "e1",
+   "type": "urgent",
+   "time": "14:00",
+   "request": {
+    "id": "u-1",
+    "type_bk": "Глобальная проблема",
+    "type_hd": "Авария",
+    "address": "Московская область, Домодедово, Востряково-1, Жуковского улица, 14/18",
+    "district": "Домодедово",
+    "lat": 55.408712,
+    "lon": 37.909431,
+    "geo_quality": "house",
+    "duration_min": 120,
+    "window_start": "14:00",
+    "window_end": "18:00",
+    "priority": "urgent",
+    "skill": "emergency",
+    "transport": null,
+    "equipment": []
+   }
+  },
+  {
+   "id": "e2",
+   "type": "cancel",
+   "time": "13:30",
+   "request_id": "33129"
+  },
+  {
+   "id": "e3",
+   "type": "engineer_off",
+   "time": "13:00",
+   "engineer_id": "grigorev"
+  }
+ ],
+ "control": [
+  {
+   "request_id": "19463",
+   "engineer_id": "afanasev",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "35277",
+   "engineer_id": "morozov",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "58164",
+   "engineer_id": "rodionov",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "31622",
+   "engineer_id": "novikov",
+   "status": "В пути"
+  },
+  {
+   "request_id": "33129",
+   "engineer_id": "afanasev",
+   "status": "Отменена"
+  },
+  {
+   "request_id": "28200",
+   "engineer_id": "grigorev",
+   "status": "Отменена"
+  },
+  {
+   "request_id": "17567",
+   "engineer_id": "savelev",
+   "status": "Отменена"
+  },
+  {
+   "request_id": "71300",
+   "engineer_id": "savelev",
+   "status": "Отменена"
+  },
+  {
+   "request_id": "55415",
+   "engineer_id": "savelev",
+   "status": "Отменена"
+  },
+  {
+   "request_id": "19390",
+   "engineer_id": "ershov",
+   "status": "Отменена"
+  },
+  {
+   "request_id": "49384",
+   "engineer_id": "morozov",
+   "status": "Отменена"
+  },
+  {
+   "request_id": "11862",
+   "engineer_id": "rodionov",
+   "status": "Отменена"
+  },
+  {
+   "request_id": "64041",
+   "engineer_id": "rodionov",
+   "status": "В работе"
+  },
+  {
+   "request_id": "22304",
+   "engineer_id": "nikitin",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "23571",
+   "engineer_id": "afanasev",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "24058",
+   "engineer_id": "afanasev",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "32106",
+   "engineer_id": "afanasev",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "36661",
+   "engineer_id": "grigorev",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "91587",
+   "engineer_id": "grigorev",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "97930",
+   "engineer_id": "savelev",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "62345",
+   "engineer_id": "savelev",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "90135",
+   "engineer_id": "sorokin",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "67997",
+   "engineer_id": "sorokin",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "12512",
+   "engineer_id": "maslov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "13203",
+   "engineer_id": "maslov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "14418",
+   "engineer_id": "maslov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "86857",
+   "engineer_id": "ershov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "42531",
+   "engineer_id": "ershov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "30455",
+   "engineer_id": "novikov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "18727",
+   "engineer_id": "novikov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "45505",
+   "engineer_id": "novikov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "61903",
+   "engineer_id": "morozov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "86545",
+   "engineer_id": "rodionov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "70892",
+   "engineer_id": "pavlov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "77466",
+   "engineer_id": "sorokin",
+   "status": "Просрочена"
+  },
+  {
+   "request_id": "72406",
+   "engineer_id": "rodionov",
+   "status": "Просрочена"
+  },
+  {
+   "request_id": "73943",
+   "engineer_id": "grigorev",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "39821",
+   "engineer_id": "maslov",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "30664",
+   "engineer_id": "ershov",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "99809",
+   "engineer_id": "grigorev",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "98360",
+   "engineer_id": "afanasev",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "10647",
+   "engineer_id": "afanasev",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "84862",
+   "engineer_id": "maslov",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "20229",
+   "engineer_id": "ershov",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "49415",
+   "engineer_id": "morozov",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "68624",
+   "engineer_id": "rodionov",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "68507",
+   "engineer_id": "savelev",
+   "status": "В пути"
+  },
+  {
+   "request_id": "99222",
+   "engineer_id": "morozov",
+   "status": "В пути"
+  },
+  {
+   "request_id": "79335",
+   "engineer_id": "ershov",
+   "status": "Отменена"
+  },
+  {
+   "request_id": "18884",
+   "engineer_id": "afanasev",
+   "status": "В работе"
+  },
+  {
+   "request_id": "29458",
+   "engineer_id": "grigorev",
+   "status": "В работе"
+  },
+  {
+   "request_id": "72785",
+   "engineer_id": "afanasev",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "53988",
+   "engineer_id": "grigorev",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "61688",
+   "engineer_id": "grigorev",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "71745",
+   "engineer_id": "grigorev",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "74547",
+   "engineer_id": "grigorev",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "56124",
+   "engineer_id": "grigorev",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "48856",
+   "engineer_id": "savelev",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "32665",
+   "engineer_id": "novikov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "91339",
+   "engineer_id": "novikov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "34882",
+   "engineer_id": "novikov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "24421",
+   "engineer_id": "novikov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "27525",
+   "engineer_id": "morozov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "14017",
+   "engineer_id": "morozov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "46787",
+   "engineer_id": "egorov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "76544",
+   "engineer_id": "rodionov",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "11199",
+   "engineer_id": "afanasev",
+   "status": "Просрочена"
+  },
+  {
+   "request_id": "89221",
+   "engineer_id": "sorokin",
+   "status": "Просрочена"
+  },
+  {
+   "request_id": "43538",
+   "engineer_id": "ershov",
+   "status": "Просрочена"
+  },
+  {
+   "request_id": "78852",
+   "engineer_id": "rodionov",
+   "status": "Просрочена"
+  },
+  {
+   "request_id": "17544",
+   "engineer_id": "afanasev",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "44353",
+   "engineer_id": "sorokin",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "89930",
+   "engineer_id": "sorokin",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "95267",
+   "engineer_id": "sorokin",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "45981",
+   "engineer_id": "sorokin",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "61366",
+   "engineer_id": "sorokin",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "93538",
+   "engineer_id": "sorokin",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "40098",
+   "engineer_id": "ershov",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "70152",
+   "engineer_id": "ershov",
+   "status": "Отправлена"
+  },
+  {
+   "request_id": "80407",
+   "engineer_id": "sorokin",
+   "status": "В пути"
+  },
+  {
+   "request_id": "90302",
+   "engineer_id": "grigorev",
+   "status": "Выполнена"
+  },
+  {
+   "request_id": "60108",
+   "engineer_id": "grigorev",
+   "status": "Выполнена"
+  }
+ ]
+}

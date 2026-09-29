@@ -1,0 +1,827 @@
+{
+ "spec": {
+  "dataset_id": "yugo-vostok",
+  "seed": 4,
+  "new_requests": 6,
+  "cancels": 2,
+  "no_shows": 2,
+  "reschedules": 1,
+  "engineer_off": 0,
+  "delays": 1,
+  "policy": "direct",
+  "accept_prob": 0.7,
+  "settings": null,
+  "time_limit_s": 3,
+  "injected": [],
+  "custom": [],
+  "events_from": "random"
+ },
+ "events": [
+  {
+   "id": "s-new-3",
+   "type": "new_request",
+   "time": "11:10",
+   "request": {
+    "id": "n3",
+    "type_bk": "Подключение",
+    "type_hd": "Конвергенция абонента",
+    "address": "Москва, Ряжская улица, 9",
+    "district": "Бирюлево Восточное",
+    "lat": 55.591118,
+    "lon": 37.66635,
+    "geo_quality": "house",
+    "duration_min": 70,
+    "window_start": "12:40",
+    "window_end": "16:40",
+    "priority": "normal",
+    "skill": "connect",
+    "transport": null,
+    "equipment": [
+     "router",
+     "speaker"
+    ],
+    "segment": null,
+    "sector": null
+   },
+   "request_id": null,
+   "engineer_id": null,
+   "window_start": null,
+   "window_end": null,
+   "policy": null,
+   "delay_min": null,
+   "note": null
+  },
+  {
+   "id": "s-new-4",
+   "type": "new_request",
+   "time": "11:30",
+   "request": {
+    "id": "n4",
+    "type_bk": "Дозаказ",
+    "type_hd": "Заказ подключения/Дозаказ оборудования",
+    "address": "Москва, Борисовские Пруды улица, 18к1",
+    "district": "Братеево",
+    "lat": 55.636993,
+    "lon": 37.750648,
+    "geo_quality": "house",
+    "duration_min": 20,
+    "window_start": "12:30",
+    "window_end": "16:30",
+    "priority": "normal",
+    "skill": "connect",
+    "transport": null,
+    "equipment": [
+     "tv_box"
+    ],
+    "segment": null,
+    "sector": null
+   },
+   "request_id": null,
+   "engineer_id": null,
+   "window_start": null,
+   "window_end": null,
+   "policy": null,
+   "delay_min": null,
+   "note": null
+  },
+  {
+   "id": "s-noshow-2",
+   "type": "no_show",
+   "time": "11:38",
+   "request": null,
+   "request_id": "90135",
+   "engineer_id": null,
+   "window_start": null,
+   "window_end": null,
+   "policy": null,
+   "delay_min": null,
+   "note": "absent"
+  },
+  {
+   "id": "s-move-1",
+   "type": "reschedule",
+   "time": "12:00",
+   "request": null,
+   "request_id": "77466",
+   "engineer_id": null,
+   "window_start": "16:00",
+   "window_end": "18:00",
+   "policy": null,
+   "delay_min": null,
+   "note": null
+  },
+  {
+   "id": "s-new-6",
+   "type": "new_request",
+   "time": "13:15",
+   "request": {
+    "id": "n6",
+    "type_bk": "Подключение",
+    "type_hd": "Конвергенция абонента",
+    "address": "Москва, Пролетарский проспект, 16к1",
+    "district": "Царицыно",
+    "lat": 55.635051,
+    "lon": 37.656069,
+    "geo_quality": "house",
+    "duration_min": 70,
+    "window_start": "14:15",
+    "window_end": "16:15",
+    "priority": "normal",
+    "skill": "connect",
+    "transport": null,
+    "equipment": [
+     "router"
+    ],
+    "segment": null,
+    "sector": null
+   },
+   "request_id": null,
+   "engineer_id": null,
+   "window_start": null,
+   "window_end": null,
+   "policy": null,
+   "delay_min": null,
+   "note": null
+  },
+  {
+   "id": "s-new-1",
+   "type": "new_request",
+   "time": "13:35",
+   "request": {
+    "id": "n1",
+    "type_bk": "Подключение",
+    "type_hd": "Заказ подключения/Дозаказ оборудования",
+    "address": "Москва, Каширское (дублёр) шоссе, 98к2",
+    "district": "Орехово Борисово Северное",
+    "lat": 55.61346,
+    "lon": 37.71268,
+    "geo_quality": "house",
+    "duration_min": 70,
+    "window_start": "14:35",
+    "window_end": "18:35",
+    "priority": "normal",
+    "skill": "connect",
+    "transport": null,
+    "equipment": [
+     "router",
+     "tv_box"
+    ],
+    "segment": null,
+    "sector": null
+   },
+   "request_id": null,
+   "engineer_id": null,
+   "window_start": null,
+   "window_end": null,
+   "policy": null,
+   "delay_min": null,
+   "note": null
+  },
+  {
+   "id": "s-new-5",
+   "type": "new_request",
+   "time": "14:05",
+   "request": {
+    "id": "n5",
+    "type_bk": "Локальная заявка",
+    "type_hd": "Нет линка",
+    "address": "Московская область, Кашира, Ленина улица, 9",
+    "district": "Кашира",
+    "lat": 54.84263,
+    "lon": 38.193723,
+    "geo_quality": "house",
+    "duration_min": 30,
+    "window_start": "15:35",
+    "window_end": "17:35",
+    "priority": "normal",
+    "skill": "local",
+    "transport": null,
+    "equipment": [
+     "router"
+    ],
+    "segment": null,
+    "sector": null
+   },
+   "request_id": null,
+   "engineer_id": null,
+   "window_start": null,
+   "window_end": null,
+   "policy": null,
+   "delay_min": null,
+   "note": null
+  },
+  {
+   "id": "s-cancel-1",
+   "type": "cancel",
+   "time": "14:10",
+   "request": null,
+   "request_id": "24058",
+   "engineer_id": null,
+   "window_start": null,
+   "window_end": null,
+   "policy": null,
+   "delay_min": null,
+   "note": null
+  },
+  {
+   "id": "s-new-2",
+   "type": "new_request",
+   "time": "15:05",
+   "request": {
+    "id": "n2",
+    "type_bk": "Локальная заявка",
+    "type_hd": "Нет линка",
+    "address": "Московская область, Домодедово, Гагарина площадь, 3",
+    "district": "Домодедово",
+    "lat": 55.415101,
+    "lon": 37.837987,
+    "geo_quality": "house",
+    "duration_min": 30,
+    "window_start": "16:05",
+    "window_end": "18:05",
+    "priority": "normal",
+    "skill": "local",
+    "transport": null,
+    "equipment": [],
+    "segment": null,
+    "sector": null
+   },
+   "request_id": null,
+   "engineer_id": null,
+   "window_start": null,
+   "window_end": null,
+   "policy": null,
+   "delay_min": null,
+   "note": null
+  },
+  {
+   "id": "s-delay-1",
+   "type": "delay",
+   "time": "15:17",
+   "request": null,
+   "request_id": null,
+   "engineer_id": "nikitin",
+   "window_start": null,
+   "window_end": null,
+   "policy": null,
+   "delay_min": 45,
+   "note": null
+  },
+  {
+   "id": "s-cancel-2",
+   "type": "cancel",
+   "time": "16:30",
+   "request": null,
+   "request_id": "22304",
+   "engineer_id": null,
+   "window_start": null,
+   "window_end": null,
+   "policy": null,
+   "delay_min": null,
+   "note": null
+  },
+  {
+   "id": "s-noshow-1",
+   "type": "no_show",
+   "time": "16:51",
+   "request": null,
+   "request_id": "93538",
+   "engineer_id": null,
+   "window_start": null,
+   "window_end": null,
+   "policy": null,
+   "delay_min": null,
+   "note": "unreachable"
+  }
+ ],
+ "runs": [
+  {
+   "policy": "static",
+   "timeline": [
+    {
+     "time": "11:10",
+     "type": "new_request",
+     "request_id": "n3",
+     "engineer_id": null,
+     "outcome": "На завтра по правилу статического дня",
+     "outcome_code": "deferred",
+     "changed_requests": 0,
+     "kpis": {
+      "unassigned": 2.0,
+      "deferred": 1.0,
+      "late": 0.0,
+      "net_rub": 939901.0
+     }
+    },
+    {
+     "time": "11:30",
+     "type": "new_request",
+     "request_id": "n4",
+     "engineer_id": null,
+     "outcome": "На завтра по правилу статического дня",
+     "outcome_code": "deferred",
+     "changed_requests": 0,
+     "kpis": {
+      "unassigned": 2.0,
+      "deferred": 2.0,
+      "late": 0.0,
+      "net_rub": 939901.0
+     }
+    },
+    {
+     "time": "11:38",
+     "type": "no_show",
+     "request_id": "90135",
+     "engineer_id": null,
+     "outcome": "Клиента нет: заявка на завтра, бригада едет дальше",
+     "outcome_code": "removed",
+     "changed_requests": 11,
+     "kpis": {
+      "unassigned": 2.0,
+      "deferred": 3.0,
+      "late": 0.0,
+      "net_rub": 935270.0
+     }
+    },
+    {
+     "time": "12:00",
+     "type": "reschedule",
+     "request_id": "77466",
+     "engineer_id": null,
+     "outcome": "Новое окно 16:00–18:00, остаётся у pavlov",
+     "outcome_code": "shifted",
+     "changed_requests": 1,
+     "kpis": {
+      "unassigned": 2.0,
+      "deferred": 3.0,
+      "late": 0.0,
+      "net_rub": 935270.0
+     }
+    },
+    {
+     "time": "13:15",
+     "type": "new_request",
+     "request_id": "n6",
+     "engineer_id": null,
+     "outcome": "На завтра по правилу статического дня",
+     "outcome_code": "deferred",
+     "changed_requests": 0,
+     "kpis": {
+      "unassigned": 2.0,
+      "deferred": 4.0,
+      "late": 0.0,
+      "net_rub": 935270.0
+     }
+    },
+    {
+     "time": "13:35",
+     "type": "new_request",
+     "request_id": "n1",
+     "engineer_id": null,
+     "outcome": "На завтра по правилу статического дня",
+     "outcome_code": "deferred",
+     "changed_requests": 0,
+     "kpis": {
+      "unassigned": 2.0,
+      "deferred": 5.0,
+      "late": 0.0,
+      "net_rub": 935270.0
+     }
+    },
+    {
+     "time": "14:05",
+     "type": "new_request",
+     "request_id": "n5",
+     "engineer_id": null,
+     "outcome": "На завтра по правилу статического дня",
+     "outcome_code": "deferred",
+     "changed_requests": 0,
+     "kpis": {
+      "unassigned": 2.0,
+      "deferred": 6.0,
+      "late": 0.0,
+      "net_rub": 935270.0
+     }
+    },
+    {
+     "time": "14:10",
+     "type": "cancel",
+     "request_id": "24058",
+     "engineer_id": null,
+     "outcome": "Визит снят, время использовано пересчётом",
+     "outcome_code": "removed",
+     "changed_requests": 1,
+     "kpis": {
+      "unassigned": 2.0,
+      "deferred": 6.0,
+      "late": 0.0,
+      "net_rub": 928471.0
+     }
+    },
+    {
+     "time": "15:05",
+     "type": "new_request",
+     "request_id": "n2",
+     "engineer_id": null,
+     "outcome": "На завтра по правилу статического дня",
+     "outcome_code": "deferred",
+     "changed_requests": 0,
+     "kpis": {
+      "unassigned": 2.0,
+      "deferred": 7.0,
+      "late": 0.0,
+      "net_rub": 928471.0
+     }
+    },
+    {
+     "time": "15:17",
+     "type": "delay",
+     "request_id": null,
+     "engineer_id": "nikitin",
+     "outcome": "Бригада nikitin задержалась на 45 мин, хвост пересчитан",
+     "outcome_code": "shifted",
+     "changed_requests": 0,
+     "kpis": {
+      "unassigned": 3.0,
+      "deferred": 7.0,
+      "late": 0.0,
+      "net_rub": 928471.0
+     }
+    },
+    {
+     "time": "16:30",
+     "type": "cancel",
+     "request_id": "22304",
+     "engineer_id": null,
+     "outcome": "Визит снят, время использовано пересчётом",
+     "outcome_code": "removed",
+     "changed_requests": 1,
+     "kpis": {
+      "unassigned": 3.0,
+      "deferred": 7.0,
+      "late": 0.0,
+      "net_rub": 924117.0
+     }
+    },
+    {
+     "time": "16:51",
+     "type": "no_show",
+     "request_id": "93538",
+     "engineer_id": null,
+     "outcome": "Клиента нет: заявка на завтра, бригада едет дальше",
+     "outcome_code": "removed",
+     "changed_requests": 1,
+     "kpis": {
+      "unassigned": 4.0,
+      "deferred": 8.0,
+      "late": 0.0,
+      "net_rub": 924017.0
+     }
+    }
+   ],
+   "kpis": {
+    "intraday_total": 6.0,
+    "intraday_served": 0.0,
+    "deferred": 8.0,
+    "changed_total": 15.0,
+    "on_time": 77.0,
+    "late": 0.0,
+    "unassigned": 4.0,
+    "utilization_pct": 97.9,
+    "distance_km": 470.3,
+    "bonus_rub": 15660.0,
+    "net_rub": 924017.0,
+    "offers_sent": 0.0,
+    "offers_accepted": 0.0,
+    "emergencies": 0.0,
+    "reaction_worst_min": 0.0,
+    "reaction_missed": 0.0,
+    "no_stock": 0.0,
+    "waves": 0.0,
+    "queue_wait_avg_min": 0.0
+   }
+  },
+  {
+   "policy": "direct",
+   "timeline": [
+    {
+     "time": "11:15",
+     "type": "new_request",
+     "request_id": "n3",
+     "engineer_id": null,
+     "outcome": "Сегодня взять некому: все бригады заняты: до конца окна 12:40–16:40 никто не освобождается. Заявка переносится на следующий день",
+     "outcome_code": "deferred",
+     "changed_requests": 10,
+     "kpis": {
+      "unassigned": 2.0,
+      "deferred": 1.0,
+      "late": 0.0,
+      "net_rub": 939840.0
+     }
+    },
+    {
+     "time": "11:30",
+     "type": "new_request",
+     "request_id": "n4",
+     "engineer_id": null,
+     "outcome": "Встала к бригаде rodionov, приезд 15:50",
+     "outcome_code": "assigned",
+     "changed_requests": 2,
+     "kpis": {
+      "unassigned": 2.0,
+      "deferred": 1.0,
+      "late": 0.0,
+      "net_rub": 940343.0
+     }
+    },
+    {
+     "time": "11:38",
+     "type": "no_show",
+     "request_id": "90135",
+     "engineer_id": null,
+     "outcome": "Клиента нет: заявка на завтра, бригада едет дальше",
+     "outcome_code": "removed",
+     "changed_requests": 1,
+     "kpis": {
+      "unassigned": 2.0,
+      "deferred": 2.0,
+      "late": 0.0,
+      "net_rub": 935773.0
+     }
+    },
+    {
+     "time": "12:00",
+     "type": "reschedule",
+     "request_id": "77466",
+     "engineer_id": null,
+     "outcome": "Новое окно 16:00–18:00, остаётся у pavlov",
+     "outcome_code": "shifted",
+     "changed_requests": 1,
+     "kpis": {
+      "unassigned": 2.0,
+      "deferred": 2.0,
+      "late": 0.0,
+      "net_rub": 935773.0
+     }
+    },
+    {
+     "time": "13:15",
+     "type": "new_request",
+     "request_id": "n6",
+     "engineer_id": null,
+     "outcome": "Сегодня взять некому: все бригады заняты: до конца окна 14:15–16:15 никто не освобождается. Заявка переносится на следующий день",
+     "outcome_code": "deferred",
+     "changed_requests": 0,
+     "kpis": {
+      "unassigned": 2.0,
+      "deferred": 3.0,
+      "late": 0.0,
+      "net_rub": 935773.0
+     }
+    },
+    {
+     "time": "13:45",
+     "type": "new_request",
+     "request_id": "n1",
+     "engineer_id": null,
+     "outcome": "Встала к бригаде morozov, приезд 18:34",
+     "outcome_code": "assigned",
+     "changed_requests": 1,
+     "kpis": {
+      "unassigned": 2.0,
+      "deferred": 3.0,
+      "late": 0.0,
+      "net_rub": 940070.0
+     }
+    },
+    {
+     "time": "14:15",
+     "type": "new_request",
+     "request_id": "n5",
+     "engineer_id": null,
+     "outcome": "Встала к бригаде ershov, приезд 16:40",
+     "outcome_code": "assigned",
+     "changed_requests": 4,
+     "kpis": {
+      "unassigned": 2.0,
+      "deferred": 3.0,
+      "late": 0.0,
+      "net_rub": 942129.0
+     }
+    },
+    {
+     "time": "14:15",
+     "type": "cancel",
+     "request_id": "24058",
+     "engineer_id": null,
+     "outcome": "Визит снят, время использовано пересчётом",
+     "outcome_code": "removed",
+     "changed_requests": 1,
+     "kpis": {
+      "unassigned": 2.0,
+      "deferred": 3.0,
+      "late": 0.0,
+      "net_rub": 935330.0
+     }
+    },
+    {
+     "time": "15:15",
+     "type": "new_request",
+     "request_id": "n2",
+     "engineer_id": null,
+     "outcome": "Встала к бригаде grigorev, приезд 17:18",
+     "outcome_code": "assigned",
+     "changed_requests": 1,
+     "kpis": {
+      "unassigned": 3.0,
+      "deferred": 3.0,
+      "late": 0.0,
+      "net_rub": 938359.0
+     }
+    },
+    {
+     "time": "15:17",
+     "type": "delay",
+     "request_id": null,
+     "engineer_id": "nikitin",
+     "outcome": "Бригада nikitin задержалась на 45 мин, хвост пересчитан",
+     "outcome_code": "shifted",
+     "changed_requests": 0,
+     "kpis": {
+      "unassigned": 3.0,
+      "deferred": 3.0,
+      "late": 0.0,
+      "net_rub": 938359.0
+     }
+    },
+    {
+     "time": "16:30",
+     "type": "cancel",
+     "request_id": "22304",
+     "engineer_id": null,
+     "outcome": "Визит снят, время использовано пересчётом",
+     "outcome_code": "removed",
+     "changed_requests": 1,
+     "kpis": {
+      "unassigned": 3.0,
+      "deferred": 3.0,
+      "late": 0.0,
+      "net_rub": 934005.0
+     }
+    },
+    {
+     "time": "16:51",
+     "type": "no_show",
+     "request_id": "93538",
+     "engineer_id": null,
+     "outcome": "Клиента нет: заявка на завтра, бригада едет дальше",
+     "outcome_code": "removed",
+     "changed_requests": 1,
+     "kpis": {
+      "unassigned": 4.0,
+      "deferred": 4.0,
+      "late": 0.0,
+      "net_rub": 933905.0
+     }
+    }
+   ],
+   "kpis": {
+    "intraday_total": 6.0,
+    "intraday_served": 4.0,
+    "deferred": 4.0,
+    "changed_total": 23.0,
+    "on_time": 81.0,
+    "late": 0.0,
+    "unassigned": 4.0,
+    "utilization_pct": 101.9,
+    "distance_km": 478.1,
+    "bonus_rub": 20790.0,
+    "net_rub": 933905.0,
+    "offers_sent": 0.0,
+    "offers_accepted": 0.0,
+    "emergencies": 0.0,
+    "reaction_worst_min": 0.0,
+    "reaction_missed": 0.0,
+    "no_stock": 0.0,
+    "waves": 8.0,
+    "queue_wait_avg_min": 4.4
+   }
+  }
+ ],
+ "kpi_labels": [
+  {
+   "key": "intraday_total",
+   "label": "Заявок пришло за день",
+   "unit": "",
+   "less_is_better": false
+  },
+  {
+   "key": "intraday_served",
+   "label": "Из них взято сегодня",
+   "unit": "",
+   "less_is_better": false
+  },
+  {
+   "key": "deferred",
+   "label": "Перенесено на завтра",
+   "unit": "",
+   "less_is_better": true
+  },
+  {
+   "key": "changed_total",
+   "label": "Сдвинуто визитов за день",
+   "unit": "",
+   "less_is_better": true
+  },
+  {
+   "key": "on_time",
+   "label": "Визитов вовремя",
+   "unit": "",
+   "less_is_better": false
+  },
+  {
+   "key": "late",
+   "label": "Опозданий",
+   "unit": "",
+   "less_is_better": true
+  },
+  {
+   "key": "unassigned",
+   "label": "Не назначено к концу дня",
+   "unit": "",
+   "less_is_better": true
+  },
+  {
+   "key": "utilization_pct",
+   "label": "Загрузка бригад",
+   "unit": "%",
+   "less_is_better": false
+  },
+  {
+   "key": "distance_km",
+   "label": "Пробег",
+   "unit": "км",
+   "less_is_better": true
+  },
+  {
+   "key": "bonus_rub",
+   "label": "Бонусы",
+   "unit": "₽",
+   "less_is_better": true
+  },
+  {
+   "key": "net_rub",
+   "label": "Итог дня",
+   "unit": "₽",
+   "less_is_better": false
+  },
+  {
+   "key": "offers_sent",
+   "label": "Предложений отправлено",
+   "unit": "",
+   "less_is_better": false
+  },
+  {
+   "key": "offers_accepted",
+   "label": "Предложений принято",
+   "unit": "",
+   "less_is_better": false
+  },
+  {
+   "key": "emergencies",
+   "label": "Аварий пришло за день",
+   "unit": "",
+   "less_is_better": false
+  },
+  {
+   "key": "reaction_worst_min",
+   "label": "Реакция на аварию, худшая",
+   "unit": "мин",
+   "less_is_better": true
+  },
+  {
+   "key": "reaction_missed",
+   "label": "Аварий позже предела реакции",
+   "unit": "",
+   "less_is_better": true
+  },
+  {
+   "key": "no_stock",
+   "label": "Не взято из-за запаса оборудования",
+   "unit": "",
+   "less_is_better": true
+  },
+  {
+   "key": "waves",
+   "label": "Волн пересчёта",
+   "unit": "",
+   "less_is_better": false
+  },
+  {
+   "key": "queue_wait_avg_min",
+   "label": "Ожидание в очереди волны, среднее",
+   "unit": "мин",
+   "less_is_better": true
+  }
+ ]
+}

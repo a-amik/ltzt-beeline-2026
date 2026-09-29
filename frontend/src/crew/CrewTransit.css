@@ -1,0 +1,18 @@
+/* «Как доехать» в приложении бригады: варианты пути общественным транспортом. */
+.b-transit { display: flex; flex-direction: column; gap: 8px; padding-top: 10px; box-shadow: inset 0 1px 0 var(--b-line); }
+.b-transit h4 { margin: 0; font: 600 14px/18px var(--b-font); }
+.b-transit-option { border-radius: 10px; background: var(--b-bg, transparent); box-shadow: inset 0 0 0 1px var(--b-line); padding: 8px 10px; }
+.b-transit-option summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; cursor: pointer; list-style: none; }
+.b-transit-option summary::-webkit-details-marker { display: none; }
+.b-transit-option summary b { font: 600 16px/20px var(--b-font); }
+.b-transit-option summary span { color: var(--b-text-2); font-size: 13px; }
+.b-transit-deps { margin: 8px 0 0; font-size: 13px; color: var(--b-text-2); display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
+.b-transit-deps time { font: 600 13px/18px var(--b-font); color: var(--b-text, inherit); font-variant-numeric: tabular-nums; }
+.b-transit-legs { list-style: none; margin: 8px 0 0; padding: 0 0 0 14px; display: flex; flex-direction: column; gap: 6px; border-left: 2px solid var(--b-line); }
+.b-transit-legs li { display: flex; flex-direction: column; gap: 1px; position: relative; }
+.b-transit-legs li::before { content: ''; position: absolute; left: -19px; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: var(--b-surface); box-shadow: inset 0 0 0 2px var(--b-text-2); }
+.b-transit-legs li.ride::before { background: var(--b-accent); box-shadow: none; }
+.b-transit-legs li b { font: 600 14px/18px var(--b-font); }
+.b-transit-legs li span { font-size: 13px; line-height: 17px; color: var(--b-text-2); }
+.b-transit-legs li.walk b, .b-transit-legs li.transfer b { font-weight: 500; }
+.b-transit-late { margin: 0; padding: 8px 10px; border-radius: 10px; font-size: 13px; line-height: 18px; background: var(--b-danger-bg); color: var(--b-text, inherit); }

@@ -1,0 +1,282 @@
+/**
+ * Токены «Маршрута дня». Цвет — фирменный стиль заказчика,
+ * геометрия — Gravity UI 7.49. Интерфейс спрашивает лист именами `--b-*`
+ * и своих чисел не держит.
+ *
+ * Тема объявляется атрибутом `data-theme` на <html>; без явного выбора
+ * работает системная. Переменные Gravity `--g-*` переопределены нашими
+ * в конце файла — оттого его компоненты и надевают цвет бренда.
+ */
+
+/* ── Гарнитура бренда: три начертания, файлы лежат у нас ── */
+@font-face {
+  font-family: 'Beeline Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/BeelineSans-Regular.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Beeline Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/BeelineSans-Medium.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Beeline Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/BeelineSans-Bold.woff2') format('woff2');
+}
+
+:root {
+  color-scheme: light;
+
+  --b-accent: #ffc800;
+  --b-accent-hover: #ffd84d;
+  --b-accent-press: #f2bd00;
+  --b-on-accent: #13171b;
+
+  --b-bg: #f4f5f6;
+  --b-surface: #ffffff;
+  --b-float: #ffffff;
+
+  --b-text: #13171b;
+  --b-text-2: #5c6169;
+  --b-text-3: #8f959d;
+
+  --b-line: rgb(19 23 27 / 9%);
+  --b-line-solid: #e7e8e9;
+  --b-line-2: #d3d6da;
+
+  --b-hover: rgb(19 23 27 / 5%);
+  --b-hover-2: rgb(19 23 27 / 9%);
+  --b-selection: rgb(255 200 0 / 38%);
+  --b-selection-hover: rgb(255 200 0 / 55%);
+
+  --b-danger: #c8341a;
+  --b-danger-bg: rgb(237 68 35 / 13%);
+  --b-success: #00804a;
+  --b-success-bg: rgb(0 165 94 / 13%);
+  --b-info: #0a66c7;
+  --b-info-bg: rgb(16 134 249 / 13%);
+  --b-warn: #b94100;
+  --b-warn-bg: rgb(248 74 0 / 12%);
+  --b-neutral-bg: rgb(19 23 27 / 7%);
+
+  --b-shadow-float: 0 0 0 1px var(--b-line-solid), 0 8px 20px 1px rgb(0 0 0 / 15%);
+  --b-focus: 0 0 0 2px var(--b-surface), 0 0 0 4px var(--b-accent);
+
+  --b-r-xs: 3px;
+  --b-r-s: 6px;
+  --b-r-m: 8px;
+  --b-r-l: 12px;
+  --b-h-m: 28px;
+  --b-h-l: 36px;
+
+  --b-font: 'Beeline Sans', -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --b-ease: cubic-bezier(0.2, 0, 0, 1);
+  --b-t-fast: 120ms;
+  --b-t-mid: 240ms;
+
+  /* Краски маршрутов: у линии и её точек одна краска. */
+  --b-r1: #0b6bcb;
+  --b-r2: #d9480f;
+  --b-r3: #2f9e44;
+  --b-r4: #9c36b5;
+  --b-r5: #0ca678;
+  --b-r6: #c92a2a;
+  --b-r7: #5f3dc4;
+  --b-r8: #e67700;
+  --b-r9: #1098ad;
+  --b-r10: #a61e4d;
+}
+
+/* ── Имена прежнего набора: живут алиасами, пока их зовут компоненты ── */
+:root {
+  --b-surface-2: var(--b-hover);
+  --b-surface-3: var(--b-hover-2);
+  --b-border: var(--b-line-solid);
+  --b-shadow: var(--b-shadow-float);
+  --b-r-xl: var(--b-r-l);
+  --b-route-1: var(--b-r1);
+  --b-route-2: var(--b-r2);
+  --b-route-3: var(--b-r3);
+  --b-route-4: var(--b-r4);
+  --b-route-5: var(--b-r5);
+  --b-route-6: var(--b-r6);
+  --b-route-7: var(--b-r7);
+  --b-route-8: var(--b-r8);
+  --b-route-9: var(--b-r9);
+  --b-route-10: var(--b-r10);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  /* Круг лоадера на тон светлее фона, иначе он тонет в графите. */
+  --route-loader-bg: #262b31;
+
+  --b-accent-hover: #ffd84d;
+  --b-accent-press: #e6b400;
+
+  --b-bg: #0f1215;
+  --b-surface: #16191d;
+  --b-float: #1f2327;
+
+  --b-text: #f2f3f4;
+  --b-text-2: #a6acb3;
+  --b-text-3: #737a83;
+
+  --b-line: rgb(255 255 255 / 9%);
+  --b-line-solid: #2a2e33;
+  --b-line-2: #3a3f45;
+
+  --b-hover: rgb(255 255 255 / 6%);
+  --b-hover-2: rgb(255 255 255 / 10%);
+  --b-selection: rgb(255 200 0 / 16%);
+  --b-selection-hover: rgb(255 200 0 / 24%);
+
+  --b-danger: #ff7a5c;
+  --b-danger-bg: rgb(255 107 77 / 17%);
+  --b-success: #3fd18f;
+  --b-success-bg: rgb(46 204 132 / 16%);
+  --b-info: #6ab2ff;
+  --b-info-bg: rgb(77 163 255 / 17%);
+  --b-warn: #ff9a5c;
+  --b-warn-bg: rgb(255 122 51 / 17%);
+  --b-neutral-bg: rgb(255 255 255 / 9%);
+
+  --b-shadow-float: 0 0 0 1px var(--b-line-solid), 0 8px 20px 1px rgb(0 0 0 / 50%);
+
+  --b-r1: #4da3ff;
+  --b-r2: #ff8c5a;
+  --b-r3: #5ed17a;
+  --b-r4: #d08cf0;
+  --b-r5: #3ddc9f;
+  --b-r6: #ff6b6b;
+  --b-r7: #a78bfa;
+  --b-r8: #ffb347;
+  --b-r9: #4dd4e8;
+  --b-r10: #ff7aa8;
+}
+
+/* Системная тёмная — пока читатель не выбрал светлую сам. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --route-loader-bg: #262b31;
+    color-scheme: dark;
+
+    --b-accent-hover: #ffd84d;
+    --b-accent-press: #e6b400;
+
+    --b-bg: #0f1215;
+    --b-surface: #16191d;
+    --b-float: #1f2327;
+
+    --b-text: #f2f3f4;
+    --b-text-2: #a6acb3;
+    --b-text-3: #737a83;
+
+    --b-line: rgb(255 255 255 / 9%);
+    --b-line-solid: #2a2e33;
+    --b-line-2: #3a3f45;
+
+    --b-hover: rgb(255 255 255 / 6%);
+    --b-hover-2: rgb(255 255 255 / 10%);
+    --b-selection: rgb(255 200 0 / 16%);
+    --b-selection-hover: rgb(255 200 0 / 24%);
+
+    --b-danger: #ff7a5c;
+    --b-danger-bg: rgb(255 107 77 / 17%);
+    --b-success: #3fd18f;
+    --b-success-bg: rgb(46 204 132 / 16%);
+    --b-info: #6ab2ff;
+    --b-info-bg: rgb(77 163 255 / 17%);
+    --b-warn: #ff9a5c;
+    --b-warn-bg: rgb(255 122 51 / 17%);
+    --b-neutral-bg: rgb(255 255 255 / 9%);
+
+    --b-shadow-float: 0 0 0 1px var(--b-line-solid), 0 8px 20px 1px rgb(0 0 0 / 50%);
+
+    --b-r1: #4da3ff;
+    --b-r2: #ff8c5a;
+    --b-r3: #5ed17a;
+    --b-r4: #d08cf0;
+    --b-r5: #3ddc9f;
+    --b-r6: #ff6b6b;
+    --b-r7: #a78bfa;
+    --b-r8: #ffb347;
+    --b-r9: #4dd4e8;
+    --b-r10: #ff7aa8;
+  }
+}
+
+/**
+ * Gravity UI спрашивает лист своими именами. Переопределяем их нашими
+ * токенами — и Select, меню, метки и кнопки надевают цвет бренда.
+ * Второго места, где записан цвет, в проекте нет.
+ */
+.g-root {
+  --g-font-family-sans: var(--b-font);
+  --g-font-family-monospace: ui-monospace, 'SF Mono', Menlo, monospace;
+  --g-text-body-1-font-size: 13px;
+  --g-text-body-1-line-height: 18px;
+
+  --g-border-radius-xs: var(--b-r-xs);
+  --g-border-radius-s: var(--b-r-s);
+  --g-border-radius-m: var(--b-r-m);
+  --g-border-radius-l: var(--b-r-l);
+  --g-border-radius-xl: var(--b-r-l);
+
+  --g-color-base-background: var(--b-bg);
+  --g-color-base-generic: var(--b-hover);
+  --g-color-base-generic-hover: var(--b-hover-2);
+  --g-color-base-generic-medium: var(--b-hover-2);
+  --g-color-base-generic-ultralight: var(--b-hover);
+  --g-color-base-simple-hover: var(--b-hover);
+  --g-color-base-simple-hover-solid: var(--b-line-solid);
+  --g-color-base-float: var(--b-float);
+  --g-color-base-float-hover: var(--b-hover);
+  --g-color-base-float-heavy: var(--b-float);
+  --g-color-base-modal: var(--b-float);
+  --g-color-base-brand: var(--b-accent);
+  --g-color-base-brand-hover: var(--b-accent-hover);
+  --g-color-base-selection: var(--b-selection);
+  --g-color-base-selection-hover: var(--b-selection-hover);
+  --g-color-base-danger-light: var(--b-danger-bg);
+  --g-color-base-info-light: var(--b-info-bg);
+  --g-color-base-warning-light: var(--b-warn-bg);
+  --g-color-base-positive-light: var(--b-success-bg);
+  --g-color-base-neutral-light: var(--b-neutral-bg);
+
+  --g-color-line-generic: var(--b-line);
+  --g-color-line-generic-hover: var(--b-line-2);
+  --g-color-line-generic-active: var(--b-text-3);
+  --g-color-line-generic-solid: var(--b-line-solid);
+  --g-color-line-brand: var(--b-accent);
+  --g-color-line-focus: var(--b-accent);
+
+  --g-color-text-primary: var(--b-text);
+  --g-color-text-secondary: var(--b-text-2);
+  --g-color-text-hint: var(--b-text-3);
+  --g-color-text-complementary: var(--b-text-3);
+  --g-color-text-brand: var(--b-text);
+  --g-color-text-brand-heavy: var(--b-text);
+  --g-color-text-brand-contrast: var(--b-on-accent);
+  --g-color-text-danger: var(--b-danger);
+  --g-color-text-info: var(--b-info);
+  --g-color-text-warning: var(--b-warn);
+  --g-color-text-positive: var(--b-success);
+  --g-color-text-link: var(--b-info);
+  --g-color-text-link-hover: var(--b-info);
+
+  --g-color-sfx-shadow: rgb(0 0 0 / 15%);
+  --g-color-sfx-veil: rgb(0 0 0 / 30%);
+}
+
+[data-theme='dark'] .g-root,
+.g-root_theme_dark {
+  --g-color-sfx-shadow: rgb(0 0 0 / 50%);
+}
