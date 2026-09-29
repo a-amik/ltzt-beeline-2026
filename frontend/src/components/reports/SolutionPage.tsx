@@ -85,7 +85,7 @@ export default function SolutionPage({ reports, onOpen }: { reports: Reports; on
         <Tiles items={[
           { value: `${num(total(b, 'solver', 'on_time'))} из ${num(requests)}`, icon: <IconClock />, label: 'заявок вовремя', note: `контроль ${num(total(b, 'control', 'on_time'))}, базовый ${num(total(b, 'baseline', 'on_time'))}` },
           { value: num(total(b, 'solver', 'engineers_used')), icon: <IconUsers />, label: 'бригад в работе', note: `у контроля и базового ${num(total(b, 'control', 'engineers_used'))}` },
-          { value: `${num(wholeKm('solver'), 1)} км`, icon: <IconRoute />, label: 'пробег за день', note: `контроль ${num(wholeKm('control'), 1)}, базовый ${num(wholeKm('baseline'), 1)}; без границ участков` },
+          { value: `${num(wholeKm('solver'), 1)} км`, icon: <IconRoute />, label: 'пробег за день', note: `контроль ${num(wholeKm('control'), 1)}, базовый ${num(wholeKm('baseline'), 1)}${miKm(WHOLE, 'solver') === null ? '' : '; без границ участков'}` },
           { value: '4 с', icon: <IconSearch />, label: 'поиск решения', note: 'бюджет на один участок' },
         ]} />
       </header>
