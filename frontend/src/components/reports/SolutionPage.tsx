@@ -8,6 +8,7 @@ import KpiTable from '../KpiTable'
 import { ArtSolution } from './art'
 import { Chain, Figure, GroupBars, Tiles } from './charts'
 import { REPAIR, STAND, reportKpis } from './facts'
+import type { Mileage } from './MileagePage'
 
 export const PLAN_SERIES = [
   { key: 'control', label: 'Контроль', color: 'var(--race-control)' },
@@ -59,6 +60,13 @@ export default function SolutionPage({ reports, onOpen }: { reports: Reports; on
   const [region, setRegion] = useState(b?.regions[0]?.dataset_id ?? '')
   if (!b) return <p className="b-demo-empty">Данные сравнения пока недоступны. Для пересчёта: <code>python -m bee_routing.benchmark</code></p>
   const requests = total(b, 'control', 'requests_total')
+  // Пробег — одно число на все страницы «О проекте»: из отчёта по исполнителям, план «Вся Москва»
+  // без границ участков (бригада может заехать в чужой участок). Нет отчёта — прежний счёт сравнения.
+  const mi = (reports as Reports & { mileage?: Mileage | null }).mileage ?? null
+  const miKm = (zone: string, key: string) =>
+    (mi?.zones.find((z) => z.id === zone)?.totals as Record<string, { km: number }> | undefined)?.[key]?.km ?? null
+  const kmOf = (zone: string, key: string) => miKm(zone, key) ?? kpi(b, zone, key, 'distance_km')
+  const wholeKm = (key: string) => miKm(WHOLE, key) ?? total(b, key, 'distance_km')
   const current = b.regions.find((r) => r.dataset_id === region) ?? b.regions[0]
   const groups = (name: string) => b.regions.map((r) => ({ label: r.name, values: PLAN_SERIES.map((s) => kpi(b, r.dataset_id, s.key, name)) }))
 
@@ -77,7 +85,7 @@ export default function SolutionPage({ reports, onOpen }: { reports: Reports; on
         <Tiles items={[
           { value: `${num(total(b, 'solver', 'on_time'))} из ${num(requests)}`, icon: <IconClock />, label: 'заявок вовремя', note: `контроль ${num(total(b, 'control', 'on_time'))}, базовый ${num(total(b, 'baseline', 'on_time'))}` },
           { value: num(total(b, 'solver', 'engineers_used')), icon: <IconUsers />, label: 'бригад в работе', note: `у контроля и базового ${num(total(b, 'control', 'engineers_used'))}` },
-          { value: `${num(total(b, 'solver', 'distance_km'))} км`, icon: <IconRoute />, label: 'пробег за день', note: `контроль ${num(total(b, 'control', 'distance_km'))}, базовый ${num(total(b, 'baseline', 'distance_km'))}` },
+          { value: `${num(wholeKm('solver'), 1)} км`, icon: <IconRoute />, label: 'пробег за день', note: `контроль ${num(wholeKm('control'), 1)}, базовый ${num(wholeKm('baseline'), 1)}; без границ участков` },
           { value: '4 с', icon: <IconSearch />, label: 'поиск решения', note: 'бюджет на один участок' },
         ]} />
       </header>
@@ -129,7 +137,8 @@ export default function SolutionPage({ reports, onOpen }: { reports: Reports; on
         <Figure n={3} title="Бригады в&nbsp;работе и&nbsp;пробег" legend={PLAN_SERIES}>
           <div className="b-an-pair">
             <GroupBars groups={groups('engineers_used')} series={PLAN_SERIES} fmt={(v) => num(v)} />
-            <GroupBars groups={groups('distance_km')} series={PLAN_SERIES} fmt={(v) => `${num(v)} км`} />
+            <GroupBars groups={b.regions.map((r) => ({ label: r.name, values: PLAN_SERIES.map((s) => kmOf(r.dataset_id, s.key)) }))}
+              series={PLAN_SERIES} fmt={(v) => `${num(v, 1)} км`} />
           </div>
         </Figure>
         <details className="b-an-more">
@@ -138,7 +147,10 @@ export default function SolutionPage({ reports, onOpen }: { reports: Reports; on
             <SegmentedRadioGroup size="m" value={region} onUpdate={setRegion}
               options={b.regions.map((r) => ({ value: r.dataset_id, content: r.name }))} />
           </div>
-          <KpiTable kpis={reportKpis(b.kpis)} columns={current.rows.map((row) => ({ ...row, ours: row.key === 'solver' }))} />
+          <KpiTable kpis={reportKpis(b.kpis)} columns={current.rows.map((row) => {
+            const km = miKm(current.dataset_id, row.key)
+            return { ...row, ours: row.key === 'solver', kpis: km === null ? row.kpis : { ...row.kpis, distance_km: km } }
+          })} />
         </details>
       </section>
 

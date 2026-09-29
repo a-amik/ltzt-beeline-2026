@@ -48,12 +48,15 @@ export default function MileagePage({ reports }: { reports: Reports }) {
           Вторая обязательная метрика задания&nbsp;— пробег каждого исполнителя. Мы посчитали три плана на&nbsp;одних
           заявках и&nbsp;одной модели дорог: контрольное распределение, базовый вариант из&nbsp;п.&nbsp;2.3 и&nbsp;наш план. По&nbsp;участкам
           в&nbsp;нашем плане {num(ours.on_time)} из&nbsp;{num(ours.requests)} заявок начинаются вовремя; работают {ours.engineers} исполнителей
-          против {ctrl.engineers} в&nbsp;контроле. Пробег&nbsp;— {km(ours.km)}&nbsp;км против {km(ctrl.km)} у&nbsp;контроля и&nbsp;{km(base.km)} у&nbsp;базового.
+          против {ctrl.engineers} в&nbsp;контроле.{whole ? <> Пробег за&nbsp;день, когда бригада может заехать в&nbsp;чужой участок,&nbsp;— {km(whole.totals.solver.km)}&nbsp;км
+          против {km(whole.totals.control.km)} у&nbsp;контроля и&nbsp;{km(whole.totals.baseline.km)} у&nbsp;базового; в&nbsp;границах своих участков&nbsp;— {km(ours.km)}&nbsp;км.</>
+            : <> Пробег&nbsp;— {km(ours.km)}&nbsp;км против {km(ctrl.km)} у&nbsp;контроля и&nbsp;{km(base.km)} у&nbsp;базового.</>}
         </p>
         <Tiles items={[
           { value: `${ours.engineers} из ${ctrl.engineers}`, icon: <IconUsers />, label: 'исполнителей в нашем плане', note: `контроль и базовый — ${ctrl.engineers}` },
-          { value: `${km(ours.km)} км`, icon: <IconRoute />, label: 'суммарный пробег по участкам', note: `контроль — ${km(ctrl.km)} км, базовый — ${km(base.km)} км` },
-          ...(whole ? [{ value: `${km(whole.totals.solver.km)} км`, icon: <IconChart />, label: 'без границ участков', note: `те же ${whole.totals.solver.engineers} исполнителей; контроль — ${km(whole.totals.control.km)} км` }] : []),
+          // Главное число пробега — без границ участков: оно же стоит на странице «Решение и результат».
+          ...(whole ? [{ value: `${km(whole.totals.solver.km)} км`, icon: <IconRoute />, label: 'пробег за день, без границ участков', note: `контроль — ${km(whole.totals.control.km)} км, базовый — ${km(whole.totals.baseline.km)} км` }] : []),
+          { value: `${km(ours.km)} км`, icon: whole ? <IconChart /> : <IconRoute />, label: 'в границах своих участков', note: `контроль — ${km(ctrl.km)} км, базовый — ${km(base.km)} км` },
         ]} />
       </header>
 
