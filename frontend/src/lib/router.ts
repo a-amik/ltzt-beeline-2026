@@ -20,7 +20,7 @@
 import { useStore, type ReportPage, type State } from '../store'
 
 const DEFAULT_SET = 'moskva'
-const PAGES: ReportPage[] = ['solution', 'design', 'models', 'method', 'settings', 'ops']
+const PAGES: ReportPage[] = ['solution', 'design', 'models', 'method', 'settings', 'ops', 'mileage']
 
 type Screen =
   | 'requests' | 'engineers' | 'deficit' | 'simulation' | 'live' | 'sim'

@@ -165,7 +165,14 @@ def load(data_dir: Path = DATA_DIR) -> dict | None:
     return report if isinstance(report, dict) else None
 
 
+def mileage(data_dir: Path = DATA_DIR) -> dict | None:
+    """Отчёт по исполнителям: пробег каждой бригады в трёх планах (`bee_routing.mileage`)."""
+    report = _read(data_dir / "mileage" / "report.json")
+    return report if isinstance(report, dict) else None
+
+
 def reports(data_dir: Path = DATA_DIR) -> dict:
     """Все страницы отчётов разом: экран строит из этого рисунки и таблицы."""
     return {"benchmark": benchmark(data_dir), "simulation": simulation(data_dir), "scale": scale(data_dir),
-            "search": search(data_dir), "generalize": generalize(data_dir), "load": load(data_dir)}
+            "search": search(data_dir), "generalize": generalize(data_dir), "load": load(data_dir),
+            "mileage": mileage(data_dir)}

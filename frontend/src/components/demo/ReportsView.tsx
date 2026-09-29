@@ -26,6 +26,7 @@ import ModelsPage from '../reports/ModelsPage'
 import OpsPage from '../reports/OpsPage'
 import MethodPage from '../reports/MethodPage'
 import SettingsPage from '../reports/SettingsPage'
+import MileagePage from '../reports/MileagePage'
 import { closeOverlays } from '../Rail'
 import '../reports/reports.css'
 
@@ -42,6 +43,8 @@ const PAGES: { key: ReportPage; title: string; sub: string; chapters: [string, s
     chapters: [['st-why', 'Зачем'], ['st-what', 'Что настраивается'], ['st-rules', 'Кто задаёт'], ['st-helper', 'BeeGPT'], ['st-prod', 'В работе'], ['st-limits', 'Для пилота']] },
   { key: 'ops', title: 'Нагрузка и безопасность', sub: 'масштаб, запросы, защита',
     chapters: [['o-scale', 'Масштаб'], ['o-load', 'Нагрузка'], ['o-abuse', 'Некорректные запросы'], ['o-sec', 'Данные и доступ'], ['o-fraud', 'Проверка отметок'], ['o-next', 'Для пилота']] },
+  { key: 'mileage', title: 'Отчёт по исполнителям', sub: 'пробег каждой бригады, три плана',
+    chapters: [['mi-sum', 'Сводка'], ['mi-vostok', 'Восток'], ['mi-yugo-vostok', 'Юго-восток'], ['mi-yugocentr', 'Югоцентр']] },
 ]
 
 const jump = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
@@ -110,6 +113,8 @@ export default function ReportsView({ onClose }: { onClose: () => void }) {
             <SettingsPage onOpen={() => { closeOverlays(); store.setSettingsOpen(true) }} />
           ) : page === 'ops' ? (
             <OpsPage reports={reports} />
+          ) : page === 'mileage' ? (
+            <MileagePage reports={reports} />
           ) : (
             <SolutionPage reports={reports} onOpen={openDemo} />
           )}

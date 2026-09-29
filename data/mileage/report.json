@@ -1,0 +1,1260 @@
+{
+ "date": "2026-09-29",
+ "commit": "e34b77c1",
+ "plans": [
+  {
+   "key": "control",
+   "label": "Контрольное распределение"
+  },
+  {
+   "key": "baseline",
+   "label": "Базовый вариант, п. 2.3"
+  },
+  {
+   "key": "solver",
+   "label": "Наш план"
+  }
+ ],
+ "zones": [
+  {
+   "id": "vostok",
+   "name": "Восток",
+   "start": "home",
+   "engineers": [
+    {
+     "id": "lebedev",
+     "name": "Лебедев",
+     "control": {
+      "km": 14.7,
+      "stops": 7
+     },
+     "baseline": {
+      "km": 5.1,
+      "stops": 2
+     },
+     "solver": {
+      "km": 16.9,
+      "stops": 7
+     }
+    },
+    {
+     "id": "zaytsev",
+     "name": "Зайцев",
+     "control": {
+      "km": 6.6,
+      "stops": 6
+     },
+     "baseline": {
+      "km": 23.0,
+      "stops": 3
+     },
+     "solver": {
+      "km": 9.6,
+      "stops": 8
+     }
+    },
+    {
+     "id": "ponomarev",
+     "name": "Пономарёв",
+     "control": {
+      "km": 16.2,
+      "stops": 8
+     },
+     "baseline": {
+      "km": 3.8,
+      "stops": 1
+     },
+     "solver": {
+      "km": 15.0,
+      "stops": 7
+     }
+    },
+    {
+     "id": "tretyakov",
+     "name": "Третьяков",
+     "control": {
+      "km": 17.9,
+      "stops": 6
+     },
+     "baseline": {
+      "km": 7.2,
+      "stops": 3
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    },
+    {
+     "id": "gerasimov",
+     "name": "Герасимов",
+     "control": {
+      "km": 9.1,
+      "stops": 4
+     },
+     "baseline": {
+      "km": 22.2,
+      "stops": 5
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    },
+    {
+     "id": "gorbunov",
+     "name": "Горбунов",
+     "control": {
+      "km": 11.6,
+      "stops": 4
+     },
+     "baseline": {
+      "km": 38.0,
+      "stops": 7
+     },
+     "solver": {
+      "km": 10.2,
+      "stops": 8
+     }
+    },
+    {
+     "id": "pavlov",
+     "name": "Павлов",
+     "control": {
+      "km": 25.6,
+      "stops": 5
+     },
+     "baseline": {
+      "km": 14.1,
+      "stops": 3
+     },
+     "solver": {
+      "km": 15.3,
+      "stops": 6
+     }
+    },
+    {
+     "id": "orlov",
+     "name": "Орлов",
+     "control": {
+      "km": 69.3,
+      "stops": 3
+     },
+     "baseline": {
+      "km": 53.4,
+      "stops": 7
+     },
+     "solver": {
+      "km": 45.3,
+      "stops": 10
+     }
+    },
+    {
+     "id": "kotov",
+     "name": "Котов",
+     "control": {
+      "km": 20.1,
+      "stops": 4
+     },
+     "baseline": {
+      "km": 54.3,
+      "stops": 8
+     },
+     "solver": {
+      "km": 32.1,
+      "stops": 10
+     }
+    },
+    {
+     "id": "frolov",
+     "name": "Фролов",
+     "control": {
+      "km": 12.8,
+      "stops": 6
+     },
+     "baseline": {
+      "km": 30.3,
+      "stops": 5
+     },
+     "solver": {
+      "km": 90.8,
+      "stops": 10
+     }
+    },
+    {
+     "id": "yakovlev",
+     "name": "Яковлев",
+     "control": {
+      "km": 21.7,
+      "stops": 6
+     },
+     "baseline": {
+      "km": 17.0,
+      "stops": 5
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    },
+    {
+     "id": "kozlov",
+     "name": "Козлов",
+     "control": {
+      "km": 35.9,
+      "stops": 5
+     },
+     "baseline": {
+      "km": 62.4,
+      "stops": 2
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    }
+   ],
+   "totals": {
+    "control": {
+     "engineers": 12,
+     "km": 261.5,
+     "on_time": 62,
+     "unassigned": 2,
+     "requests": 66
+    },
+    "baseline": {
+     "engineers": 12,
+     "km": 330.8,
+     "on_time": 51,
+     "unassigned": 15,
+     "requests": 66
+    },
+    "solver": {
+     "engineers": 8,
+     "km": 235.2,
+     "on_time": 66,
+     "unassigned": 0,
+     "requests": 66
+    }
+   }
+  },
+  {
+   "id": "yugo-vostok",
+   "name": "Юго-восток",
+   "start": "home",
+   "engineers": [
+    {
+     "id": "afanasev",
+     "name": "Афанасьев",
+     "control": {
+      "km": 79.2,
+      "stops": 11
+     },
+     "baseline": {
+      "km": 167.5,
+      "stops": 4
+     },
+     "solver": {
+      "km": 171.2,
+      "stops": 9
+     }
+    },
+    {
+     "id": "morozov",
+     "name": "Морозов",
+     "control": {
+      "km": 27.6,
+      "stops": 7
+     },
+     "baseline": {
+      "km": 26.3,
+      "stops": 5
+     },
+     "solver": {
+      "km": 11.7,
+      "stops": 7
+     }
+    },
+    {
+     "id": "rodionov",
+     "name": "Родионов",
+     "control": {
+      "km": 26.5,
+      "stops": 8
+     },
+     "baseline": {
+      "km": 96.0,
+      "stops": 6
+     },
+     "solver": {
+      "km": 17.4,
+      "stops": 8
+     }
+    },
+    {
+     "id": "novikov",
+     "name": "Новиков",
+     "control": {
+      "km": 18.8,
+      "stops": 8
+     },
+     "baseline": {
+      "km": 34.4,
+      "stops": 5
+     },
+     "solver": {
+      "km": 35.2,
+      "stops": 8
+     }
+    },
+    {
+     "id": "grigorev",
+     "name": "Григорьев",
+     "control": {
+      "km": 37.0,
+      "stops": 13
+     },
+     "baseline": {
+      "km": 65.9,
+      "stops": 7
+     },
+     "solver": {
+      "km": 18.9,
+      "stops": 7
+     }
+    },
+    {
+     "id": "savelev",
+     "name": "Савельев",
+     "control": {
+      "km": 12.3,
+      "stops": 7
+     },
+     "baseline": {
+      "km": 115.4,
+      "stops": 2
+     },
+     "solver": {
+      "km": 11.3,
+      "stops": 6
+     }
+    },
+    {
+     "id": "ershov",
+     "name": "Ершов",
+     "control": {
+      "km": 77.9,
+      "stops": 9
+     },
+     "baseline": {
+      "km": 218.9,
+      "stops": 7
+     },
+     "solver": {
+      "km": 35.3,
+      "stops": 8
+     }
+    },
+    {
+     "id": "nikitin",
+     "name": "Никитин",
+     "control": {
+      "km": 6.5,
+      "stops": 1
+     },
+     "baseline": {
+      "km": 170.3,
+      "stops": 4
+     },
+     "solver": {
+      "km": 40.5,
+      "stops": 8
+     }
+    },
+    {
+     "id": "sorokin",
+     "name": "Сорокин",
+     "control": {
+      "km": 16.7,
+      "stops": 11
+     },
+     "baseline": {
+      "km": 445.8,
+      "stops": 6
+     },
+     "solver": {
+      "km": 141.4,
+      "stops": 8
+     }
+    },
+    {
+     "id": "maslov",
+     "name": "Маслов",
+     "control": {
+      "km": 21.4,
+      "stops": 5
+     },
+     "baseline": {
+      "km": 50.6,
+      "stops": 6
+     },
+     "solver": {
+      "km": 33.6,
+      "stops": 9
+     }
+    },
+    {
+     "id": "pavlov",
+     "name": "Павлов",
+     "control": {
+      "km": 30.7,
+      "stops": 1
+     },
+     "baseline": {
+      "km": 107.2,
+      "stops": 2
+     },
+     "solver": {
+      "km": 15.5,
+      "stops": 5
+     }
+    },
+    {
+     "id": "egorov",
+     "name": "Егоров",
+     "control": {
+      "km": 2.5,
+      "stops": 1
+     },
+     "baseline": {
+      "km": 39.9,
+      "stops": 4
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    }
+   ],
+   "totals": {
+    "control": {
+     "engineers": 12,
+     "km": 357.1,
+     "on_time": 53,
+     "unassigned": 1,
+     "requests": 83
+    },
+    "baseline": {
+     "engineers": 12,
+     "km": 1538.2,
+     "on_time": 58,
+     "unassigned": 25,
+     "requests": 83
+    },
+    "solver": {
+     "engineers": 11,
+     "km": 532.0,
+     "on_time": 83,
+     "unassigned": 0,
+     "requests": 83
+    }
+   }
+  },
+  {
+   "id": "yugocentr",
+   "name": "Югоцентр",
+   "start": "home",
+   "engineers": [
+    {
+     "id": "zakharov",
+     "name": "Захаров Глеб",
+     "control": {
+      "km": 32.5,
+      "stops": 5
+     },
+     "baseline": {
+      "km": 17.8,
+      "stops": 3
+     },
+     "solver": {
+      "km": 23.8,
+      "stops": 9
+     }
+    },
+    {
+     "id": "medvedev",
+     "name": "Медведев Максим",
+     "control": {
+      "km": 30.3,
+      "stops": 8
+     },
+     "baseline": {
+      "km": 16.4,
+      "stops": 3
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    },
+    {
+     "id": "karpov",
+     "name": "Карпов Игорь",
+     "control": {
+      "km": 12.9,
+      "stops": 7
+     },
+     "baseline": {
+      "km": 4.5,
+      "stops": 2
+     },
+     "solver": {
+      "km": 15.8,
+      "stops": 9
+     }
+    },
+    {
+     "id": "alekseev",
+     "name": "Алексеев Артём",
+     "control": {
+      "km": 49.5,
+      "stops": 9
+     },
+     "baseline": {
+      "km": 30.8,
+      "stops": 5
+     },
+     "solver": {
+      "km": 25.2,
+      "stops": 11
+     }
+    },
+    {
+     "id": "tikhonov",
+     "name": "Тихонов Никита",
+     "control": {
+      "km": 7.9,
+      "stops": 4
+     },
+     "baseline": {
+      "km": 22.2,
+      "stops": 5
+     },
+     "solver": {
+      "km": 22.0,
+      "stops": 8
+     }
+    },
+    {
+     "id": "volkov",
+     "name": "Волков Олег",
+     "control": {
+      "km": 15.1,
+      "stops": 4
+     },
+     "baseline": {
+      "km": 21.6,
+      "stops": 3
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    },
+    {
+     "id": "komarov",
+     "name": "Комаров Антон",
+     "control": {
+      "km": 15.5,
+      "stops": 3
+     },
+     "baseline": {
+      "km": 31.0,
+      "stops": 3
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    },
+    {
+     "id": "zuev",
+     "name": "Зуев Павел",
+     "control": {
+      "km": 13.8,
+      "stops": 5
+     },
+     "baseline": {
+      "km": 40.0,
+      "stops": 7
+     },
+     "solver": {
+      "km": 58.8,
+      "stops": 11
+     }
+    },
+    {
+     "id": "kudryavtsev",
+     "name": "Кудрявцев Кирилл",
+     "control": {
+      "km": 14.5,
+      "stops": 3
+     },
+     "baseline": {
+      "km": 20.1,
+      "stops": 3
+     },
+     "solver": {
+      "km": 37.8,
+      "stops": 8
+     }
+    },
+    {
+     "id": "bykov",
+     "name": "Быков Степан",
+     "control": {
+      "km": 12.3,
+      "stops": 5
+     },
+     "baseline": {
+      "km": 50.8,
+      "stops": 6
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    },
+    {
+     "id": "lazarev",
+     "name": "Лазарев Михаил",
+     "control": {
+      "km": 12.0,
+      "stops": 3
+     },
+     "baseline": {
+      "km": 42.6,
+      "stops": 6
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    }
+   ],
+   "totals": {
+    "control": {
+     "engineers": 11,
+     "km": 216.3,
+     "on_time": 54,
+     "unassigned": 0,
+     "requests": 56
+    },
+    "baseline": {
+     "engineers": 11,
+     "km": 297.8,
+     "on_time": 46,
+     "unassigned": 10,
+     "requests": 56
+    },
+    "solver": {
+     "engineers": 6,
+     "km": 183.4,
+     "on_time": 56,
+     "unassigned": 0,
+     "requests": 56
+    }
+   }
+  },
+  {
+   "id": "moskva",
+   "name": "Вся Москва (без границ участков)",
+   "start": "home",
+   "engineers": [
+    {
+     "id": "lebedev",
+     "name": "Лебедев",
+     "control": {
+      "km": 14.7,
+      "stops": 7
+     },
+     "baseline": {
+      "km": 5.1,
+      "stops": 2
+     },
+     "solver": {
+      "km": 16.9,
+      "stops": 7
+     }
+    },
+    {
+     "id": "zaytsev",
+     "name": "Зайцев",
+     "control": {
+      "km": 6.6,
+      "stops": 6
+     },
+     "baseline": {
+      "km": 23.0,
+      "stops": 3
+     },
+     "solver": {
+      "km": 9.6,
+      "stops": 8
+     }
+    },
+    {
+     "id": "ponomarev",
+     "name": "Пономарёв",
+     "control": {
+      "km": 16.2,
+      "stops": 8
+     },
+     "baseline": {
+      "km": 3.8,
+      "stops": 1
+     },
+     "solver": {
+      "km": 16.7,
+      "stops": 6
+     }
+    },
+    {
+     "id": "tretyakov",
+     "name": "Третьяков",
+     "control": {
+      "km": 17.9,
+      "stops": 6
+     },
+     "baseline": {
+      "km": 7.2,
+      "stops": 3
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    },
+    {
+     "id": "gerasimov",
+     "name": "Герасимов",
+     "control": {
+      "km": 9.1,
+      "stops": 4
+     },
+     "baseline": {
+      "km": 22.2,
+      "stops": 5
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    },
+    {
+     "id": "gorbunov",
+     "name": "Горбунов",
+     "control": {
+      "km": 11.6,
+      "stops": 4
+     },
+     "baseline": {
+      "km": 55.6,
+      "stops": 8
+     },
+     "solver": {
+      "km": 10.2,
+      "stops": 8
+     }
+    },
+    {
+     "id": "pavlov-vostok",
+     "name": "Павлов",
+     "control": {
+      "km": 25.6,
+      "stops": 5
+     },
+     "baseline": {
+      "km": 14.1,
+      "stops": 3
+     },
+     "solver": {
+      "km": 15.3,
+      "stops": 6
+     }
+    },
+    {
+     "id": "orlov",
+     "name": "Орлов",
+     "control": {
+      "km": 69.3,
+      "stops": 3
+     },
+     "baseline": {
+      "km": 177.0,
+      "stops": 8
+     },
+     "solver": {
+      "km": 45.3,
+      "stops": 10
+     }
+    },
+    {
+     "id": "kotov",
+     "name": "Котов",
+     "control": {
+      "km": 20.1,
+      "stops": 4
+     },
+     "baseline": {
+      "km": 167.2,
+      "stops": 10
+     },
+     "solver": {
+      "km": 33.6,
+      "stops": 11
+     }
+    },
+    {
+     "id": "frolov",
+     "name": "Фролов",
+     "control": {
+      "km": 12.8,
+      "stops": 6
+     },
+     "baseline": {
+      "km": 81.0,
+      "stops": 9
+     },
+     "solver": {
+      "km": 90.8,
+      "stops": 10
+     }
+    },
+    {
+     "id": "yakovlev",
+     "name": "Яковлев",
+     "control": {
+      "km": 21.7,
+      "stops": 6
+     },
+     "baseline": {
+      "km": 58.9,
+      "stops": 6
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    },
+    {
+     "id": "kozlov",
+     "name": "Козлов",
+     "control": {
+      "km": 35.9,
+      "stops": 5
+     },
+     "baseline": {
+      "km": 62.4,
+      "stops": 2
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    },
+    {
+     "id": "afanasev",
+     "name": "Афанасьев",
+     "control": {
+      "km": 79.2,
+      "stops": 11
+     },
+     "baseline": {
+      "km": 113.5,
+      "stops": 8
+     },
+     "solver": {
+      "km": 158.4,
+      "stops": 7
+     }
+    },
+    {
+     "id": "morozov",
+     "name": "Морозов",
+     "control": {
+      "km": 27.6,
+      "stops": 7
+     },
+     "baseline": {
+      "km": 70.3,
+      "stops": 8
+     },
+     "solver": {
+      "km": 15.2,
+      "stops": 6
+     }
+    },
+    {
+     "id": "rodionov",
+     "name": "Родионов",
+     "control": {
+      "km": 26.5,
+      "stops": 8
+     },
+     "baseline": {
+      "km": 80.0,
+      "stops": 9
+     },
+     "solver": {
+      "km": 17.7,
+      "stops": 8
+     }
+    },
+    {
+     "id": "novikov",
+     "name": "Новиков",
+     "control": {
+      "km": 18.8,
+      "stops": 8
+     },
+     "baseline": {
+      "km": 104.7,
+      "stops": 7
+     },
+     "solver": {
+      "km": 10.9,
+      "stops": 8
+     }
+    },
+    {
+     "id": "grigorev",
+     "name": "Григорьев",
+     "control": {
+      "km": 37.0,
+      "stops": 13
+     },
+     "baseline": {
+      "km": 73.9,
+      "stops": 4
+     },
+     "solver": {
+      "km": 63.2,
+      "stops": 8
+     }
+    },
+    {
+     "id": "savelev",
+     "name": "Савельев",
+     "control": {
+      "km": 12.3,
+      "stops": 7
+     },
+     "baseline": {
+      "km": 82.3,
+      "stops": 7
+     },
+     "solver": {
+      "km": 9.8,
+      "stops": 7
+     }
+    },
+    {
+     "id": "ershov",
+     "name": "Ершов",
+     "control": {
+      "km": 77.9,
+      "stops": 9
+     },
+     "baseline": {
+      "km": 465.4,
+      "stops": 5
+     },
+     "solver": {
+      "km": 73.7,
+      "stops": 8
+     }
+    },
+    {
+     "id": "nikitin",
+     "name": "Никитин",
+     "control": {
+      "km": 6.5,
+      "stops": 1
+     },
+     "baseline": {
+      "km": 137.4,
+      "stops": 6
+     },
+     "solver": {
+      "km": 91.4,
+      "stops": 8
+     }
+    },
+    {
+     "id": "sorokin",
+     "name": "Сорокин",
+     "control": {
+      "km": 16.7,
+      "stops": 11
+     },
+     "baseline": {
+      "km": 306.1,
+      "stops": 7
+     },
+     "solver": {
+      "km": 15.6,
+      "stops": 8
+     }
+    },
+    {
+     "id": "maslov",
+     "name": "Маслов",
+     "control": {
+      "km": 21.4,
+      "stops": 5
+     },
+     "baseline": {
+      "km": 152.1,
+      "stops": 9
+     },
+     "solver": {
+      "km": 90.2,
+      "stops": 10
+     }
+    },
+    {
+     "id": "pavlov-yugo-vostok",
+     "name": "Павлов",
+     "control": {
+      "km": 30.7,
+      "stops": 1
+     },
+     "baseline": {
+      "km": 43.2,
+      "stops": 6
+     },
+     "solver": {
+      "km": 29.7,
+      "stops": 5
+     }
+    },
+    {
+     "id": "egorov",
+     "name": "Егоров",
+     "control": {
+      "km": 2.5,
+      "stops": 1
+     },
+     "baseline": {
+      "km": 44.5,
+      "stops": 7
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    },
+    {
+     "id": "zakharov",
+     "name": "Захаров Глеб",
+     "control": {
+      "km": 32.5,
+      "stops": 5
+     },
+     "baseline": {
+      "km": 47.2,
+      "stops": 6
+     },
+     "solver": {
+      "km": 23.8,
+      "stops": 9
+     }
+    },
+    {
+     "id": "medvedev",
+     "name": "Медведев Максим",
+     "control": {
+      "km": 30.3,
+      "stops": 8
+     },
+     "baseline": {
+      "km": 146.8,
+      "stops": 3
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    },
+    {
+     "id": "karpov",
+     "name": "Карпов Игорь",
+     "control": {
+      "km": 12.9,
+      "stops": 7
+     },
+     "baseline": {
+      "km": 126.0,
+      "stops": 4
+     },
+     "solver": {
+      "km": 15.8,
+      "stops": 9
+     }
+    },
+    {
+     "id": "alekseev",
+     "name": "Алексеев Артём",
+     "control": {
+      "km": 49.5,
+      "stops": 9
+     },
+     "baseline": {
+      "km": 106.7,
+      "stops": 5
+     },
+     "solver": {
+      "km": 25.2,
+      "stops": 11
+     }
+    },
+    {
+     "id": "tikhonov",
+     "name": "Тихонов Никита",
+     "control": {
+      "km": 7.9,
+      "stops": 4
+     },
+     "baseline": {
+      "km": 55.4,
+      "stops": 6
+     },
+     "solver": {
+      "km": 22.0,
+      "stops": 8
+     }
+    },
+    {
+     "id": "volkov",
+     "name": "Волков Олег",
+     "control": {
+      "km": 15.1,
+      "stops": 4
+     },
+     "baseline": {
+      "km": 82.0,
+      "stops": 4
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    },
+    {
+     "id": "komarov",
+     "name": "Комаров Антон",
+     "control": {
+      "km": 15.5,
+      "stops": 3
+     },
+     "baseline": {
+      "km": 11.3,
+      "stops": 2
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    },
+    {
+     "id": "zuev",
+     "name": "Зуев Павел",
+     "control": {
+      "km": 13.8,
+      "stops": 5
+     },
+     "baseline": {
+      "km": 129.4,
+      "stops": 4
+     },
+     "solver": {
+      "km": 58.8,
+      "stops": 11
+     }
+    },
+    {
+     "id": "kudryavtsev",
+     "name": "Кудрявцев Кирилл",
+     "control": {
+      "km": 14.5,
+      "stops": 3
+     },
+     "baseline": {
+      "km": 122.0,
+      "stops": 1
+     },
+     "solver": {
+      "km": 37.8,
+      "stops": 8
+     }
+    },
+    {
+     "id": "bykov",
+     "name": "Быков Степан",
+     "control": {
+      "km": 12.3,
+      "stops": 5
+     },
+     "baseline": {
+      "km": 47.1,
+      "stops": 5
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    },
+    {
+     "id": "lazarev",
+     "name": "Лазарев Михаил",
+     "control": {
+      "km": 12.0,
+      "stops": 3
+     },
+     "baseline": {
+      "km": 28.5,
+      "stops": 4
+     },
+     "solver": {
+      "km": 0.0,
+      "stops": 0
+     }
+    }
+   ],
+   "totals": {
+    "control": {
+     "engineers": 35,
+     "km": 834.9,
+     "on_time": 169,
+     "unassigned": 3,
+     "requests": 205
+    },
+    "baseline": {
+     "engineers": 35,
+     "km": 3253.3,
+     "on_time": 187,
+     "unassigned": 18,
+     "requests": 205
+    },
+    "solver": {
+     "engineers": 25,
+     "km": 997.6,
+     "on_time": 205,
+     "unassigned": 0,
+     "requests": 205
+    }
+   }
+  }
+ ]
+}

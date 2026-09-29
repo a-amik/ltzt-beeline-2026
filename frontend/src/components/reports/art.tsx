@@ -13,6 +13,8 @@ import settings from '../../assets/reports/settings.webp'
 import settingsLight from '../../assets/reports/settings-light.webp'
 import ops from '../../assets/reports/ops.webp'
 import opsLight from '../../assets/reports/ops-light.webp'
+import mileage from '../../assets/reports/mileage.webp'
+import mileageLight from '../../assets/reports/mileage-light.webp'
 
 function ReportArt({ dark, light }: { dark: string; light: string }) {
   const theme = useStore((state) => state.theme)
@@ -25,3 +27,4 @@ export const ArtModels = () => <ReportArt dark={models} light={modelsLight} />
 export const ArtMethod = () => <ReportArt dark={method} light={methodLight} />
 export const ArtSettings = () => <ReportArt dark={settings} light={settingsLight} />
 export const ArtOps = () => <ReportArt dark={ops} light={opsLight} />
+export const ArtMileage = () => <ReportArt dark={mileage} light={mileageLight} />

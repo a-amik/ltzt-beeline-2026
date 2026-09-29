@@ -4,8 +4,10 @@ setup: ## поставить зависимости backend и frontend
 	cd backend && uv sync
 	cd frontend && npm install
 
+# Режим по умолчанию — гостевой, как у стенда без входа: плашка режима и кнопка «Вход».
+# Без плашки: BEE_MODE=local make dev-api
 dev-api: ## поднять API в режиме разработки
-	cd backend && uv run python main.py
+	cd backend && BEE_MODE=$${BEE_MODE:-guest} uv run python main.py
 
 dev-web: ## поднять фронтенд в режиме разработки
 	cd frontend && npm run dev

@@ -20,7 +20,7 @@ export type PhoneTab = 'requests' | 'engineers' | 'metrics'
 export type RequestPriority = 'urgent' | 'high' | 'low'
 
 export type DemoKind = 'compare' | 'race' | 'deficit' | 'versions' | 'reports'
-export type ReportPage = 'solution' | 'design' | 'models' | 'method' | 'settings' | 'ops'
+export type ReportPage = 'solution' | 'design' | 'models' | 'method' | 'settings' | 'ops' | 'mileage'
 export type FocusKind = 'none' | 'all' | 'engineer' | 'request'
 
 /** Загрузка своего файла: `upload` — сервер разбирает файл, `plan` — строится первый план. */
