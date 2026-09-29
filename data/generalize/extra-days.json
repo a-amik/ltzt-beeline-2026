@@ -1,0 +1,218 @@
+{
+ "meta": {
+  "budget_s": 4,
+  "matrix": "osrm"
+ },
+ "days": [
+  {
+   "dataset_id": "vostok-2026-09-28",
+   "matrix": "osrm",
+   "baseline": {
+    "requests_total": 74,
+    "on_time": 73,
+    "late": 0,
+    "unassigned": 1,
+    "emergencies_served": 2,
+    "engineers_used": 12,
+    "distance_km": 459.7,
+    "travel_min": 1543,
+    "risk_late": 5.62,
+    "net_rub": 252184
+   },
+   "solver": {
+    "requests_total": 74,
+    "on_time": 74,
+    "late": 0,
+    "unassigned": 0,
+    "emergencies_served": 2,
+    "engineers_used": 11,
+    "distance_km": 148.0,
+    "travel_min": 744,
+    "risk_late": 3.96,
+    "net_rub": 287588
+   },
+   "timing": {
+    "setup_s": 0.02,
+    "first_solution_s": 0.008,
+    "last_improvement_s": 3.825,
+    "search_s": 4.001,
+    "solutions": 246.0,
+    "budget_s": 4.0,
+    "priority_lost_rub": 0.0,
+    "objective_extra_rub": 1936.0,
+    "total_s": 4.035
+   },
+   "name": "Восток, 28 сентября",
+   "requests": 74,
+   "engineers": 12
+  },
+  {
+   "dataset_id": "vostok-2026-09-29",
+   "matrix": "osrm",
+   "baseline": {
+    "requests_total": 78,
+    "on_time": 62,
+    "late": 0,
+    "unassigned": 16,
+    "emergencies_served": 2,
+    "engineers_used": 12,
+    "distance_km": 316.8,
+    "travel_min": 1111,
+    "risk_late": 1.36,
+    "net_rub": 206566
+   },
+   "solver": {
+    "requests_total": 78,
+    "on_time": 78,
+    "late": 0,
+    "unassigned": 0,
+    "emergencies_served": 4,
+    "engineers_used": 11,
+    "distance_km": 174.2,
+    "travel_min": 808,
+    "risk_late": 2.62,
+    "net_rub": 284492
+   },
+   "timing": {
+    "setup_s": 0.019,
+    "first_solution_s": 0.013,
+    "last_improvement_s": 3.04,
+    "search_s": 4.0,
+    "solutions": 244.0,
+    "budget_s": 4.0,
+    "priority_lost_rub": 0.0,
+    "objective_extra_rub": 2181.0,
+    "total_s": 4.036
+   },
+   "name": "Восток, 29 сентября",
+   "requests": 78,
+   "engineers": 12
+  },
+  {
+   "dataset_id": "yugo-vostok-2026-09-28",
+   "matrix": "osrm",
+   "baseline": {
+    "requests_total": 102,
+    "on_time": 74,
+    "late": 0,
+    "unassigned": 28,
+    "emergencies_served": 3,
+    "engineers_used": 12,
+    "distance_km": 937.5,
+    "travel_min": 2103,
+    "risk_late": 6.98,
+    "net_rub": 285463
+   },
+   "solver": {
+    "requests_total": 102,
+    "on_time": 94,
+    "late": 0,
+    "unassigned": 8,
+    "emergencies_served": 3,
+    "engineers_used": 12,
+    "distance_km": 575.0,
+    "travel_min": 1507,
+    "risk_late": 7.09,
+    "net_rub": 360212
+   },
+   "timing": {
+    "setup_s": 0.038,
+    "first_solution_s": 0.014,
+    "last_improvement_s": 3.933,
+    "search_s": 4.003,
+    "solutions": 217.0,
+    "budget_s": 4.0,
+    "priority_lost_rub": 0.0,
+    "objective_extra_rub": 18843.0,
+    "total_s": 4.126
+   },
+   "name": "Юго-восток, 28 сентября",
+   "requests": 102,
+   "engineers": 12
+  },
+  {
+   "dataset_id": "yugo-vostok-2026-09-29",
+   "matrix": "osrm",
+   "baseline": {
+    "requests_total": 87,
+    "on_time": 64,
+    "late": 0,
+    "unassigned": 23,
+    "emergencies_served": 2,
+    "engineers_used": 12,
+    "distance_km": 966.0,
+    "travel_min": 1962,
+    "risk_late": 3.6,
+    "net_rub": 280611
+   },
+   "solver": {
+    "requests_total": 87,
+    "on_time": 87,
+    "late": 0,
+    "unassigned": 0,
+    "emergencies_served": 3,
+    "engineers_used": 12,
+    "distance_km": 486.9,
+    "travel_min": 1209,
+    "risk_late": 3.0,
+    "net_rub": 383718
+   },
+   "timing": {
+    "setup_s": 0.031,
+    "first_solution_s": 0.078,
+    "last_improvement_s": 2.721,
+    "search_s": 4.001,
+    "solutions": 87.0,
+    "budget_s": 4.0,
+    "priority_lost_rub": 0.0,
+    "objective_extra_rub": 13871.0,
+    "total_s": 4.055
+   },
+   "name": "Юго-восток, 29 сентября",
+   "requests": 87,
+   "engineers": 12
+  },
+  {
+   "dataset_id": "yugocentr-2026-09-28",
+   "matrix": "osrm",
+   "baseline": {
+    "requests_total": 79,
+    "on_time": 65,
+    "late": 0,
+    "unassigned": 14,
+    "emergencies_served": 0,
+    "engineers_used": 10,
+    "distance_km": 274.4,
+    "travel_min": 1081,
+    "risk_late": 1.69,
+    "net_rub": 211907
+   },
+   "solver": {
+    "requests_total": 79,
+    "on_time": 79,
+    "late": 0,
+    "unassigned": 0,
+    "emergencies_served": 5,
+    "engineers_used": 10,
+    "distance_km": 163.4,
+    "travel_min": 794,
+    "risk_late": 1.03,
+    "net_rub": 271858
+   },
+   "timing": {
+    "setup_s": 0.017,
+    "first_solution_s": 0.054,
+    "last_improvement_s": 3.712,
+    "search_s": 4.0,
+    "solutions": 98.0,
+    "budget_s": 4.0,
+    "priority_lost_rub": 0.0,
+    "objective_extra_rub": 4639.0,
+    "total_s": 4.03
+   },
+   "name": "Югоцентр, 28 сентября",
+   "requests": 79,
+   "engineers": 11
+  }
+ ]
+}

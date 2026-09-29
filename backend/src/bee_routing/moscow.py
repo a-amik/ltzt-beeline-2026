@@ -20,6 +20,10 @@
 Матрицы считает тот же `matrices.build_for`, что и матрицы участков: OSRM
 для машины, велосипеда и пешком, общественный транспорт — из пешей.
 
+Дни сверх 17 августа (`prepare.extra_days`) складываются так же — в набор
+`moskva-<дата>` из тех участков, за которые день есть: 29 сентября Билайн
+дал Восток и Юго-восток, без Югоцентра.
+
 Запуск: `uv run python -m bee_routing.moscow` (нужен OSRM, как для `matrices`).
 """
 
@@ -38,12 +42,14 @@ SECTORS = ("vostok", "yugo-vostok", "yugocentr")
 CENTER = "yugocentr"
 
 
-def build(parts: dict[str, dict]) -> dict:
-    """Сложить наборы участков в один; `parts` — участок → набор по контракту."""
+def build(parts: dict[str, dict], day: str | None = None) -> dict:
+    """Сложить наборы участков в один; `parts` — участок → набор по контракту, `day` — день сверх первого."""
+    from .prepare import MONTHS
+
     engineer_ids = Counter(e["id"] for part in parts.values() for e in part["engineers"])
     out: dict = {
-        "id": MOSCOW_ID,
-        "name": MOSCOW_NAME,
+        "id": f"{MOSCOW_ID}-{day}" if day else MOSCOW_ID,
+        "name": MOSCOW_NAME + (f", {int(day[8:])} {MONTHS[int(day[5:7]) - 1]}" if day else ""),
         "date": next(iter(parts.values()))["date"],
         "office": parts[CENTER]["office"] if CENTER in parts else next(iter(parts.values()))["office"],
         "sectors": [{"id": sid, "name": part["name"], "office": part["office"]} for sid, part in parts.items()],
@@ -73,27 +79,36 @@ def build(parts: dict[str, dict]) -> dict:
     return out
 
 
-def main() -> int:
-    """Собрать набор и посчитать его матрицы."""
+def build_day(day: str | None = None) -> int:
+    """Собрать набор одного дня и посчитать его матрицы; `day` — день сверх 17 августа."""
     parts = {}
     for sid in SECTORS:
-        path = DATASETS_DIR / f"{sid}.json"
-        if not path.exists():
+        path = DATASETS_DIR / (f"{sid}-{day}.json" if day else f"{sid}.json")
+        if path.exists():
+            parts[sid] = json.loads(path.read_text(encoding="utf-8"))
+        elif not day:
             print(f"Нет набора участка {sid}: сначала `python -m bee_routing.prepare`")
             return 1
-        parts[sid] = json.loads(path.read_text(encoding="utf-8"))
-    data = build(parts)
-    (DATASETS_DIR / f"{MOSCOW_ID}.json").write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    data = build(parts, day)
+    (DATASETS_DIR / f"{data['id']}.json").write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     tables, notes = build_for(data, load_assumptions())
     MATRICES_DIR.mkdir(parents=True, exist_ok=True)
     for profile, table in tables.items():
-        (MATRICES_DIR / f"{MOSCOW_ID}-{profile}.json").write_text(json.dumps(table, ensure_ascii=False) + "\n", encoding="utf-8")
+        (MATRICES_DIR / f"{data['id']}-{profile}.json").write_text(json.dumps(table, ensure_ascii=False) + "\n", encoding="utf-8")
     print(
-        f"{MOSCOW_NAME}: заявок {len(data['requests'])}, бригад {len(data['engineers'])}, "
+        f"{data['name']}: участков {len(parts)}, заявок {len(data['requests'])}, бригад {len(data['engineers'])}, "
         f"точек в матрице {len(tables['car']['ids'])}"
     )
     print("\n".join(notes) if notes else "Все матрицы посчитаны OSRM.")
     return 0
+
+
+def main() -> int:
+    """Собрать «Всю Москву» за 17 августа и за каждый день сверх него."""
+    from .prepare import extra_days
+
+    days = sorted({day for _, day in extra_days(load_assumptions())})
+    return max(build_day(day) for day in [None, *days])
 
 
 if __name__ == "__main__":

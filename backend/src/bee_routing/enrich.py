@@ -43,7 +43,9 @@ def apply(dataset: dict, conf: dict | None = None) -> dict:
     """Устройства заявкам и удалённость бригадам — на месте; вернуть датасет."""
     conf = conf or load_assumptions()
     add_equipment(dataset, conf)
-    far = remote_km(dataset)
+    # День без контроля (дни сверх 17 августа) берёт удалённость у бригад первого дня региона.
+    far = remote_km(dataset) if dataset.get("control") else {
+        eng["id"]: eng.get("remote_km", 0.0) for eng in dataset.get("engineers", [])}
     rules = conf.get("engineers", {})
     remote_set = [t for t in rules.get("remote_transports", []) if t]
     threshold = float(rules.get("zone_start_km", 40))

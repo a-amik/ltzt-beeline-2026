@@ -170,4 +170,9 @@ def test_extra_day_is_found_and_built(tmp_path):
     assert Counter(r["type_bk"] for r in day["requests"]) == Counter(
         r.type_bk for r in load_dataset("yugocentr").requests)
     bare = prepare.build_dataset("yugocentr", conf, geo, "2026-08-19", tmp_path)
-    assert len(bare["engineers"]) == 11 and bare["control"] == [] and bare["events"] == []
+    assert len(bare["engineers"]) == 11 and bare["control"] == []
+    # События дня без контроля — из его строк: авария по типу HD; отмены нет — в файле нет
+    # статуса BK; выбывает та же бригада, что в первый день.
+    first_off = [e.engineer_id for e in load_dataset("yugocentr").events if e.type == "engineer_off"]
+    assert [e["type"] for e in bare["events"]] == ["urgent", "engineer_off"]
+    assert [e["engineer_id"] for e in bare["events"] if e["type"] == "engineer_off"] == first_off

@@ -125,6 +125,11 @@ select {
 .b-cal-g button:disabled { color: var(--b-text-3); opacity: 0.5; cursor: default; }
 .b-cal-g button.on { background: var(--b-accent); color: #13171b; font-weight: 700; opacity: 1; }
 .b-cal-g button.today { box-shadow: inset 0 0 0 1.5px var(--b-line-2); }
+.b-cal-g button:not(:disabled):not(.on):hover, .b-cal-days button:not(.on):hover { background: var(--b-hover); }
+.b-cal-days { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--b-line); }
+.b-cal-days button { height: 26px; padding: 0 8px; border: 0; border-radius: 6px; background: none; color: var(--b-text); font: inherit; font-variant-numeric: tabular-nums; cursor: pointer; }
+.b-cal-days button.on { background: var(--b-accent); color: #13171b; font-weight: 700; }
+.b-cal-days button:focus-visible, .b-cal-g button:focus-visible { outline: none; box-shadow: var(--b-focus); }
 
 
 .b-brand {

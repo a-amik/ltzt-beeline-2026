@@ -389,7 +389,8 @@ def extra_days(conf: dict, raw_dir: Path | None = None) -> list[tuple[str, str]]
     Билайн обещал ещё 2—3 рабочих дня тех же регионов. Файл кладётся
     рядом с первым днём под именем с датой, рядом — `…-kontrol.csv`, если
     контроль дали; подготовка находит их сама, набор получает идентификатор
-    `<регион>-<дата>` и встаёт в список наборов экрана.
+    `<регион>-<дата>` и встаёт в список наборов экрана. 29.09.2026 пришли
+    28 и 29 сентября без столбца «Бригада»: контроля у них нет.
     """
     found = []
     for path in sorted((raw_dir or RAW_DIR).glob("*-zayavki.csv")):
@@ -437,9 +438,12 @@ def build_dataset(region_id: str, conf: dict, geo: Geocoder, day: str | None = N
         load = Counter(row["_engineer_id"] for row in control if row.get("_engineer_id"))
         events = build_events(control, by_control, conf, geo, load)
     else:
-        # День без контрольного файла: бригады — из первого дня региона, события не разыгрываются.
+        # День без контрольного файла: бригады — из первого дня региона. События — из строк
+        # самого дня (авария по типу HD, отмена по статусу BK), выбывает та же бригада, что в первый день.
         base = json.loads((DATASETS_DIR / f"{region_id}.json").read_text(encoding="utf-8"))
-        engineers, events = base["engineers"], []
+        engineers = base["engineers"]
+        off = [e["engineer_id"] for e in base["events"] if e["type"] == "engineer_off"]
+        events = build_events(plain, {row["Заявка"]: row["Заявка"] for row in plain}, conf, geo, Counter(off))
     control_rows = build_control(control, by_control)
 
     print(

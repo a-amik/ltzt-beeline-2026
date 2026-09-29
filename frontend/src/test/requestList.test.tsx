@@ -5,6 +5,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { ThemeProvider } from '@gravity-ui/uikit'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import RequestList from '../components/RequestList'
 import { useStore } from '../store'
 import { DATASET } from '../fixtures/yugo-vostok'
@@ -17,9 +18,11 @@ test('заявка на завтра стоит в группе «На след�
   plan.deferred = [{ request_id: 'n-777', reason: 'Сегодня взять некому: заявка переносится на следующий день', since: '12:00' }]
   useStore.setState({ dataset: DATASET, plan, previousPlan: null, view: 'after', search: '', planning: false })
   render(
-    <ThemeProvider theme="light">
-      <RequestList />
-    </ThemeProvider>,
+    <QueryClientProvider client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}>
+      <ThemeProvider theme="light">
+        <RequestList />
+      </ThemeProvider>
+    </QueryClientProvider>,
   )
   expect(screen.getByText('На следующий день')).toBeInTheDocument()
   expect(screen.getByText(/заявка переносится на следующий день/)).toBeInTheDocument()

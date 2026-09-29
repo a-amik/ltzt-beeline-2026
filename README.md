@@ -90,6 +90,7 @@ cd frontend && npm test                               # тесты интерф�
 cd backend
 uv run python -m bee_routing.benchmark 8              # отчёт сравнения → data/benchmark/report.md
 uv run python -m bee_routing.generalize --days 10     # 10 синтетических дней на участок → data/generalize/
+uv run python -m bee_routing.generalize --extra       # дни заказчика 28—29.09 против базового → data/generalize/extra-days.md
 uv run python -m bee_routing.simulate vostok --seed 1 --policy offer   # имитация дня с событиями
 ```
 

@@ -2,14 +2,21 @@
  * День плана — общий фильтр экрана: «пн, 17 августа» с календарём. На
  * компьютере стоит в заголовке левой колонки у правого края, а при свёрнутой
  * колонке — в шапке над картой; на телефоне — в шапке. Календарь листается
- * по месяцам; выбрать можно только дни, на которые есть данные (сейчас набор
- * заказчика — один день), остальные погашены. Сегодняшний день обведён.
+ * по месяцам; выбрать можно только дни, на которые есть данные, остальные
+ * погашены. День — отдельный набор того же участка: `vostok` — 17 августа,
+ * `vostok-2026-09-28` — 28 сентября; «Вся Москва» так же (`moskva-<дата>`).
+ * Выбор дня переключает набор. Сегодняшний день обведён.
  */
 
 import { useState } from 'react'
 import { Popup } from '@gravity-ui/uikit'
+import { useQuery } from '@tanstack/react-query'
 import { useStore } from '../store'
+import { loadDatasets } from '../data'
 import { IconCalendar, IconChevron } from '../lib/icons'
+
+/** Набор без дня: `yugo-vostok-2026-09-28` → `yugo-vostok`. */
+const familyOf = (id: string) => id.replace(/-\d{4}-\d{2}-\d{2}$/, '')
 
 const WEEK = ['пн', 'вт', 'ср', 'чт', 'пт', 'сб', 'вс']
 
@@ -22,6 +29,11 @@ const same = (a: Date, b: Date) => a.getFullYear() === b.getFullYear() && a.getM
 
 export default function DayPicker() {
   const date = useStore((s) => s.dataset?.date)
+  const datasetId = useStore((s) => s.datasetId)
+  const setDatasetId = useStore((s) => s.setDatasetId)
+  const { data: datasets = [] } = useQuery({ queryKey: ['datasets'], queryFn: loadDatasets, staleTime: Infinity })
+  // Дни открытого набора: дата → набор этого дня.
+  const byDay = new Map(datasets.filter((d) => familyOf(d.id) === familyOf(datasetId)).map((d) => [d.date, d.id]))
   const [open, setOpen] = useState(false)
   const [anchor, setAnchor] = useState<HTMLButtonElement | null>(null)
   // Показанный месяц: первое число; при открытии — месяц дня плана.
@@ -38,6 +50,8 @@ export default function DayPicker() {
   const lead = (month.getDay() + 6) % 7
   const cells = [...Array.from({ length: lead }, () => null), ...Array.from({ length: days }, (_, i) => new Date(month.getFullYear(), month.getMonth(), i + 1))]
   const step = (delta: number) => setShown(new Date(month.getFullYear(), month.getMonth() + delta, 1))
+  const isoOf = (d: Date) =>
+    `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
 
   return (
     <>
@@ -71,22 +85,45 @@ export default function DayPicker() {
             {WEEK.map((w) => (
               <i key={w}>{w}</i>
             ))}
-            {cells.map((cell, i) =>
-              cell ? (
+            {cells.map((cell, i) => {
+              const target = cell ? byDay.get(isoOf(cell)) : undefined
+              return cell ? (
                 <button
                   key={i}
                   type="button"
                   className={`${same(cell, day) ? 'on' : ''}${same(cell, today) ? ' today' : ''}`}
-                  disabled={!same(cell, day)}
-                  onClick={() => setOpen(false)}
+                  disabled={!same(cell, day) && !target}
+                  aria-current={same(cell, day) ? 'date' : undefined}
+                  onClick={() => {
+                    setOpen(false)
+                    if (target && target !== datasetId) setDatasetId(target)
+                  }}
                 >
                   {cell.getDate()}
                 </button>
               ) : (
                 <span key={i} />
-              ),
-            )}
+              )
+            })}
           </div>
+          {/* Дни с данными бывают в разных месяцах: они же строкой, чтобы не листать. */}
+          {byDay.size > 1 ? (
+            <div className="b-cal-days">
+              {[...byDay.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([iso, id]) => (
+                <button
+                  key={id}
+                  type="button"
+                  className={id === datasetId ? 'on' : ''}
+                  onClick={() => {
+                    setOpen(false)
+                    if (id !== datasetId) setDatasetId(id)
+                  }}
+                >
+                  {parse(iso).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short' }).replace('.', '')}
+                </button>
+              ))}
+            </div>
+          ) : null}
         </div>
       </Popup>
     </>

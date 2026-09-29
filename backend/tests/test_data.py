@@ -10,14 +10,22 @@ from .conftest import REGIONS, needs_data
 CLOCK = re.compile(r"^([01]\d|2[0-3]):[0-5]\d$")
 
 
+EXTRA_DAY = re.compile(r"^(?P<region>.+)-(?P<day>\d{4}-\d{2}-\d{2})$")
+
+
 @needs_data
 def test_three_regions():
-    """Регионов три, и у каждого есть заявки и бригады."""
-    assert set(REGIONS) == {"vostok", "yugo-vostok", "yugocentr"}
+    """Регионов три, и у каждого есть заявки и бригады; дополнительный день — `<регион>-<дата>`."""
+    base = {"vostok", "yugo-vostok", "yugocentr"}
+    assert base <= set(REGIONS)
+    for extra in set(REGIONS) - base:
+        match = EXTRA_DAY.match(extra)
+        assert match and match["region"] in base, f"{extra}: набор не из трёх регионов"
     for info in dataset_infos():
         assert info.requests_count > 0
         assert info.engineers_count > 0
-        assert info.date == "2026-08-17"
+        match = EXTRA_DAY.match(info.id)
+        assert info.date == (match["day"] if match else "2026-08-17")
 
 
 @needs_data

@@ -266,7 +266,10 @@ def main(argv: list[str] | None = None) -> int:
     seeds = int(args[args.index("--seeds") + 1]) if "--seeds" in args else 1
     comparisons, spreads = [], {}
     for dataset_id in dataset_ids():
-        data, matrices = load_dataset(dataset_id), load_matrices(dataset_id)
+        data = load_dataset(dataset_id)
+        if not data.control:
+            continue  # дни сверх 17 августа — без контроля; их считает `generalize --extra`
+        matrices = load_matrices(dataset_id)
         comparisons.append(compare(data, matrices, REPORT_SETTINGS, time_limit_s=8, with_home=True))
         if seeds > 1:
             spreads[dataset_id] = spread(data, matrices, seeds, REPORT_SETTINGS)

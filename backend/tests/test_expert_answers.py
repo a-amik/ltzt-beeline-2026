@@ -8,7 +8,7 @@ from collections import Counter
 
 from bee_routing import settings
 from bee_routing.baseline import start_point
-from bee_routing.economy import request_value, tariffs
+from bee_routing.economy import request_value, skip_penalty, tariffs
 from bee_routing.loadgen import EXPERT_MIX, kind_of, synthesize
 from bee_routing.loader import load_dataset
 from bee_routing.replan import default_policy
@@ -93,7 +93,9 @@ def test_15_priority_order_in_prices(region):
     conf = tariffs()
     tiers = {}
     for req in data.requests:
-        tiers.setdefault(kind_of(req.model_dump(mode="json")), set()).add(request_value(req, conf))
+        # Порядок держит цена пропуска целиком: мелкая авария (сегмент D, 2 800 ₽) дешевле
+        # подключения, и выше его её ставит надбавка ступени (`priority_bonus_rub`).
+        tiers.setdefault(kind_of(req.model_dump(mode="json")), set()).add(skip_penalty(req, conf))
     accident, connect = max(tiers.get("accident", {0})), min(tiers.get("connect", {10**9}))
     rest = tiers.get("local", set()) | tiers.get("upsell", set())
     assert not tiers.get("accident") or accident > connect
@@ -117,7 +119,6 @@ def test_15_priority_is_a_setting():
     Решение команды после третьего повторения порядка организатором (18, 19 и 21.09.2026).
     Надбавку по-прежнему можно снять настройкой — тогда порядок задаёт одна ценность заявки.
     """
-    from bee_routing.economy import skip_penalty
     from bee_routing.settings import SCHEMA
 
     data = load_dataset("yugo-vostok")

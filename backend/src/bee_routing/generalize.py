@@ -34,9 +34,11 @@ from .loadgen import ensure
 from .solver import solve
 
 METRICS = ("on_time", "unassigned", "engineers_used", "distance_km", "travel_min", "risk_late", "net_rub")
+EXTRA_METRICS = ("requests_total", "on_time", "late", "unassigned", "emergencies_served", "engineers_used",
+                 "distance_km", "travel_min", "risk_late", "net_rub")
 
 
-def run_day(dataset_id: str, budget_s: int) -> dict:
+def run_day(dataset_id: str, budget_s: int, keys: tuple[str, ...] = METRICS) -> dict:
     """Базовый и наш план на одном дне; показатели обоих."""
     data, matrices = load_dataset(dataset_id), load_matrices(dataset_id)
     with settings.use({"options": {"time_limit_s": budget_s}}):
@@ -47,8 +49,8 @@ def run_day(dataset_id: str, budget_s: int) -> dict:
         return {
             "dataset_id": dataset_id,
             "matrix": matrices.source(),
-            "baseline": {k: kpis(base, data)[k] for k in METRICS},
-            "solver": {k: kpis(ours, data)[k] for k in METRICS},
+            "baseline": {k: kpis(base, data)[k] for k in keys},
+            "solver": {k: kpis(ours, data)[k] for k in keys},
             "timing": ours.timing,
         }
 
@@ -94,15 +96,63 @@ def markdown(regions: dict[str, dict], meta: dict) -> str:
     return "\n".join(lines) + "\n"
 
 
+def run_extra(budget_s: int, out: Path) -> int:
+    """Наш план против базового на днях заказчика сверх 17 августа.
+
+    Билайн 29.09.2026 дал ещё по дню-два тех же регионов (`prepare.extra_days`):
+    настоящие заявки, но без столбца «Бригада», то есть без контрольного
+    распределения. Бригады и их дома — из 17 августа, как их собирает
+    подготовка, поэтому сравнение идёт только с базовым вариантом.
+    """
+    from .geocode import load_assumptions
+    from .prepare import extra_days
+
+    days = []
+    for region, day in extra_days(load_assumptions()):
+        t = time.perf_counter()
+        row = run_day(f"{region}-{day}", budget_s, EXTRA_METRICS)
+        data = load_dataset(row["dataset_id"])
+        row.update(name=data.name, requests=len(data.requests), engineers=len(data.engineers))
+        days.append(row)
+        print(f"{row['name']}: базовый {row['baseline']['on_time']} вовремя / "
+              f"{row['baseline']['engineers_used']} бригад; наш {row['solver']['on_time']} / "
+              f"{row['solver']['engineers_used']}; {time.perf_counter() - t:.1f} с", flush=True)
+    if not days:
+        print("Дней сверх 17 августа нет: они есть только при исходных CSV заказчика в data/raw/")
+        return 0
+    meta = {"budget_s": budget_s, "matrix": days[0]["matrix"]}
+    out.with_suffix(".json").write_text(json.dumps({"meta": meta, "days": days}, ensure_ascii=False, indent=1),
+                                        encoding="utf-8")
+    lines = [f"# Дни заказчика сверх 17 августа: бюджет {budget_s} с, матрицы {meta['matrix']}\n",
+             ("Контрольного распределения в этих файлах нет — сравнение с базовым вариантом п. 2.3; "
+              "бригады — из 17 августа.\n")]
+    for row in days:
+        lines.append(f"## {row['name']}: {row['requests']} заявок, {row['engineers']} бригад\n")
+        lines.append("| Показатель | Базовый | Наш план |")
+        lines.append("|---|---|---|")
+        for key in EXTRA_METRICS:
+            lines.append(f"| {KPI_LABELS[key][0]} | {_fmt(row['baseline'][key])} | {_fmt(row['solver'][key])} |")
+        lines.append("")
+    out.with_suffix(".md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"Итог: {out.with_suffix('.md')}")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Наш план против базового на синтетических днях")
     parser.add_argument("--days", type=int, default=10)
     parser.add_argument("--regions", default=",".join(dataset_ids()))
     parser.add_argument("--budget", type=int, default=4)
     parser.add_argument("--no-osrm", action="store_true", help="запасные матрицы даже при поднятом OSRM")
-    parser.add_argument("--out", default=str(DATA_DIR / "generalize" / "report"))
+    parser.add_argument("--extra", action="store_true",
+                        help="дни заказчика сверх 17 августа (data/raw/<регион>-<дата>-zayavki.csv) вместо синтетики")
+    parser.add_argument("--out", default=None)
     args = parser.parse_args(argv)
-    out = Path(args.out)
+    if args.extra:
+        out = Path(args.out or DATA_DIR / "generalize" / "extra-days")
+        out.parent.mkdir(parents=True, exist_ok=True)
+        return run_extra(args.budget, out)
+    out = Path(args.out or DATA_DIR / "generalize" / "report")
     out.parent.mkdir(parents=True, exist_ok=True)
     regions: dict[str, dict] = {}
     matrix_source = "fallback"

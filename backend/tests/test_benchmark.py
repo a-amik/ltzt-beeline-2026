@@ -15,6 +15,13 @@ from .conftest import needs_data
 _CACHE: dict = {}
 
 
+@pytest.fixture(autouse=True)
+def _only_with_control(region):
+    """Дни заказчика сверх 17 августа пришли без столбца «Бригада»: сравнивать не с чем."""
+    if not region[0].control:
+        pytest.skip("у дня нет контрольного распределения")
+
+
 def _comparison(region):
     data, matrices = region
     if data.id not in _CACHE:
